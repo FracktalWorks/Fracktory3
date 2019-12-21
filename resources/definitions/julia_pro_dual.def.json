@@ -15,6 +15,7 @@
         "has_variants": true,
         "variants_name": "Nozzle",
         "preferred_variant_name": "Model 0.6 mm",
+        "preferred_material": "fracktal_pla_175",
         "machine_extruder_trains": {
             "0": "julia_pro_dual_extruder_0",
             "1": "julia_pro_dual_extruder_1"
@@ -105,6 +106,7 @@
         "retraction_extra_prime_amount": { "default_value": 0.06 },
 
         "prime_tower_flow" : {"value": 120},
+        "prime_tower_brim_enable" : { "value": "True"},
         "brim_replaces_support": {"value": false},
         "support_brim_enable":{"value": true},
         "bridge_settings_enabled":{"value": true},
