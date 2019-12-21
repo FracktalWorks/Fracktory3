@@ -4,7 +4,7 @@
     "name": "Julia Extended",
     "inherits": "fdmprinter",
     "metadata": {
-        "author": "Harsha Alva",
+        "author": "Vijay Raghav Varada",
         "manufacturer": "Fracktal Works",
         "category": "Julia Series",
         "file_formats": "text/x-gcode",

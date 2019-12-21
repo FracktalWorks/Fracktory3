@@ -4,7 +4,7 @@
     "name": "Julia Advanced",
     "inherits": "fdmprinter",
     "metadata": {
-        "author": "Harsha Alva",
+        "author": "Vijay Raghav Varada",
         "manufacturer": "Fracktal Works",
         "category": "Julia Series",
         "file_formats": "text/x-gcode",
@@ -15,6 +15,7 @@
         "has_variants": true,
         "variants_name": "Nozzle",
         "preferred_variant_name": "Model 0.4 mm",
+        "preferred_material": "fracktal_pla_175",
         "machine_extruder_trains": {
             "0": "julia_advanced_extruder_0"
         },
@@ -96,8 +97,32 @@
         "jerk_print": { "default_value": 10 },
         "jerk_travel": { "value": 10 },
 
-        "material_flow": { "default_value": 85 },
-        "retraction_extra_prime_amount": { "default_value": 0.06 }
+        "material_flow": { "default_value": 90 },
+        "retraction_extra_prime_amount": { "default_value": 0.06 },
+
+        "prime_tower_flow" : {"value": 120},
+        "prime_tower_brim_enable" : { "value": "True"},
+        "brim_replaces_support": {"value": false},
+        "support_brim_enable":{"value": true},
+        "bridge_over_support":{"value": true},
+        "bridge_wall_min_length":{"value": 0},
+        "bridge_skin_min_area":{"value": 0},
+        "bridge_wall_coast":{"value": 0},
+        "bridge_wall_speed":{"value": "cool_min_speed if int(support_interface_extruder_nr) == 1 else max(cool_min_speed, speed_wall_0 / 1.5)"},
+        "bridge_wall_material_flow" :{"value": "material_flow"},
+        "bridge_skin_material_flow" :{"value": "material_flow"},
+        "bridge_skin_speed":{"value": "cool_min_speed if int(support_interface_extruder_nr) == 1 else max(cool_min_speed, speed_topbottom / 1.5)"},
+        "bridge_skin_speed_2":{"value": "max(cool_min_speed, speed_topbottom / 1.5)if int(support_interface_extruder_nr) == 1 else speed_topbottom"},
+        "bridge_skin_speed_3":{"value": "speed_topbottom"},
+        "bridge_skin_material_flow_2" :{"value": "material_flow"},
+        "bridge_skin_material_flow_3" :{"value": "material_flow"},
+        "bridge_skin_density_2" :{"value": 100},
+        "bridge_skin_density_3" :{"value": 100},
+        "speed_support_bottom" : {"value": "speed_support_interface/2 if int(support_interface_extruder_nr) == 1 else speed_support_interface" },
+        "speed_support_roof" : {"value": "speed_support_interface/2 if int(support_infill_extruder_nr) == 0 and int(support_interface_extruder_nr) == 1  else speed_support_interface" },
+        "wall_overhang_angle" : {"value": 40},
+        "wall_overhang_speed_factor" : {"value": 60},
+        "wall_overhang_over_support" : {"value": true}
 
     }
 }
