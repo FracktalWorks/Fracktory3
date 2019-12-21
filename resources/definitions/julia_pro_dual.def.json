@@ -124,6 +124,5 @@
         "bridge_skin_density_3" :{"value": 100},
         "speed_support_bottom":{"value": "speed_support_interface/2 if int(support_interface_extruder_nr) == 1 else speed_support_interface" },
         "speed_support_roof":{"value": "speed_support_interface/2 if int(support_infill_extruder_nr) == 0 and int(support_interface_extruder_nr) == 1  else speed_support_interface" }
-
     }
 }
