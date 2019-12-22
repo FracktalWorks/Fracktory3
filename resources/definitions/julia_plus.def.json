@@ -122,6 +122,7 @@
         "speed_support_roof" : {"value": "speed_support_interface/2 if int(support_infill_extruder_nr) == 0 and int(support_interface_extruder_nr) == 1  else speed_support_interface" },
         "wall_overhang_angle" : {"value": 40},
         "wall_overhang_speed_factor" : {"value": 60},
-        "wall_overhang_over_support" : {"value": true}
+        "wall_overhang_over_support" : {"value": true},
+        "support_fan_enable" : {"value": true}
     }
 }
