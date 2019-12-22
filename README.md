@@ -4,8 +4,8 @@ Slicer for Fracktal Works 3D Printers, heavily optimized for dual extrusion and 
 ## important Features:
 1. Slow down on overhangs above certain angle
 2. Slow down overhanging features over soluable support
-3. Dynamic Prime tower calculation based on Nozzle size and Layer neight
-4. Optimised same material and dual material settings
+3. Dynamic Prime Tower Volume calculation based on Nozzle size and Layer height
+4. Optimised same material and dual material support settings
 
 
 ## Future Features/Ideas:
@@ -13,4 +13,4 @@ Slicer for Fracktal Works 3D Printers, heavily optimized for dual extrusion and 
 
 ## TODO:
 1. Test Same material support for each nozzle x layer height x material
-2. Test Soluable supports for each nozzle x layerheight x material
+2. Test Soluable supports for each nozzle x layer height x material
