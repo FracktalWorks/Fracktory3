@@ -10,3 +10,7 @@ Slicer for Fracktal Works 3D Printers, heavily optimized for dual extrusion and 
 
 ## Future Features/Ideas:
 1. For same material support, keep support_z_dist=0 and lower the flow rate of the skin over the support, extra flow rate to compensate on the second skin to have consistant results across layer heights and nozzle diameters
+
+## TODO:
+1. Test Same material support for each nozzle x layer height x material
+2. Test Soluable supports for each nozzle x layerheight x material
