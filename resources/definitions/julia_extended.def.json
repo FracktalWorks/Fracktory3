@@ -15,6 +15,7 @@
         "has_variants": true,
         "variants_name": "Nozzle",
         "preferred_variant_name": "Model 0.4 mm",
+        "preferred_material": "fracktal_pla_175",
         "machine_extruder_trains": {
             "0": "julia_extended_extruder_0"
         },
