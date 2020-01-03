@@ -14,3 +14,8 @@ Slicer for Fracktal Works 3D Printers, heavily optimized for dual extrusion and 
 ## TODO:
 1. Test Same material support for each nozzle x layer height x material
 2. Test Soluable supports for each nozzle x layer height x material
+
+
+## Utility to batch rename files:
+
+https://github.com/vjvarada/FileRenamer
