@@ -79,7 +79,7 @@
         "retraction_combing_max_distance" : { "value": "10"},
         "cool_min_layer_time": { "default_value": 15 },
         "bridge_settings_enabled": { "default_value": true},
-        "z_seam_corner": { "default_value": "z_seam_corner_weighted"},
+        "z_seam_corner": { "default_value": "z_seam_corner_none"},
 
         "machine_max_feedrate_x": { "default_value": 200 },
         "machine_max_feedrate_y": { "default_value": 200 },
@@ -125,8 +125,8 @@
         "bridge_skin_density_3" :{"value": 100},
         "speed_support_bottom" : {"value": "speed_support_interface/2 if int(support_interface_extruder_nr) == 1 else speed_support_interface" },
         "speed_support_roof" : {"value": "speed_support_interface/2 if int(support_infill_extruder_nr) == 0 and int(support_interface_extruder_nr) == 1  else speed_support_interface" },
-        "wall_overhang_angle" : {"value": 40},
-        "wall_overhang_speed_factor" : {"value": 60},
+        "wall_overhang_angle" : {"value": 90},
+        "wall_overhang_speed_factor" : {"value": 100},
         "wall_overhang_over_support" : {"value": true},
         "support_fan_enable" : {"value": true}
     }
