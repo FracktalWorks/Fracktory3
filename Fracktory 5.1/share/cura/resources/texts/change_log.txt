@@ -1,0 +1,373 @@
+[5.1]
+<i>For an overview of the new features in Cura 5.1, please watch <a href="https://youtu.be/7jetjsHLIvk">our video</a>.</i>
+
+* Improved toolpath simplification algorithm
+The algorithm that reduces the resolution of the print has been rewritten, providing a more constant resolution to allow for greater precision without causing buffer underruns.
+
+* Added option to alternate wall direction
+A new setting causes the direction of printing walls to alternate between layers and adjacent walls, which reduces warping in the print.
+
+* Adjusted combing boundaries to reduce scarring
+Travel moves through the inside of the models are adjusted so that they should keep more distance from the model where possible, yet allowing travels through narrow parts without retractions.
+
+* Reduced acceleration and jerk commands for travel moves
+We added the option to disable acceleration and jerk commands for travel moves. If disabled, they will take on the acceleration of the printed part of its destination. This greatly reduces file size and buffer underruns.
+
+* Project files know which packages they require
+Newly created project files will now store which packages they require from the Ultimaker Marketplace. If a project needs a material from there, the user will be prompted to download it.
+
+* Other new features and improvements:
+- The interface to select the printing profile in Recommended Mode has been redesigned.
+- Implemented multi-threaded slicing for MacOS, to bring it in line with other operating systems.
+- Cura now links toolpaths to project files in the Digital Factory.
+- Improved performance of loading STL files on Linux.
+- Packages from the Marketplace can now contain intent profiles.
+- The application now makes heavy use of Conan to make it easier and faster to build releases of Cura.
+- Start and end g-code can now refer to the currently active profile with replacement keys.
+- To provide proper compatibility with both older and newer Linux distribution, this release contains two Linux builds.
+
+* Bug fixes:
+- Fix resetting configuration if it gets corrupt.
+- Monotonic ordering now works again for top surfaces.
+- Fix a bug where Remove Raft Inside Corners didn't always remove all corners.
+- Fix the position of the toolbar if the toolbar is too tall to fit.
+- Intents in the Recommended Mode now show a description again.
+- Remove Inside Corners and Raft Base Wall Count can now be changed per extruder, though they will affect the entire print.
+- Fix opening STL files with special characters in their header.
+- Fix crash at start-up on newer Linux distributions.
+- Fix priming when printing a raft with a different extruder for some of its layers.
+- Fix a case where the inner wall ends up protruding through the outside of the model.
+- Improve some details on dark mode colouring.
+- Fix an error sometimes occurring when uninstalling plug-ins.
+- Fix a rendering issue with pop-up dialogues on MacOS.
+- Fix Discard or Keep Changes dialog showing an outdated setting value.
+- Horizontal Scaling Shrinkage Compensation no longer adjusts the size of the build volume, allowing the full size of the build plate to be used.
+- Fixed overextrusion when using gradual infill with thin strips of infill.
+- Fix opening STL files with special characters in their file header.
+- Fix slicing failure when using Randomize Infill Start in some cases.
+- Restore reminder to sync materials with your printer when using cloud printers with custom materials.
+- The tool bar should no longer show up in the monitor stage.
+- Exporting materials should now retain settings unknown to Cura as well.
+
+* Printer definitions, profiles and materials:
+- Improved profiles for PVA and support for Ultimaker printers.
+- Adjust retraction speed and distance for Voron.
+- Heat up extruder and build plate at the same time for Ender 3 Pro.
+- Add new Tough PLA colours.
+- Add DD0.4 print cores for Ultimaker printers.
+- Add MakerGear M2 printer.
+- Add Trimarker Nebula Plus printer.
+- Various small profile improvements.
+
+* Known critical issues:
+- The placement of the seam has gotten more scattered than in previous releases.
+- Support is sometimes missing in detailed parts, where previous releases supported them properly.
+
+[5.0]
+<i><a href="https://youtu.be/kRj7pR4OkQA">Watch the launch event</a> to learn more about Fracktory 5.0.</i>
+
+* New slicing engine
+Following special beta releases to test the Arachne engine, we are pleased to announce our new slicing engine is here in Fracktory! This all-new engine uses variable line widths when preparing files for printing, meaning you can now print thin and intricate parts more accurately and with greater strength. 
+
+* Renewed the Fracktory Marketplace
+We have streamlined the workflow for accessing the Ultimaker Marketplace inside of Fracktory. The UI has been improved and it’s now easier and faster to find and install plugins and material profiles.
+
+* Improved print profiles for Ultimaker printers
+The new slicing engine in Fracktory 5.0 has helped us to improve our print profiles. This means that users of Ultimaker printers can achieve speed increases of up to 20%.
+
+* Upgrade from Qt5 to Qt6
+Fracktory 5.0 is now compatible with Apple M1.
+
+* Other new features and improvements:
+- New Cura icon
+- New Cura splash screen
+- Updated the digital build plates for Ultimaker printers
+- Introduce Minimum Wall Line Width, contributed by BagelOrb
+- Settings for metal printing implemented
+- Shrinkage compensation is now available for PLA, tPLA and PETG
+- Improved default Line Widths for Spiralize
+- Decrease resolution to remove some buffer underruns
+- Incomplete languages are now shown in the language drop-down menu
+- Improved the visibility of the checkboxes
+
+* Bug fixes:
+- Added the Scale Fan Speed From 0 to 1 setting for printers that interpreted fan speed as percentages
+- Fixed a bug with extra travel moves increased the printing time, contributed by BagelOrb
+- Fixed a bug where Monotonic Ironing breaks Ironing, contributed by BagelOrb
+- Changed the priority of CuraEngine
+- Fixed a bug where increasing Filter distances creates extremely wide lines, contributed by BagelOrb
+- Fixed double scroll bar, contributed by fieldOfView
+- Fixed a bug where maximum resolution/deviation was not applied to surface mode, contributed by BagelOrb
+- Fixed a bug where the seam placement was uneven
+- Fixed a bug where Top Surface Skin Layers didn't work
+- Fixed a bug where Speed in the flow setting were not respected
+- Fixed a bug with unnecessary retracted travel moves
+- Fixed a bug where the Ironing Inset didn't work
+- Fixed a bug where Support Layers were missing
+- Fixed a crash if Randomize Infill Start was used
+- Fixed a bug where Combing was in the wrong part with dual extrusion
+- Fixed a crash with Bridging and Top Surface Skin Layers
+- Fixed a bug where modifier meshes didn't work in one-at-a-time mode
+- Fixed a bug where Tree Support Branches where not being generated
+- Fixed a bug where less support was generated
+- Changed the possibility for 100% Infill Bottom Layer for Spiralize, contributed by BagelOrb
+- Fixed disallowed areas for Brim gap, contributed by BagelOrb
+
+* Bug fixes after the 5.0 beta:
+- Fixed a bug where Retraction Distance couldn't have small values
+- Fixed a bug where there were duplicated themes
+- Fixed a bug where there were scrollbars showing on tooltips
+- Fixed a bug where drag and drop was not working on the first run of Cura
+- Fixed a bug where Infill Percentages are not lined up correctly in Recommended mode
+- Fixed a bug where it wasn't clear if the textfield was active
+- Fixed a bug where highlighted text in text field is unreadable
+- Fixed missing icons, contributed by fieldOfView
+- Fixed a bug where scrolling through long material list was not possible
+- Fixed a bug where multiply was not possible, contributed by fieldOfView
+- Fixed a bug where micro segments are causing blobs
+- Fixed a bug where there was over extrusion when printing with gradual infill
+- Fixed a bug where error values could slice 
+- Fixed a bug where the CPU was high when Cura was idle
+- Fixed a bug where an existing gcode file was overwritten when you select no to overwrite
+- Fixed a crash when selecting extruders
+- Fixed a bug where exporting profiles didn't work
+- Fixed a slicing error with certain infill patterns
+- Fixed a bug where printing via USB stops during the print
+- Fixed a bug where the toolgrips where missing, contributed by fieldOfView
+- Fixed a bug where the print values didn't save when closing the page, contributed by fieldOfView
+- Fixed the width of a Menu to fit the widest MenuItem, contributed by fieldOfView
+- Fixed a bug where Use Single Instance of Cura in Preferences crashes upon restart
+- Fixed a bug where travels would go through the model with printing PVA
+- Fixed a bug where Concentric ironing was affecting the print quality		
+- Fixed a bug where there were missing infill layers
+- Fixed AppRun permissions, contributed by probonopd
+
+* Printer definitions, profiles and materials:
+- Added Atom 3 and Atom 3 Lite printer definitions, contributed by Daniel-Kurth
+- Added Layer One Black PLA, Dark Grey PLA and White PLA, contributed by Daniel-Kurth 
+- Added FLSUN Q5 printer definition, contributed by kreuzhofer
+- Added Creatlity CR100 printer definition, contributed by bodyboarder2528
+- Added Mixware Hyper-S printer definition, contributed by mixware011
+- Added Creality Sermoon D1 printer definition, contributed by felixstif
+- Added Volumic SH65, Stream30Pro MK3 and Stream30Ultra SC2 printer definitions, contributed by VOLUMIC
+- Updated Eryone Thinker and ER20 profiles, contributed by Eryone
+- Updated Atom 2 profile, contributed by lin-ycv
+- Added Hellbot Hidra and Magna series printer definitions, contributed by DevelopmentHellbot
+- Updated Snapmaker 2 End-Gcode, contributed by Rolzad73
+- Updated the Tinyboy Fabricator printer definitions, contributed by reibuehl
+- Updated the Creality Ender 5 printer profile, contributed by Rakhmanov
+														  
+* Community translations:
+- Updated the Brazilian Portuguese translation, contributed by Patola
+- Updated the Czech translation, contributed by sustmi
+- Updated some of the Simplified Chinese translation, contributed by iBral
+
+<i>From version 5.0 onwards - Fracktory is only supported on operating systems actively maintained by their software manufacturer or community. This means Windows 7 and MacOS 10.14 will no longer be supported. 
+Ubuntu 18.04 is also no longer supported because of the update to Qt6.</i>
+
+[4.13.1]
+* Bug fixes 
+- Fixed a bug where tree support could go through the model
+- Fixed a bug where there were incomplete layers in surface mode 
+
+[4.13.0]
+<i>For an overview of the new features in Cura 4.13, please watch <a href="https://youtu.be/chvAuI6Eqto">our video</a>.</i>
+
+* Sync material profiles 
+With Fracktory 4.13, we give you access to a seamless material experience for Ultimaker Material Alliance materials – with the ease of use you’ve come to expect from Ultimaker materials. You can easily synchronize your Material Alliance profiles with your S-line Ultimaker hardware, at the click of a button. 
+
+* New print profile
+A new print profile with 0.3mm layer height for PLA Tough PLA, PVA and BAM for Ultimaker S-line printers
+
+* 3MF thumbnail
+Show the model in the thumbnail of a .3mf file, contributed by fieldOfView
+
+* Infill density
+When printing with a 100% infill the infill pattern will change to ZigZag for all Ultimaker print profiles
+
+* User login authentication
+We’ve streamlined the user login authentication by removing any restrictions, especially for strict enterprise-level IT requirements. 
+
+* Other new features and improvements:
+- Improved TPU: top layers have large bridge distance 
+- Add warning icon to show which extruder is causing the configuration to be 'Not Supported', contributed by fieldOfView
+- Show what's new pages with every Cura build
+- Speed up loading of settings list
+- Re-use vertex buffer objects in rendering
+- Add Build Volume Temperature value to ChangeAtZ, contributed by legend069
+- Allow plugins to have multiple views, contributed by Tyronnosaurus
+- Reduced top/bottom speed for TPU
+- Increased lined width for 0.3mm layer height profiles
+- Improved logging to allow debugging in early start-up process
+
+* Bug fixes:
+- Fixed a bug with surface mode will not print all layers
+- Fixed a bug where maximum retraction could cause a crash
+- Reduced flow for 100% density parts
+- Fixed a bug in Surface Mode where small line-segments were created
+- Changed the Russian translation for 'nozzle', contributed by mlapkin
+- Fixed a visualization bug where layer lines were rendered in weird directions
+- Fixed a crash when receiving incomplete cloud API responses
+- Add SET_RPATH option to CMake, contributed by boomanaiden154
+- Fixed initial layer bed and print head temperature for Snapmaker profile, contributed by prueker
+- Fixed shader compilation on some GPUs, contributed by fieldOfView
+- Fixed a bug where Cross 3D infill pattern vertical angles varies wildly
+- Bridge Skin Density can be set above 100%
+- Fixed tiny travel moves when monotonic ordering was enabled
+- Fix crash when using 'Select face to align to the build plate', contributed by eliadevito
+- Fixed a bug in fuzzy skin where sometimes it produced weird long overshoots, contributed by BagelOrb
+- Fixed undo and redo for support blockers
+- Fixed a bug where the Native CAD plugin wouldn't loading
+- Fixed a bug where the camera view toggle was not visible
+- Fixed some German translations, contributed by Sekisback
+- Fixed the link of the beta update message
+- Fixed a crash due to extruder being out of range
+- Fixed a bug where a disabled extruder was used
+- Fixed a bug where the aborted state was not reflected correctly in Monitor view
+- Fixed a bug in Pause at Height where it stops extruding
+- Fixed a bug where support blockers were included in the bounding box after loading a project file
+- Fixed a bug where grouped models become unslicable if the first extruder was disabled
+- Fixed a bug in Tree Support where the Z Distance was too big
+- Prevented QT plug-ins from being loaded from an insecure directory if an environment variable is set
+
+* Printer definitions, profiles and materials:
+- Add Eazao Zero printer definition, contributed by Hogan-Polaris
+- Add XYZprinting printer definitions, contributed by heed818
+
+[4.12.1]
+* Bug fixes 
+- Updated Shapely to version 1.8.0 which, among other things, fixes multiplying objects on MacOS Monterey 
+- Fixed a bug in Lightning infill where the infill was printed multiple times under certain circumstances
+
+[4.12.0]
+<i>For an overview of the new features in Cura 4.12, please watch <a href="https://youtu.be/CjFRT6Txn3U">our video</a>.</i>
+
+* Lightning infill
+The new lightning infill setting lets you to print high-quality top layers but is optimized to use less material and increase your production speed. Special thanks to rburema and BagelOrb!
+
+* Improved top surface quality
+We’ve tweaked the Monotonic setting and made adjustments throughout Ultimaker print profiles. This removes occasional scarring on models and improves top surface quality by default. 
+
+* Improved horizontal print quality
+Resulting in reduction of ringing, improving resolution and overall print quality.  
+
+* App switcher
+The new switcher provides a simpler way to navigate and use other Ultimaker applications, including Ultimaker Digital Factory, Ultimaker Marketplace, and Ultimaker 3D Printing Academy. Reporting bugs to Github is now just one click away, and it’s easier to find the application you need.
+
+* Faster start-up
+We've shaved 10 seconds from Fracktory's start-up time by optimizing profile data caching.
+
+* Other new features:
+- Moved the skip button to the left bottom on the sign in onboarding page and replaced with the sign in button and Create new account
+- Add {material_type} and {material_name} as replacement patterns, contributed by fieldOfView
+- Update file name after saving
+- Make parking optional in all "methods" of Pause at Height, contributed by fieldOfView
+
+* Bug fixes:
+- Fixed a bug when combing goes through skin on Top Surface Skin Layers
+- Fixed a bug in one-at-a-time mode to not wait for initial layer bed temperature if the temperature stays the same
+- Fixed a bug where there was double infill and gap filling 
+- Fixed a bug with monotonic ironing that causes fan speed jump to 255 for ironing pass
+- Fixed an engine crash when using monotonic ordering with zigzag skin pattern
+- Fixed missing commas in disallowed list for code injections, contributed by YuvalZilber
+- Fixed various typos, contributed by luzpaz
+- Fixed Filament Change Retract method
+- Fixed extra microsegments inserted from Wall Overlap Computation
+- Fixed inconsistent material name in the header and material selection dropdown
+- Fixed scaling model down after scaling it up with tool handles
+- Fixed single instance option when opening different files
+- Fixed duplicating and multiplying support blockers
+- Fixed a bug where a random 0 was added in end g-code
+- Fixed a bug in Tree support in the global and per object settings
+- Fixed a bug where special characters in configuration files caused a crash
+- Fixed a bug where infill goes through skin
+- Fixed a bug where ironing doesn't listen to combing mode
+- Fixed a bug related to the translations in the monitor tab
+
+* Printer definitions, profiles and materials:
+- Added Creasee CS50S pro, Creasee Skywalker and Creasee Phoenix printer definitions, contributed by ivovk9
+- Added Joyplace Cremaker M V1, M V2, S V1, contributed by hyu7000
+- Added Hellbot printer definitions, contributed by DevelopmentHellbot
+- Added Arjun Pro 300 printer definition, contributed by venkatkamesh
+- Added AtomStack printer definitions, contributed by zhpt
+- Added Weedo X40 printer definition, contributed by x40-Community
+- Added 3DI D300 printer definition, contributed by v27jain
+- Changed Crealiy Ender 5 Plus end g-code, contributed by mothnox
+- Updated definitions and extruders of Hellbot Magna 2 230/300 dual, contributed by DevelopmentHellbot
+- Updated Eryone Thinker printer profile, contributed by Eryone
+- Updated FLSUN Super Racer profiles, contritubed by Guilouz
+- Updated Mega S and X acceleration to firmware default, contributed by NilsRo
+
+* Known bugs with Lighting infill:
+- Connect infill polygons doesn't work
+- Infill Wipe Distance applies to every polyline
+- Infill mesh modifier density
+- Infill Overlap doesn't work
+- Infill before walls order doesn't respect the order when Lightning is enabled
+
+[4.11.0]
+<i>For an overview of the new features in Cura 4.11, please watch <a href="https://youtu.be/OcFkcDyO5DU">our video</a>.</i>
+
+* Monotonic ordering
+The new Monotonic top/bottom order setting enables users to print parts with smoother top surfaces. This is especially useful for parts that need good aesthetics, such as visual prototypes. Or for parts that benefit from smooth surfaces, such as those that contact-sensitive components. 
+
+* Complete UI refresh
+Look around and you will notice that we have refreshed over 100 icons throughout Fracktory. The new icons are designed for clarity – resulting in a simpler and more informative slicing experience. Also, when scaling the Fracktory window, the UI will adapt, resulting in less visual clutter.
+
+* Improved digital library integration
+Collaborative workflows using the Digital Library are now simpler. Every user with a cloud-connected Ultimaker 3D printer can access stored projects. And we have added a “Search” function to make finding files easier.
+
+* Save materials profiles to USB
+Users can now save all third-party material profiles to USB. <i>This feature is for Ultimaker S-line printers only and is especially useful for cloud-connected (or offline) printers.</i>
+
+* Notifications for beta and plugin releases
+Users can now set notification preferences to alert them to new Fracktory beta and plug-in releases.
+
+* Improve logging of errors in OAuth flow
+When helping a user with log-in problems it is easier to see where the OAuth flow goes wrong.
+
+* Search in the description in the settings visibility menu
+When searching in the settings visibility menu you will also search in the description of the settings.
+
+* Bug fixes:
+- Fixed the setting visibility button to make it easier to click
+- Inform the user that their webcam does not work because they are cloud connected
+- Inform the user that their webcam does not work if the firewall is enabled
+- Fixed a crash when pressing the slice button while context menu is opened 
+- Support non-ASCII character in the Digital Library project name
+- Fixed integer underflow if print is less than half the initial layer height
+- Fixed a bug where infill mesh sometimes default to having walls or skin
+- Fix builds with Python 3.8, contributed by StefanBruens
+- Fix CC settings for PLA
+- Fixed memory leak in Zeroconf 0.25
+- Fixed connecting USB printing with detecting baud-rates, contributed by rrrlasse
+- Fixed crash when Cura crashes on exit
+- Fixed a bug where the infill goes through walls
+- Fixed the version upgrade of preferences file
+- Fixed missing icons in deprecated icons list, contributed by fieldOfView
+- Fixed a crash in CuraEngine when the prime tower is placed in an invalid position
+- Fixed a bug when user is unable to sign in on Linux if a Keyring backend is installed
+- Fixed the rotation direction of the 90 degrees rotation arrows, contributed by fieldOfView
+
+* Printer definitions, profiles and materials:
+- Added SecKit SK-Tank, SK-Go printer definitions, contributed by SecKit
+- Added MP Mini Delta 2 printer definition, contributed by PurpleHullPeas
+- Added Kingroon K3P and K3PS printer definitions, contributed by NoTaMu
+- Added Eryone PLA, PLA Wood, PLA Matte and PETG 1.75mm profiles, contributed by dapostol73
+- Added BIQU BX printer definition, contributed by looxonline
+- Added FLSun Super race printer definitions, contributed by thushan
+- Added Atom 2.0 and Atom Plus printer definitions, contributed by lin-ycv
+- Added PBR 3D Gen-I printer definition, contributed by pbr-research
+- Added Creasee 3D printer definitions, contributed by ivovk9
+- Updated Strateo3D profiles, contributed by ChronosTech
+- Added Voron V0 printer definitions, contributed by jgehrig
+- Updated Liquid profiles, contributed by alexgrigoras
+- Added Farm 2 and Farm2CE printer definitions, contributed by saliery999
+- Added GooFoo and Renkforce print definitions and GooFoo materials, contributed by goofoo3d
+
+*<i>From version 4.11 onwards - Fracktory is only supported on operating systems actively maintained by their software manufacturer or community. This means Windows 7 and MacOS 10.13 will no longer be supported. Technically this means Ultimaker will stop testing and developing for such operating systems. However, even though it is no longer supported, there is still a high likelihood the application keeps functioning.</i>
+
+
+[4.10]
+
+The release notes of versions &lt;= 4.10 can be found in our <a href="https://github.com/Ultimaker/Cura/releases?page=2">releases GitHub page</a>.
