@@ -8,7 +8,7 @@
         "manufacturer": "Fracktal Works",
         "category": "Julia Series",
         "file_formats": "text/x-gcode",
-        "platform": "testv1.obj",
+        "platform": "ext.stl",
         "platform_offset": [0, 0, 0 ],
         "has_machine_materials": true,
         "has_machine_quality": true,

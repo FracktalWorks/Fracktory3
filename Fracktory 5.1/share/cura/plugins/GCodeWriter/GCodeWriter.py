@@ -11,6 +11,10 @@ from UM.Application import Application
 from UM.Settings.InstanceContainer import InstanceContainer
 from cura.Machines.ContainerTree import ContainerTree
 
+
+
+
+
 from UM.i18n import i18nCatalog
 catalog = i18nCatalog("cura")
 
@@ -95,7 +99,7 @@ class GCodeWriter(MeshWriter):
 
         self.setInformation(catalog.i18nc("@warning:status", "Please prepare G-code before exporting."))
         return False
-
+   
     def _createFlattenedContainerInstance(self, instance_container1, instance_container2):
         """Create a new container with container 2 as base and container 1 written over it."""
 
@@ -114,6 +118,7 @@ class GCodeWriter(MeshWriter):
             flat_container.setProperty(key, "value", instance_container1.getProperty(key, "value"))
 
         return flat_container
+    
 
     def _serialiseSettings(self, stack):
         """Serialises a container stack to prepare it for writing at the end of the g-code.
@@ -215,3 +220,4 @@ class GCodeWriter(MeshWriter):
         for pos in range(0, len(escaped_string), 80 - prefix_length):
             result += prefix + escaped_string[pos: pos + 80 - prefix_length] + "\n"
         return result
+

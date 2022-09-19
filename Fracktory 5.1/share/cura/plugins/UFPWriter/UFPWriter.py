@@ -98,60 +98,60 @@ class UFPWriter(MeshWriter):
         else:
             Logger.log("w", "Thumbnail not created, cannot save it")
 
-        # Store the material.
-        application = CuraApplication.getInstance()
-        machine_manager = application.getMachineManager()
-        container_registry = application.getContainerRegistry()
-        global_stack = machine_manager.activeMachine
+        # # Store the material.
+        # application = CuraApplication.getInstance()
+        # machine_manager = application.getMachineManager()
+        # container_registry = application.getContainerRegistry()
+        # global_stack = machine_manager.activeMachine
 
-        material_extension = "xml.fdm_material"
-        material_mime_type = "application/x-ultimaker-material-profile"
+        # material_extension = "xml.fdm_material"
+        # material_mime_type = "application/x-ultimaker-material-profile"
 
-        try:
-            archive.addContentType(extension = material_extension, mime_type = material_mime_type)
-        except OPCError:
-            Logger.log("w", "The material extension: %s was already added", material_extension)
+        # try:
+        #     archive.addContentType(extension = material_extension, mime_type = material_mime_type)
+        # except OPCError:
+        #     Logger.log("w", "The material extension: %s was already added", material_extension)
 
-        added_materials = []
-        for extruder_stack in global_stack.extruderList:
-            material = extruder_stack.material
-            try:
-                material_file_name = material.getMetaData()["base_file"] + ".xml.fdm_material"
-            except KeyError:
-                Logger.log("w", "Unable to get base_file for the material %s", material.getId())
-                continue
-            material_file_name = "/Materials/" + material_file_name
+        # added_materials = []
+        # for extruder_stack in global_stack.extruderList:
+        #     material = extruder_stack.material
+        #     try:
+        #         material_file_name = material.getMetaData()["base_file"] + ".xml.fdm_material"
+        #     except KeyError:
+        #         Logger.log("w", "Unable to get base_file for the material %s", material.getId())
+        #         continue
+        #     material_file_name = "/Materials/" + material_file_name
 
-            # The same material should not be added again.
-            if material_file_name in added_materials:
-                continue
+        #     # The same material should not be added again.
+        #     if material_file_name in added_materials:
+        #         continue
 
-            material_root_id = material.getMetaDataEntry("base_file")
-            material_root_query = container_registry.findContainers(id = material_root_id)
-            if not material_root_query:
-                Logger.log("e", "Cannot find material container with root id {root_id}".format(root_id = material_root_id))
-                return False
-            material_container = material_root_query[0]
+        #     material_root_id = material.getMetaDataEntry("base_file")
+        #     material_root_query = container_registry.findContainers(id = material_root_id)
+        #     if not material_root_query:
+        #         Logger.log("e", "Cannot find material container with root id {root_id}".format(root_id = material_root_id))
+        #         return False
+        #     material_container = material_root_query[0]
 
-            try:
-                serialized_material = material_container.serialize()
-            except NotImplementedError:
-                Logger.log("e", "Unable serialize material container with root id: %s", material_root_id)
-                return False
+        #     try:
+        #         serialized_material = material_container.serialize()
+        #     except NotImplementedError:
+        #         Logger.log("e", "Unable serialize material container with root id: %s", material_root_id)
+        #         return False
 
-            try:
-                material_file = archive.getStream(material_file_name)
-                material_file.write(serialized_material.encode("UTF-8"))
-                archive.addRelation(virtual_path = material_file_name,
-                                    relation_type = "http://schemas.ultimaker.org/package/2018/relationships/material",
-                                    origin = "/3D/model.gcode")
-            except EnvironmentError as e:
-                error_msg = catalog.i18nc("@info:error", "Can't write to UFP file:") + " " + str(e)
-                self.setInformation(error_msg)
-                Logger.error(error_msg)
-                return False
+        #     try:
+        #         material_file = archive.getStream(material_file_name)
+        #         material_file.write(serialized_material.encode("UTF-8"))
+        #         archive.addRelation(virtual_path = material_file_name,
+        #                             relation_type = "http://schemas.ultimaker.org/package/2018/relationships/material",
+        #                             origin = "/3D/model.gcode")
+        #     except EnvironmentError as e:
+        #         error_msg = catalog.i18nc("@info:error", "Can't write to UFP file:") + " " + str(e)
+        #         self.setInformation(error_msg)
+        #         Logger.error(error_msg)
+        #         return False
 
-            added_materials.append(material_file_name)
+        #     added_materials.append(material_file_name)
 
         try:
             archive.close()

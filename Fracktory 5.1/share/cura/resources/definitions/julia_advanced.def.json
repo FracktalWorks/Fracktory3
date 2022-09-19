@@ -9,7 +9,7 @@
         "category": "Julia Series",
         "quality_definition": "julia_extended",
         "file_formats": "text/x-gcode",
-        "platform": "FW_JA_bed.obj",
+        "platform": "adv.STL",
         "platform_offset": [0, 0, 0 ],
         "has_machine_materials": true,
         "has_machine_quality": true,
