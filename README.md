@@ -258,7 +258,7 @@ The code used in the OS random engine is derived from CPython, and is licensed
  
 
 
-##Build
+## Build
 > This is the main step where we get the output as setup.exe file. 
 - locate the setupfile location where you wanted it to be saved (**note**: not to the main.exe file (fracktory.exe) this will spoil the entire process (*in my case it happened 😅*)) 
 -setup icon & uninstaller icon are to be located as per the custom requirements (cura-icon.ico)
