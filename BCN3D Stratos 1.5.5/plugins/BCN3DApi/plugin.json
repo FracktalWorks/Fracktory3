@@ -1,0 +1,7 @@
+{
+    "name": "BCN3D Cloud",
+    "author": "BCN3D",
+    "version": "1.0.0",
+    "description": "Enables functionality of linking Fracktory to a network connected printer through BCN3D Cloud.",
+    "api": "7.0.0"
+}

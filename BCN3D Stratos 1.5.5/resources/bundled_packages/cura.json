@@ -1,0 +1,513 @@
+{
+    "3MFReader": {
+        "package_info": {
+            "package_id": "3MFReader",
+            "package_type": "plugin",
+            "display_name": "3MF Reader",
+            "description": "Provides support for reading 3MF files.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "3MFWriter": {
+        "package_info": {
+            "package_id": "3MFWriter",
+            "package_type": "plugin",
+            "display_name": "3MF Writer",
+            "description": "Provides support for writing 3MF files.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "AMFReader": {
+        "package_info": {
+            "package_id": "AMFReader",
+            "package_type": "plugin",
+            "display_name": "AMF Reader",
+            "description": "Provides support for reading AMF files.",
+            "package_version": "1.0.0",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "fieldOfView",
+                "display_name": "fieldOfView",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "CuraEngineBackend": {
+        "package_info": {
+            "package_id": "CuraEngineBackend",
+            "package_type": "plugin",
+            "display_name": "CuraEngine Backend",
+            "description": "Provides the link to the CuraEngine slicing backend.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "CuraProfileReader": {
+        "package_info": {
+            "package_id": "CuraProfileReader",
+            "package_type": "plugin",
+            "display_name": "Cura Profile Reader",
+            "description": "Provides support for importing Cura profiles.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "CuraProfileWriter": {
+        "package_info": {
+            "package_id": "CuraProfileWriter",
+            "package_type": "plugin",
+            "display_name": "Cura Profile Writer",
+            "description": "Provides support for exporting Cura profiles.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+
+    "GCodeGzReader": {
+        "package_info": {
+            "package_id": "GCodeGzReader",
+            "package_type": "plugin",
+            "display_name": "Compressed G-code Reader",
+            "description": "Reads g-code from a compressed archive.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "GCodeGzWriter": {
+        "package_info": {
+            "package_id": "GCodeGzWriter",
+            "package_type": "plugin",
+            "display_name": "Compressed G-code Writer",
+            "description": "Writes g-code to a compressed archive.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "GCodeProfileReader": {
+        "package_info": {
+            "package_id": "GCodeProfileReader",
+            "package_type": "plugin",
+            "display_name": "G-Code Profile Reader",
+            "description": "Provides support for importing profiles from g-code files.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "GCodeReader": {
+        "package_info": {
+            "package_id": "GCodeReader",
+            "package_type": "plugin",
+            "display_name": "G-Code Reader",
+            "description": "Allows loading and displaying G-code files.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "VictorLarchenko",
+                "display_name": "Victor Larchenko",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "GCodeWriter": {
+        "package_info": {
+            "package_id": "GCodeWriter",
+            "package_type": "plugin",
+            "display_name": "G-Code Writer",
+            "description": "Writes g-code to a file.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "ImageReader": {
+        "package_info": {
+            "package_id": "ImageReader",
+            "package_type": "plugin",
+            "display_name": "Image Reader",
+            "description": "Enables ability to generate printable geometry from 2D image files.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "LegacyProfileReader": {
+        "package_info": {
+            "package_id": "LegacyProfileReader",
+            "package_type": "plugin",
+            "display_name": "Legacy Cura Profile Reader",
+            "description": "Provides support for importing profiles from legacy Cura versions.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "MachineSettingsAction": {
+        "package_info": {
+            "package_id": "MachineSettingsAction",
+            "package_type": "plugin",
+            "display_name": "Machine Settings Action",
+            "description": "Provides a way to change machine settings (such as build volume, nozzle size, etc.).",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "fieldOfView",
+                "display_name": "fieldOfView",
+                "email": null,
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "ModelChecker": {
+        "package_info": {
+            "package_id": "ModelChecker",
+            "package_type": "plugin",
+            "display_name": "Model Checker",
+            "description": "Checks models and print configuration for possible printing issues and give suggestions.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "PerObjectSettingsTool": {
+        "package_info": {
+            "package_id": "PerObjectSettingsTool",
+            "package_type": "plugin",
+            "display_name": "Per-Object Settings Tool",
+            "description": "Provides the per-model settings.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "PostProcessingPlugin": {
+        "package_info": {
+            "package_id": "PostProcessingPlugin",
+            "package_type": "plugin",
+            "display_name": "Post Processing",
+            "description": "Extension that allows for user created scripts for post processing.",
+            "package_version": "2.2.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "PrepareStage": {
+        "package_info": {
+            "package_id": "PrepareStage",
+            "package_type": "plugin",
+            "display_name": "Prepare Stage",
+            "description": "Provides a prepare stage in Cura.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "PreviewStage": {
+        "package_info": {
+            "package_id": "PreviewStage",
+            "package_type": "plugin",
+            "display_name": "Preview Stage",
+            "description": "Provides a preview stage in Cura.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "RemovableDriveOutputDevice": {
+        "package_info": {
+            "package_id": "RemovableDriveOutputDevice",
+            "package_type": "plugin",
+            "display_name": "Removable Drive Output Device",
+            "description": "Provides removable drive hotplugging and writing support.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "SentryLogger": {
+        "package_info": {
+            "package_id": "SentryLogger",
+            "package_type": "plugin",
+            "display_name": "Sentry Logger",
+            "description": "Logs certain events so that they can be used by the crash reporter",
+            "package_version": "1.0.0",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "SimulationView": {
+        "package_info": {
+            "package_id": "SimulationView",
+            "package_type": "plugin",
+            "display_name": "Simulation View",
+            "description": "Provides the Simulation view.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "SliceInfoPlugin": {
+        "package_info": {
+            "package_id": "SliceInfoPlugin",
+            "package_type": "plugin",
+            "display_name": "Slice Info",
+            "description": "Submits anonymous slice info. Can be disabled through preferences.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://bcn3d.com",
+            "author": {
+                "author_id": "BCN3D",
+                "display_name": "BCN3D",
+                "email": "support@bcn3d.com",
+                "website": "https://bcn3d.com"
+            }
+        }
+    },
+    "SolidView": {
+        "package_info": {
+            "package_id": "SolidView",
+            "package_type": "plugin",
+            "display_name": "Solid View",
+            "description": "Provides a normal solid mesh view.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "SupportEraser": {
+        "package_info": {
+            "package_id": "SupportEraser",
+            "package_type": "plugin",
+            "display_name": "Support Eraser Tool",
+            "description": "Creates an eraser mesh to block the printing of support in certain places.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "TrimeshReader": {
+        "package_info": {
+            "package_id": "TrimeshReader",
+            "package_type": "plugin",
+            "display_name": "Trimesh Reader",
+            "description": "Provides support for reading model files.",
+            "package_version": "1.0.0",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "Toolbox": {
+        "package_info": {
+            "package_id": "Toolbox",
+            "package_type": "plugin",
+            "display_name": "Toolbox",
+            "description": "Find, manage and install new Cura packages.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "X3DReader": {
+        "package_info": {
+            "package_id": "X3DReader",
+            "package_type": "plugin",
+            "display_name": "X3D Reader",
+            "description": "Provides support for reading X3D files.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "SevaAlekseyev",
+                "display_name": "Seva Alekseyev",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "XmlMaterialProfile": {
+        "package_info": {
+            "package_id": "XMLMaterialProfile",
+            "package_type": "plugin",
+            "display_name": "XML Material Profiles",
+            "description": "Provides capabilities to read and write XML-based material profiles.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    },
+    "XRayView": {
+        "package_info": {
+            "package_id": "XRayView",
+            "package_type": "plugin",
+            "display_name": "X-Ray View",
+            "description": "Provides the X-Ray view.",
+            "package_version": "1.0.1",
+            "sdk_version": "7.4.0",
+            "website": "https://ultimaker.com",
+            "author": {
+                "author_id": "UltimakerPackages",
+                "display_name": "Ultimaker B.V.",
+                "email": "plugins@ultimaker.com",
+                "website": "https://ultimaker.com"
+            }
+        }
+    }
+}

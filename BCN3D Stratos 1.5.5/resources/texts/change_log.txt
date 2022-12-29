@@ -1,0 +1,18 @@
+[5.1.0]
+
+Fracktory is based on Ultimaker Cura 4.8
+- New plugin to enable the Fracktory IDEX system with Mirror and Duplication print modes
+- New Single T1 and Single T2 print modes
+- Improved UI
+- Improved general performance since Fractory 3.0
+- New UI with enhanced features for IDEX machine of Fracktal works
+- Improved model reposition when using IDEX technology
+- Printing profile adjustments
+- Internal bug fixing
+- Updated welcome wizard with more information for new users
+- Improved translations
+- Added new links to more detailed support information
+- Print modes now persist with material/hotend change
+- Printing profile adjustments
+- Fixed a problem that made it impossible to create custom materials for extruders X and M 
+- Fixed problem that prevented opening previously saved projects
