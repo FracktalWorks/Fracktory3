@@ -123,4 +123,24 @@ Item
         text: catalog.i18nc("@button", "Next")
         onClicked: base.showNextPage()
     }
+     Label
+    {
+        id: skipButton
+        anchors.centered: parent.centered
+        anchors.bottom: parent.bottom
+        anchors.leftMargin: UM.Theme.getSize("default_margin").width
+        text: catalog.i18nc("@button", "Skip")
+        color: UM.Theme.getColor("secondary_button_text")
+        font: UM.Theme.getFont("medium")
+        renderType: Text.NativeRendering
+
+        MouseArea
+        {
+            anchors.fill: parent
+            hoverEnabled: true
+            onClicked: base.showNextPage()
+            onEntered: parent.font.underline = true
+            onExited: parent.font.underline = false
+        }
+    }
 }

@@ -16,7 +16,18 @@ Item
     property bool emailErrorVisible: false
     property bool passwordErrorVisible: false
 
- 
+    Label
+    {
+        id: titleLabel
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        horizontalAlignment: Text.AlignHCenter
+        text: catalog.i18nc("@label", "BCN3D Cloud Account")
+        color: UM.Theme.getColor("primary_button")
+        font: UM.Theme.getFont("huge")
+        renderType: Text.NativeRendering
+    }
+
     // Area where the cloud contents can be put. Pictures, texts and such.
     Item
     {
@@ -29,7 +40,6 @@ Item
             right: parent.right
             topMargin: UM.Theme.getSize("default_margin").height
         }
-        
 
         // Pictures and texts are arranged using Columns with spacing. The whole picture and text area is centered in
         // the cloud contents area.
@@ -54,7 +64,7 @@ Item
                     t = catalog.i18nc("@text", "- Stay flexible by syncing your setup and loading it anywhere")
                     full_text += "<p>" + t + "</p>"
 
-                    t = catalog.i18nc("@text", "- Increase efficiency with a remote workflow on Fracktal printers")
+                    t = catalog.i18nc("@text", "- Increase efficiency with a remote workflow on BCN3D printers")
                     full_text += "<p>" + t + "</p>"
 
                     return full_text
@@ -63,114 +73,102 @@ Item
                 font: UM.Theme.getFont("medium")
                 color: UM.Theme.getColor("text")
                 renderType: Text.NativeRendering
-
-               
             }
+
+             Item
+    {
+        height: 50
+        width: 250
+        anchors.horizontalCenter: parent.horizontalCenter
+        TextField
+        {
+            id: email
+            text: emailText
+            anchors.horizontalCenter: parent.horizontalCenter
+            placeholderText: catalog.i18nc("@text", "Email")
+            onEditingFinished: {
+                if (text != "") emailErrorVisible = false
+                else emailErrorVisible = true
+            }
+        }
+        Label
+        {
+            id: emailError
+            anchors.left: email.left
+            anchors.top: email.bottom
+            horizontalAlignment: Text.AlignLeft
+            text: catalog.i18nc("@text", "Email is required")
+            color: "red"
+            visible: emailErrorVisible
         }
     }
 
-    // Item
-    // {
-    //     height: 50
-    //     width: 250
-    //     anchors.horizontalCenter: parent.horizontalCenter
-    //     TextField
-    //     {
-    //         id: email
-    //         text: emailText
-    //         anchors.horizontalCenter: parent.horizontalCenter
-    //         placeholderText: catalog.i18nc("@text", "Email")
-    //         onEditingFinished: {
-    //             if (text != "") emailErrorVisible = false
-    //             else emailErrorVisible = true
-    //         }
-    //     }
-    //     Label
-    //     {
-    //         id: emailError
-    //         anchors.left: email.left
-    //         anchors.top: email.bottom
-    //         horizontalAlignment: Text.AlignLeft
-    //         text: catalog.i18nc("@text", "Email is required")
-    //         color: "red"
-    //         visible: emailErrorVisible
-    //     }
-    // }
+    Item
+    {
+        height: 50
+        width: 50
+        anchors.horizontalCenter: parent.horizontalCenter
+        TextField
+        {
+            id: password
+            text: passwordText
+            anchors.horizontalCenter: parent.horizontalCenter
+            placeholderText: catalog.i18nc("@text", "Password")
+            echoMode: TextInput.Password
+            onEditingFinished: {
+                if (text != "") passwordErrorVisible = false
+                else passwordErrorVisible = true
+            }
+        }
+        Label
+        {
+            id: passwordError
+            anchors.left: password.left
+            anchors.top: password.bottom
+            horizontalAlignment: Text.AlignLeft
+            text: catalog.i18nc("@text", "Password is required")
+            color: "red"
+            visible: passwordErrorVisible
+        }
+    }
 
-    // Item
-    // {
-    //     height: 50
-    //     width: 50
-    //     anchors.horizontalCenter: parent.horizontalCenter
-    //     TextField
-    //     {
-    //         id: password
-    //         text: passwordText
-    //         anchors.horizontalCenter: parent.horizontalCenter
-    //         placeholderText: catalog.i18nc("@text", "Password")
-    //         echoMode: TextInput.Password
-    //         onEditingFinished: {
-    //             if (text != "") passwordErrorVisible = false
-    //             else passwordErrorVisible = true
-    //         }
-    //     }
-    //     Label
-    //     {
-    //         id: passwordError
-    //         anchors.left: password.left
-    //         anchors.top: password.bottom
-    //         horizontalAlignment: Text.AlignLeft
-    //         text: catalog.i18nc("@text", "Password is required")
-    //         color: "red"
-    //         visible: passwordErrorVisible
-    //     }
-    // }
+    Item
+    {
+        height: 12
+        width: 50
+        anchors.horizontalCenter: parent.horizontalCenter
+        Label {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: signInStatusCode == 400 || signInStatusCode == 401 ? catalog.i18nc("@text", "Incorrect email or password") : signInStatusCode == -1 ? catalog.i18nc("@text", "Can't sign in. Check internet connection") : signInStatusCode == -2 ? catalog.i18nc("@text", "Can't sign in. Error loading api data"): catalog.i18nc("@text", "Can't sign in. Something went wrong")
+            color: "red"
+            visible: signInStatusCode != 200
+        }
+    }
 
-    // Item
-    // {
-    //     height: 12
-    //     width: 50
-    //     anchors.horizontalCenter: parent.horizontalCenter
-    //     Label {
-    //         anchors.horizontalCenter: parent.horizontalCenter
-    //         text: signInStatusCode == 400 || signInStatusCode == 401 ? catalog.i18nc("@text", "Incorrect email or password") : signInStatusCode == -1 ? catalog.i18nc("@text", "Can't sign in. Check internet connection") : signInStatusCode == -2 ? catalog.i18nc("@text", "Can't sign in. Error loading api data"): catalog.i18nc("@text", "Can't sign in. Something went wrong")
-    //         color: "red"
-    //         visible: signInStatusCode != 200
-    //     }
-    // }
+    Cura.PrimaryButton
+    {
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: UM.Theme.getSize("account_button").width
+        height: UM.Theme.getSize("account_button").height
+        text: catalog.i18nc("@button", "Sign in")
+        onClicked: {
+        signInStatusCode = Cura.AuthenticationService.signIn(email.text, password.text)
+            if(signInStatusCode == 200) {
+                base.showNextPage()
+            }
 
-    // Cura.PrimaryButton
-    // {
-    //     anchors.horizontalCenter: parent.horizontalCenter
-    //     width: UM.Theme.getSize("account_button").width
-    //     height: UM.Theme.getSize("account_button").height
-    //     text: catalog.i18nc("@button", "Sign in")
-    //     onClicked: {
-    //     signInStatusCode = Cura.AuthenticationService.signIn(email.text, password.text)
-    //         if(signInStatusCode == 200) {
-    //             base.showNextPage()
-    //         }
+        }
+        fixedWidthMode: true
 
-    //     }
-    //     fixedWidthMode: true
+    }
 
-    // }
-
-    //     Cura.SecondaryButton
-    //     {
-    //         anchors.horizontalCenter: parent.horizontalCenter
-    //         width: UM.Theme.getSize("account_button").width
-    //         height: UM.Theme.getSize("account_button").height
-    //         text: catalog.i18nc("@button", "Create account")
-    //         onClicked: Qt.openUrlExternally("https://cloud.bcn3d.com")
-    //         fixedWidthMode: true
-    //     }
+        
 
 
-    //     }
+        }
 
 
-    // }
+    }
 
 
     // The "Skip" button exists on the bottom right
