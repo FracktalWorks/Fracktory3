@@ -37,15 +37,7 @@ ColumnLayout
         Layout.fillWidth: true
         Layout.fillHeight: true
         currentIndex: 0
-        AddUltimakerOrThirdPartyPrinter
-        {
-            goToUltimakerPrinter: root.goToUltimakerPrinter
-            goToThirdPartyPrinter: root.goToThirdPartyPrinter
-        }
-        AddUltimakerPrinter
-        {
-            goToThirdPartyPrinter: root.goToThirdPartyPrinter
-        }
+        
         AddThirdPartyPrinter
         {
             goToUltimakerPrinter: root.goToUltimakerPrinter

@@ -114,7 +114,7 @@ UM.MainWindow
             // Reuse the welcome dialog item to show "Add a printer" only.
             welcomeDialogItem.model = CuraApplication.getAddPrinterPagesModelWithoutCancel()
             welcomeDialogItem.progressBarVisible = false
-            welcomeDialogItem.visible = true
+            welcomeDialogItem.visible = false
         }
     }
 
@@ -137,7 +137,7 @@ UM.MainWindow
 
             if (CuraApplication.shouldShowWelcomeDialog())
             {
-                welcomeDialogItem.visible = true
+                welcomeDialogItem.visible = false
             }
             else
             {
@@ -149,7 +149,7 @@ UM.MainWindow
             {
                 welcomeDialogItem.model = CuraApplication.getWhatsNewPagesModel()
                 welcomeDialogItem.progressBarVisible = false
-                welcomeDialogItem.visible = true
+                welcomeDialogItem.visible = false
             }
 
             // Reuse the welcome dialog item to show the "Add printers" dialog. Triggered when there is no active

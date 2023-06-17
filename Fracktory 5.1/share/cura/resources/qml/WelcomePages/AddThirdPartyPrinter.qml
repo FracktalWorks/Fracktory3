@@ -27,7 +27,7 @@ Item
         anchors.topMargin: UM.Theme.getSize("wide_margin").height
 
         title: catalog.i18nc("@label", "Add a networked printer")
-        contentShown: true  // by default expand the network printer list
+        contentShown: false  // by default expand the network printer list
 
         onClicked:
         {
@@ -76,6 +76,7 @@ Item
         anchors.topMargin: UM.Theme.getSize("default_margin").height
 
         title: catalog.i18nc("@label", "Add a non-networked printer")
+        contentShown: true
 
         onClicked:
         {
