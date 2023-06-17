@@ -2,7 +2,7 @@
 //
 // This file is part of the QtQml Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -105,6 +105,9 @@ public:
     int index() const;
     QMetaProperty property() const;
     QMetaMethod method() const;
+%If (Qt_6_3_0 -)
+    void swap(QQmlProperty &other);
+%End
 };
 
 typedef QList<QQmlProperty> QQmlProperties;

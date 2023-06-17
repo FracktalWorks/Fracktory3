@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -29,8 +29,13 @@ class QMenuBar : QWidget
 public:
     explicit QMenuBar(QWidget *parent /TransferThis/ = 0);
     virtual ~QMenuBar();
+%If (- Qt_6_3_0)
     void addAction(QAction *);
+%End
+%If (- Qt_6_3_0)
     QAction *addAction(const QString &text) /Transfer/;
+%End
+%If (- Qt_6_3_0)
     QAction *addAction(const QString &text, SIP_PYOBJECT slot /TypeHint="PYQT_SLOT"/) /Transfer/;
 %MethodCode
         QObject *receiver;
@@ -46,6 +51,7 @@ public:
         }
 %End
 
+%End
     QAction *addMenu(QMenu *menu);
     QMenu *addMenu(const QString &title) /Transfer/;
     QMenu *addMenu(const QIcon &icon, const QString &title) /Transfer/;

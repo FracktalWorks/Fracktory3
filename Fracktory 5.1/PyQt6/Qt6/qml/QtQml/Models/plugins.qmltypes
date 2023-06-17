@@ -32,7 +32,7 @@ Module {
             name: "dataChanged"
             Parameter { name: "topLeft"; type: "QModelIndex" }
             Parameter { name: "bottomRight"; type: "QModelIndex" }
-            Parameter { name: "roles"; type: "QList<int>" }
+            Parameter { name: "roles"; type: "int"; isList: true }
         }
         Signal {
             name: "dataChanged"
@@ -47,22 +47,22 @@ Module {
         }
         Signal {
             name: "layoutChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
             Parameter { name: "hint"; type: "QAbstractItemModel::LayoutChangeHint" }
         }
         Signal {
             name: "layoutChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
         }
         Signal { name: "layoutChanged" }
         Signal {
             name: "layoutAboutToBeChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
             Parameter { name: "hint"; type: "QAbstractItemModel::LayoutChangeHint" }
         }
         Signal {
             name: "layoutAboutToBeChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
         }
         Signal { name: "layoutAboutToBeChanged" }
         Signal {
@@ -125,11 +125,11 @@ Module {
         }
         Signal {
             name: "rowsMoved"
-            Parameter { name: "parent"; type: "QModelIndex" }
-            Parameter { name: "start"; type: "int" }
-            Parameter { name: "end"; type: "int" }
-            Parameter { name: "destination"; type: "QModelIndex" }
-            Parameter { name: "row"; type: "int" }
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceStart"; type: "int" }
+            Parameter { name: "sourceEnd"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationRow"; type: "int" }
         }
         Signal {
             name: "columnsAboutToBeMoved"
@@ -141,11 +141,11 @@ Module {
         }
         Signal {
             name: "columnsMoved"
-            Parameter { name: "parent"; type: "QModelIndex" }
-            Parameter { name: "start"; type: "int" }
-            Parameter { name: "end"; type: "int" }
-            Parameter { name: "destination"; type: "QModelIndex" }
-            Parameter { name: "column"; type: "int" }
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceStart"; type: "int" }
+            Parameter { name: "sourceEnd"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationColumn"; type: "int" }
         }
         Method { name: "submit"; type: "bool" }
         Method { name: "revert" }
@@ -244,6 +244,156 @@ Module {
             Parameter { name: "orientation"; type: "Qt::Orientation" }
         }
         Method {
+            name: "insertRows"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "insertRows"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+        }
+        Method {
+            name: "insertColumns"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "insertColumns"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+        }
+        Method {
+            name: "removeRows"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "removeRows"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+        }
+        Method {
+            name: "removeColumns"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "removeColumns"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+        }
+        Method {
+            name: "moveRows"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceRow"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationChild"; type: "int" }
+        }
+        Method {
+            name: "moveColumns"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceColumn"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationChild"; type: "int" }
+        }
+        Method {
+            name: "insertRow"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "insertRow"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+        }
+        Method {
+            name: "insertColumn"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "insertColumn"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+        }
+        Method {
+            name: "removeRow"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "removeRow"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+        }
+        Method {
+            name: "removeColumn"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "removeColumn"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+        }
+        Method {
+            name: "moveRow"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceRow"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationChild"; type: "int" }
+        }
+        Method {
+            name: "moveColumn"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceColumn"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationChild"; type: "int" }
+        }
+        Method {
             name: "fetchMore"
             Parameter { name: "parent"; type: "QModelIndex" }
         }
@@ -256,6 +406,17 @@ Module {
             name: "flags"
             type: "Qt::ItemFlags"
             Parameter { name: "index"; type: "QModelIndex" }
+        }
+        Method {
+            name: "sort"
+            revision: 1540
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "order"; type: "Qt::SortOrder" }
+        }
+        Method {
+            name: "sort"
+            revision: 1540
+            Parameter { name: "column"; type: "int" }
         }
         Method {
             name: "match"
@@ -427,22 +588,22 @@ Module {
         }
         Method {
             name: "_q_layoutAboutToBeChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
             Parameter { name: "hint"; type: "QAbstractItemModel::LayoutChangeHint" }
         }
         Method {
             name: "_q_layoutAboutToBeChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
         }
         Method { name: "_q_layoutAboutToBeChanged" }
         Method {
             name: "_q_layoutChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
             Parameter { name: "hint"; type: "QAbstractItemModel::LayoutChangeHint" }
         }
         Method {
             name: "_q_layoutChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
         }
         Method { name: "_q_layoutChanged" }
         Method { name: "_q_modelDestroyed" }
@@ -601,7 +762,7 @@ Module {
             name: "_q_itemsChanged"
             Parameter { name: "index"; type: "int" }
             Parameter { name: "count"; type: "int" }
-            Parameter { name: "roles"; type: "QList<int>" }
+            Parameter { name: "roles"; type: "int"; isList: true }
         }
         Method {
             name: "_q_itemsInserted"
@@ -670,11 +831,11 @@ Module {
             name: "_q_dataChanged"
             Parameter { type: "QModelIndex" }
             Parameter { type: "QModelIndex" }
-            Parameter { type: "QList<int>" }
+            Parameter { type: "int"; isList: true }
         }
         Method {
             name: "_q_layoutChanged"
-            Parameter { type: "QList<QPersistentModelIndex>" }
+            Parameter { type: "QPersistentModelIndex"; isList: true }
             Parameter { type: "QAbstractItemModel::LayoutChangeHint" }
         }
         Method {
@@ -711,6 +872,38 @@ Module {
             read: "isUnresolved"
             notify: "unresolvedChanged"
             index: 2
+            isReadonly: true
+        }
+        Property {
+            name: "inPersistedItems"
+            type: "bool"
+            read: "inPersistedItems"
+            write: "setInPersistedItems"
+            notify: "groupsChanged"
+            index: 3
+        }
+        Property {
+            name: "inItems"
+            type: "bool"
+            read: "inItems"
+            write: "setInItems"
+            notify: "groupsChanged"
+            index: 4
+        }
+        Property {
+            name: "persistedItemsIndex"
+            type: "int"
+            read: "persistedItemsIndex"
+            notify: "groupsChanged"
+            index: 5
+            isReadonly: true
+        }
+        Property {
+            name: "itemsIndex"
+            type: "int"
+            read: "itemsIndex"
+            notify: "groupsChanged"
+            index: 6
             isReadonly: true
         }
         Signal { name: "groupsChanged" }
@@ -758,38 +951,14 @@ Module {
             Parameter { name: "removed"; type: "QJSValue" }
             Parameter { name: "inserted"; type: "QJSValue" }
         }
-        Method {
-            name: "insert"
-            Parameter { type: "QQmlV4Function"; isPointer: true }
-        }
-        Method {
-            name: "create"
-            Parameter { type: "QQmlV4Function"; isPointer: true }
-        }
-        Method {
-            name: "resolve"
-            Parameter { type: "QQmlV4Function"; isPointer: true }
-        }
-        Method {
-            name: "remove"
-            Parameter { type: "QQmlV4Function"; isPointer: true }
-        }
-        Method {
-            name: "addGroups"
-            Parameter { type: "QQmlV4Function"; isPointer: true }
-        }
-        Method {
-            name: "removeGroups"
-            Parameter { type: "QQmlV4Function"; isPointer: true }
-        }
-        Method {
-            name: "setGroups"
-            Parameter { type: "QQmlV4Function"; isPointer: true }
-        }
-        Method {
-            name: "move"
-            Parameter { type: "QQmlV4Function"; isPointer: true }
-        }
+        Method { name: "insert"; isJavaScriptFunction: true }
+        Method { name: "create"; isJavaScriptFunction: true }
+        Method { name: "resolve"; isJavaScriptFunction: true }
+        Method { name: "remove"; isJavaScriptFunction: true }
+        Method { name: "addGroups"; isJavaScriptFunction: true }
+        Method { name: "removeGroups"; isJavaScriptFunction: true }
+        Method { name: "setGroups"; isJavaScriptFunction: true }
+        Method { name: "move"; isJavaScriptFunction: true }
         Method {
             name: "get"
             type: "QJSValue"
@@ -938,6 +1107,81 @@ Module {
         }
     }
     Component {
+        file: "private/qqmlmodelindexvaluetype_p.h"
+        name: "QItemSelectionRange"
+        accessSemantics: "value"
+        extension: "QQmlItemSelectionRangeValueType"
+    }
+    Component {
+        file: "private/qqmlmodelindexvaluetype_p.h"
+        name: "QQmlItemSelectionRangeValueType"
+        accessSemantics: "value"
+        Property { name: "top"; type: "int"; read: "top"; index: 0; isReadonly: true; isFinal: true }
+        Property { name: "left"; type: "int"; read: "left"; index: 1; isReadonly: true; isFinal: true }
+        Property { name: "bottom"; type: "int"; read: "bottom"; index: 2; isReadonly: true; isFinal: true }
+        Property { name: "right"; type: "int"; read: "right"; index: 3; isReadonly: true; isFinal: true }
+        Property { name: "width"; type: "int"; read: "width"; index: 4; isReadonly: true; isFinal: true }
+        Property { name: "height"; type: "int"; read: "height"; index: 5; isReadonly: true; isFinal: true }
+        Property {
+            name: "topLeft"
+            type: "QPersistentModelIndex"
+            read: "topLeft"
+            index: 6
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "bottomRight"
+            type: "QPersistentModelIndex"
+            read: "bottomRight"
+            index: 7
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "parent"
+            type: "QModelIndex"
+            read: "parent"
+            index: 8
+            isReadonly: true
+            isFinal: true
+        }
+        Property { name: "valid"; type: "bool"; read: "isValid"; index: 9; isReadonly: true; isFinal: true }
+        Property { name: "empty"; type: "bool"; read: "isEmpty"; index: 10; isReadonly: true; isFinal: true }
+        Property {
+            name: "model"
+            type: "QAbstractItemModel"
+            isPointer: true
+            read: "model"
+            index: 11
+            isReadonly: true
+            isFinal: true
+        }
+        Method { name: "toString"; type: "QString" }
+        Method {
+            name: "contains"
+            type: "bool"
+            Parameter { name: "index"; type: "QModelIndex" }
+        }
+        Method {
+            name: "contains"
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "parentIndex"; type: "QModelIndex" }
+        }
+        Method {
+            name: "intersects"
+            type: "bool"
+            Parameter { name: "other"; type: "QItemSelectionRange" }
+        }
+        Method {
+            name: "intersected"
+            type: "QItemSelectionRange"
+            Parameter { name: "other"; type: "QItemSelectionRange" }
+        }
+    }
+    Component {
         file: "private/qqmllistmodel_p.h"
         name: "QQmlListElement"
         accessSemantics: "reference"
@@ -956,10 +1200,11 @@ Module {
         exports: [
             "QtQml.Models/ListModel 2.0",
             "QtQml.Models/ListModel 2.14",
-            "QtQml.Models/ListModel 6.0"
+            "QtQml.Models/ListModel 6.0",
+            "QtQml.Models/ListModel 6.4"
         ]
         hasCustomParser: true
-        exportMetaObjectRevisions: [512, 526, 1536]
+        exportMetaObjectRevisions: [512, 526, 1536, 1540]
         Property {
             name: "count"
             type: "int"
@@ -986,18 +1231,9 @@ Module {
         }
         Signal { name: "countChanged" }
         Method { name: "clear" }
-        Method {
-            name: "remove"
-            Parameter { name: "args"; type: "QQmlV4Function"; isPointer: true }
-        }
-        Method {
-            name: "append"
-            Parameter { name: "args"; type: "QQmlV4Function"; isPointer: true }
-        }
-        Method {
-            name: "insert"
-            Parameter { name: "args"; type: "QQmlV4Function"; isPointer: true }
-        }
+        Method { name: "remove"; isJavaScriptFunction: true }
+        Method { name: "append"; isJavaScriptFunction: true }
+        Method { name: "insert"; isJavaScriptFunction: true }
         Method {
             name: "get"
             type: "QJSValue"
@@ -1044,18 +1280,9 @@ Module {
         Method { name: "addref" }
         Method { name: "release" }
         Method { name: "clear" }
-        Method {
-            name: "remove"
-            Parameter { name: "args"; type: "QQmlV4Function"; isPointer: true }
-        }
-        Method {
-            name: "append"
-            Parameter { name: "args"; type: "QQmlV4Function"; isPointer: true }
-        }
-        Method {
-            name: "insert"
-            Parameter { name: "args"; type: "QQmlV4Function"; isPointer: true }
-        }
+        Method { name: "remove"; isJavaScriptFunction: true }
+        Method { name: "append"; isJavaScriptFunction: true }
+        Method { name: "insert"; isJavaScriptFunction: true }
         Method {
             name: "get"
             type: "QJSValue"
@@ -1079,6 +1306,46 @@ Module {
             Parameter { name: "count"; type: "int" }
         }
         Method { name: "sync" }
+    }
+    Component {
+        file: "private/qqmlmodelindexvaluetype_p.h"
+        name: "QModelIndex"
+        accessSemantics: "value"
+        extension: "QQmlModelIndexValueType"
+    }
+    Component {
+        file: "private/qqmlmodelindexvaluetype_p.h"
+        name: "QQmlModelIndexValueType"
+        accessSemantics: "value"
+        Property { name: "row"; type: "int"; read: "row"; index: 0; isReadonly: true; isFinal: true }
+        Property { name: "column"; type: "int"; read: "column"; index: 1; isReadonly: true; isFinal: true }
+        Property {
+            name: "parent"
+            type: "QModelIndex"
+            read: "parent"
+            index: 2
+            isReadonly: true
+            isFinal: true
+        }
+        Property { name: "valid"; type: "bool"; read: "isValid"; index: 3; isReadonly: true; isFinal: true }
+        Property {
+            name: "model"
+            type: "QAbstractItemModel"
+            isPointer: true
+            read: "model"
+            index: 4
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "internalId"
+            type: "qulonglong"
+            read: "internalId"
+            index: 5
+            isReadonly: true
+            isFinal: true
+        }
+        Method { name: "toString"; type: "QString" }
     }
     Component {
         file: "private/qqmlobjectmodel_p.h"
@@ -1162,6 +1429,46 @@ Module {
             isReadonly: true
         }
         Signal { name: "indexChanged" }
+    }
+    Component {
+        file: "private/qqmlmodelindexvaluetype_p.h"
+        name: "QPersistentModelIndex"
+        accessSemantics: "value"
+        extension: "QQmlPersistentModelIndexValueType"
+    }
+    Component {
+        file: "private/qqmlmodelindexvaluetype_p.h"
+        name: "QQmlPersistentModelIndexValueType"
+        accessSemantics: "value"
+        Property { name: "row"; type: "int"; read: "row"; index: 0; isReadonly: true; isFinal: true }
+        Property { name: "column"; type: "int"; read: "column"; index: 1; isReadonly: true; isFinal: true }
+        Property {
+            name: "parent"
+            type: "QModelIndex"
+            read: "parent"
+            index: 2
+            isReadonly: true
+            isFinal: true
+        }
+        Property { name: "valid"; type: "bool"; read: "isValid"; index: 3; isReadonly: true; isFinal: true }
+        Property {
+            name: "model"
+            type: "QAbstractItemModel"
+            isPointer: true
+            read: "model"
+            index: 4
+            isReadonly: true
+            isFinal: true
+        }
+        Property {
+            name: "internalId"
+            type: "qulonglong"
+            read: "internalId"
+            index: 5
+            isReadonly: true
+            isFinal: true
+        }
+        Method { name: "toString"; type: "QString" }
     }
     Component {
         file: "private/qquickpackage_p.h"

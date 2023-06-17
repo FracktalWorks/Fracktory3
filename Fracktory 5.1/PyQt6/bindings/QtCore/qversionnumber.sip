@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -44,13 +44,28 @@ public:
     int microVersion() const;
     QVersionNumber normalized() const;
     QList<int> segments() const;
+%If (Qt_6_4_0 -)
+    int segmentAt(qsizetype index) const;
+%End
+%If (- Qt_6_4_0)
     int segmentAt(int index) const;
+%End
+%If (Qt_6_4_0 -)
+    qsizetype segmentCount() const;
+%End
+%If (- Qt_6_4_0)
     int segmentCount() const;
+%End
     bool isPrefixOf(const QVersionNumber &other) const;
     static int compare(const QVersionNumber &v1, const QVersionNumber &v2);
     static QVersionNumber commonPrefix(const QVersionNumber &v1, const QVersionNumber &v2);
     QString toString() const;
+%If (Qt_6_4_0 -)
+    static QVersionNumber fromString(QAnyStringView string, qsizetype *suffixIndex = 0);
+%End
+%If (- Qt_6_4_0)
     static QVersionNumber fromString(const QString &string, int *suffixIndex = 0);
+%End
     Py_hash_t __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);

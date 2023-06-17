@@ -1,42 +1,10 @@
-/****************************************************************************
-**
-** Copyright (C) 2021 The Qt Company Ltd.
-** Contact: http://www.qt.io/licensing/
-**
-** This file is part of the Qt Quick Dialogs module of the Qt Toolkit.
-**
-** $QT_BEGIN_LICENSE:LGPL3$
-** Commercial License Usage
-** Licensees holding valid commercial Qt licenses may use this file in
-** accordance with the commercial license agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and The Qt Company. For licensing terms
-** and conditions see http://www.qt.io/terms-conditions. For further
-** information use the contact form at http://www.qt.io/contact-us.
-**
-** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 3 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPLv3 included in the
-** packaging of this file. Please review the following information to
-** ensure the GNU Lesser General Public License version 3 requirements
-** will be met: https://www.gnu.org/licenses/lgpl.html.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 2.0 or later as published by the Free
-** Software Foundation and appearing in the file LICENSE.GPL included in
-** the packaging of this file. Please review the following information to
-** ensure the GNU General Public License version 2.0 requirements will be
-** met: http://www.gnu.org/licenses/gpl-2.0.html.
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
+// Copyright (C) 2021 The Qt Company Ltd.
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 
 import Qt.labs.folderlistmodel
 import QtQuick
 import QtQuick.Templates as T
+import QtQuick.Controls.impl
 import QtQuick.Controls.Imagine
 import QtQuick.Controls.Imagine.impl
 import QtQuick.Dialogs.quickimpl
@@ -75,6 +43,8 @@ FileDialogImpl {
     FileDialogImpl.nameFiltersComboBox: nameFiltersComboBox
     FileDialogImpl.fileDialogListView: fileDialogListView
     FileDialogImpl.breadcrumbBar: breadcrumbBar
+    FileDialogImpl.fileNameLabel: fileNameLabel
+    FileDialogImpl.fileNameTextField: fileNameTextField
 
     background: NinePatchImage {
         source: Imagine.url + "dialog-background"
@@ -116,7 +86,7 @@ FileDialogImpl {
 
         DialogsImpl.FolderBreadcrumbBar {
             id: breadcrumbBar
-            fileDialog: control
+            dialog: control
 
             Layout.leftMargin: 16
             Layout.rightMargin: 16
@@ -136,29 +106,54 @@ FileDialogImpl {
         model: FolderListModel {
             folder: control.currentFolder
             nameFilters: control.selectedNameFilter.globs
-            showDirsFirst: true
+            showDirsFirst: PlatformTheme.themeHint(PlatformTheme.ShowDirectoriesFirst)
             sortCaseSensitive: false
         }
         delegate: DialogsImpl.FileDialogDelegate {
             objectName: "fileDialogDelegate" + index
             width: ListView.view.width
             highlighted: ListView.isCurrentItem
-            fileDialog: control
+            dialog: control
             fileDetailRowWidth: nameFiltersComboBox.width
         }
     }
 
-    footer: RowLayout {
-        id: rowLayout
-        spacing: 20
+    footer: GridLayout {
+        columnSpacing: 20
+        columns: 3
+
+        Label {
+            id: fileNameLabel
+            text: qsTr("File name")
+            visible: false
+
+            Layout.leftMargin: 16
+        }
+
+        TextField {
+            id: fileNameTextField
+            objectName: "fileNameTextField"
+            text: control.fileName
+            visible: false
+
+            Layout.fillWidth: true
+        }
+
+        Label {
+            text: qsTr("Filter")
+
+            Layout.column: 0
+            Layout.row: 1
+            Layout.leftMargin: 16
+            Layout.bottomMargin: 16
+        }
 
         ComboBox {
             id: nameFiltersComboBox
             model: control.nameFilters
 
-            Layout.leftMargin: 16
-            Layout.bottomMargin: 16
             Layout.fillWidth: true
+            Layout.bottomMargin: 16
         }
 
         DialogButtonBox {
@@ -166,6 +161,9 @@ FileDialogImpl {
             standardButtons: control.standardButtons
             spacing: 12
 
+            Layout.row: 1
+            Layout.column: 2
+            Layout.columnSpan: 1
             Layout.bottomMargin: 16
             Layout.rightMargin: 16
         }

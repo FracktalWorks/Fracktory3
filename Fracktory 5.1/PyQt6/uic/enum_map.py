@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+# Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 # 
 # This file is part of PyQt6.
 # 
@@ -142,6 +142,11 @@ EnumMap = {
     'Qt::ScrollBarAlwaysOff':   'Qt::ScrollBarPolicy::ScrollBarAlwaysOff',
     'Qt::ScrollBarAlwaysOn':    'Qt::ScrollBarPolicy::ScrollBarAlwaysOn',
     'Qt::ScrollBarAsNeeded':    'Qt::ScrollBarPolicy::ScrollBarAsNeeded',
+
+    'Qt::ApplicationShortcut':          'Qt::ShortcutContext::ApplicationShortcut',
+    'Qt::WidgetShortcut':               'Qt::ShortcutContext::WidgetShortcut',
+    'Qt::WidgetWithChildrenShortcut':   'Qt::ShortcutContext::WidgetWithChildrenShortcut',
+    'Qt::WindowShortcut':               'Qt::ShortcutContext::WindowShortcut',
 
     'Qt::ElideLeft':    'Qt::TextElideMode::ElideLeft',
     'Qt::ElideRight':   'Qt::TextElideMode::ElideRight',

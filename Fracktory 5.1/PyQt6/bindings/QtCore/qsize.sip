@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -77,6 +77,9 @@ public:
     QSize transposed() const;
     QSize grownBy(QMargins m) const;
     QSize shrunkBy(QMargins m) const;
+%If (Qt_6_4_0 -)
+    QSizeF toSizeF() const;
+%End
 };
 
 QDataStream &operator<<(QDataStream &, const QSize &) /ReleaseGIL/;

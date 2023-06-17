@@ -2,7 +2,7 @@
 //
 // This file is part of the QtNetwork Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -168,5 +168,47 @@ public:
 %End
 %If (Qt_6_2_0 -)
     QLocalSocket::SocketOptions socketOptions() const;
+%End
+
+protected:
+%If (Qt_6_3_0 -)
+    virtual SIP_PYOBJECT readLineData(qint64 maxlen) /ReleaseGIL,TypeHint="bytes"/ [qint64 (char *data, qint64 maxSize)];
+%MethodCode
+        // Return the data read or None if there was an error.
+        if (a0 < 0)
+        {
+            PyErr_SetString(PyExc_ValueError, "maximum length of data to be read cannot be negative");
+            sipIsErr = 1;
+        }
+        else
+        {
+            char *s = new char[a0];
+            qint64 len;
+        
+            Py_BEGIN_ALLOW_THREADS
+        #if defined(SIP_PROTECTED_IS_PUBLIC)
+            len = sipSelfWasArg ? sipCpp->QLocalSocket::readLineData(s, a0) : sipCpp->readLineData(s, a0);
+        #else
+            len = sipCpp->sipProtectVirt_readLineData(sipSelfWasArg, s, a0);
+        #endif
+            Py_END_ALLOW_THREADS
+        
+            if (len < 0)
+            {
+                Py_INCREF(Py_None);
+                sipRes = Py_None;
+            }
+            else
+            {
+                sipRes = PyBytes_FromStringAndSize(s, len);
+        
+                if (!sipRes)
+                    sipIsErr = 1;
+            }
+        
+            delete[] s;
+        }
+%End
+
 %End
 };

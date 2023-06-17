@@ -335,9 +335,10 @@ Module {
             "QtPositioning/Position 5.0",
             "QtPositioning/Position 5.1",
             "QtPositioning/Position 5.2",
-            "QtPositioning/Position 6.0"
+            "QtPositioning/Position 6.0",
+            "QtPositioning/Position 6.3"
         ]
-        exportMetaObjectRevisions: [1280, 1281, 1282, 1536]
+        exportMetaObjectRevisions: [1280, 1281, 1282, 1536, 1539]
         Property {
             name: "latitudeValid"
             type: "bool"
@@ -478,6 +479,24 @@ Module {
             bindable: "bindableMagneticVariationValid"
             read: "isMagneticVariationValid"
             index: 16
+            isReadonly: true
+        }
+        Property {
+            name: "directionAccuracy"
+            revision: 1539
+            type: "double"
+            bindable: "bindableDirectionAccuracy"
+            read: "directionAccuracy"
+            index: 17
+            isReadonly: true
+        }
+        Property {
+            name: "directionAccuracyValid"
+            revision: 1539
+            type: "bool"
+            bindable: "bindableDirectionAccuracyValid"
+            read: "isDirectionAccuracyValid"
+            index: 18
             isReadonly: true
         }
     }
@@ -821,7 +840,8 @@ Module {
         Property {
             name: "perimeter"
             revision: 1292
-            type: "QList<QGeoCoordinate>"
+            type: "QGeoCoordinate"
+            isList: true
             read: "perimeter"
             write: "setPerimeter"
             index: 0

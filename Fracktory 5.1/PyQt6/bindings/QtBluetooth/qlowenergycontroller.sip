@@ -2,7 +2,7 @@
 //
 // This file is part of the QtBluetooth Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -40,6 +40,9 @@ public:
         AdvertisingError,
         RemoteHostClosedError,
         AuthorizationError,
+%If (Qt_6_4_0 -)
+        MissingPermissionsError,
+%End
     };
 
     enum ControllerState

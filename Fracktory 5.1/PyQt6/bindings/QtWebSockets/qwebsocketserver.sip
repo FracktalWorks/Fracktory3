@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWebSockets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -88,6 +88,12 @@ signals:
 public:
     void setHandshakeTimeout(int msec);
     int handshakeTimeoutMS() const;
+%If (Qt_6_4_0 -)
+    void setSupportedSubprotocols(const QStringList &protocols);
+%End
+%If (Qt_6_4_0 -)
+    QStringList supportedSubprotocols() const;
+%End
 };
 
 %End

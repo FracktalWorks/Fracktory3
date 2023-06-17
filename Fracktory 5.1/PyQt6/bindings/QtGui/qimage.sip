@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -19,6 +19,13 @@
 // This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
+
+%If (Windows)
+typedef struct HBITMAP__ *HBITMAP;
+%End
+%If (Windows)
+typedef struct HICON__ *HICON;
+%End
 
 class QImage : QPaintDevice
 {
@@ -218,6 +225,18 @@ public:
     QImage::Format format() const;
     QImage convertToFormat(QImage::Format f, Qt::ImageConversionFlags flags = Qt::AutoColor) const;
     QImage convertToFormat(QImage::Format f, const QList<unsigned int> &colorTable, Qt::ImageConversionFlags flags = Qt::AutoColor) const;
+%If (Windows)
+    HBITMAP toHBITMAP() const;
+%End
+%If (Windows)
+    static QImage fromHBITMAP(HBITMAP hbitmap);
+%End
+%If (Windows)
+    HICON toHICON(const QImage &mask = {}) const;
+%End
+%If (Windows)
+    static QImage fromHICON(HICON hicon);
+%End
     int width() const;
     int height() const;
     QSize size() const;
@@ -304,6 +323,9 @@ public:
     void applyColorTransform(const QColorTransform &transform);
 %If (Qt_6_2_0 -)
     QSizeF deviceIndependentSize() const;
+%End
+%If (Qt_6_4_0 -)
+    QImage colorTransformed(const QColorTransform &transform) const;
 %End
 };
 

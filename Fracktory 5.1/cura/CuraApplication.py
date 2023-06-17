@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Ultimaker B.V.
+# Copyright (c) 2023 UltiMaker
 # Cura is released under the terms of the LGPLv3 or higher.
 import enum
 import os
@@ -115,6 +115,8 @@ from . import CuraActions
 from . import PlatformPhysics
 from . import PrintJobPreviewImageProvider
 from .AutoSave import AutoSave
+from .Machines.Models.CompatibleMachineModel import CompatibleMachineModel
+from .Machines.Models.MachineListModel import MachineListModel
 from .Machines.Models.ActiveIntentQualitiesModel import ActiveIntentQualitiesModel
 from .Machines.Models.IntentSelectionModel import IntentSelectionModel
 from .SingleInstance import SingleInstance
@@ -128,7 +130,7 @@ class CuraApplication(QtApplication):
     # SettingVersion represents the set of settings available in the machine/extruder definitions.
     # You need to make sure that this version number needs to be increased if there is any non-backwards-compatible
     # changes of the settings.
-    SettingVersion = 20
+    SettingVersion = 22
 
     Created = False
 
@@ -145,6 +147,7 @@ class CuraApplication(QtApplication):
         DefinitionChangesContainer = Resources.UserType + 10
         SettingVisibilityPreset = Resources.UserType + 11
         IntentInstanceContainer = Resources.UserType + 12
+        ImageFiles = Resources.UserType + 13
 
     pyqtEnum(ResourceTypes)
 
@@ -152,6 +155,7 @@ class CuraApplication(QtApplication):
         super().__init__(name = ApplicationMetadata.CuraAppName,
                          app_display_name = ApplicationMetadata.CuraAppDisplayName,
                          version = ApplicationMetadata.CuraVersion if not ApplicationMetadata.IsAlternateVersion else ApplicationMetadata.CuraBuildType,
+                         latest_url = ApplicationMetadata.CuraLatestURL,
                          api_version = ApplicationMetadata.CuraSDKVersion,
                          build_type = ApplicationMetadata.CuraBuildType,
                          is_debug_mode = ApplicationMetadata.CuraDebugMode,
@@ -404,6 +408,7 @@ class CuraApplication(QtApplication):
 
         SettingFunction.registerOperator("extruderValue", self._cura_formula_functions.getValueInExtruder)
         SettingFunction.registerOperator("extruderValues", self._cura_formula_functions.getValuesInAllExtruders)
+        SettingFunction.registerOperator("anyExtruderNrWithOrDefault", self._cura_formula_functions.getAnyExtruderPositionWithOrDefault)
         SettingFunction.registerOperator("resolveOrValue", self._cura_formula_functions.getResolveOrValue)
         SettingFunction.registerOperator("defaultExtruderPosition", self._cura_formula_functions.getDefaultExtruderPosition)
         SettingFunction.registerOperator("valueFromContainer", self._cura_formula_functions.getValueFromContainerAtIndex)
@@ -422,6 +427,7 @@ class CuraApplication(QtApplication):
         Resources.addStorageType(self.ResourceTypes.DefinitionChangesContainer, "definition_changes")
         Resources.addStorageType(self.ResourceTypes.SettingVisibilityPreset, "setting_visibility")
         Resources.addStorageType(self.ResourceTypes.IntentInstanceContainer, "intent")
+        Resources.addStorageType(self.ResourceTypes.ImageFiles, "images")
 
         self._container_registry.addResourceType(self.ResourceTypes.QualityInstanceContainer, "quality")
         self._container_registry.addResourceType(self.ResourceTypes.QualityChangesInstanceContainer, "quality_changes")
@@ -432,6 +438,7 @@ class CuraApplication(QtApplication):
         self._container_registry.addResourceType(self.ResourceTypes.MachineStack, "machine")
         self._container_registry.addResourceType(self.ResourceTypes.DefinitionChangesContainer, "definition_changes")
         self._container_registry.addResourceType(self.ResourceTypes.IntentInstanceContainer, "intent")
+        self._container_registry.addResourceType(self.ResourceTypes.ImageFiles, "images")
 
         Resources.addType(self.ResourceTypes.QmlFiles, "qml")
         Resources.addType(self.ResourceTypes.Firmware, "firmware")
@@ -706,6 +713,7 @@ class CuraApplication(QtApplication):
         self.showMessageBox.emit(title, text, informativeText, detailedText, buttons, icon)
 
     showDiscardOrKeepProfileChanges = pyqtSignal()
+    showCompareAndSaveProfileChanges = pyqtSignal(int)
 
     def discardOrKeepProfileChanges(self) -> bool:
         has_user_interaction = False
@@ -819,6 +827,12 @@ class CuraApplication(QtApplication):
 
     def run(self):
         super().run()
+
+        if len(ApplicationMetadata.DEPENDENCY_INFO) > 0:
+            Logger.debug("Using Conan managed dependencies: " + ", ".join(
+                [dep["recipe"]["id"] for dep in ApplicationMetadata.DEPENDENCY_INFO["installed"] if dep["recipe"]["version"] != "latest"]))
+        else:
+            Logger.warning("Could not find conan_install_info.json")
 
         Logger.log("i", "Initializing machine error checker")
         self._machine_error_checker = MachineErrorChecker(self)
@@ -1182,6 +1196,8 @@ class CuraApplication(QtApplication):
         qmlRegisterType(InstanceContainer, "Cura", 1, 0, "InstanceContainer")
         qmlRegisterType(ExtrudersModel, "Cura", 1, 0, "ExtrudersModel")
         qmlRegisterType(GlobalStacksModel, "Cura", 1, 0, "GlobalStacksModel")
+        qmlRegisterType(MachineListModel, "Cura", 1, 0, "MachineListModel")
+        qmlRegisterType(CompatibleMachineModel, "Cura", 1, 0, "CompatibleMachineModel")
 
         self.processEvents()
         qmlRegisterType(FavoriteMaterialsModel, "Cura", 1, 0, "FavoriteMaterialsModel")
@@ -1436,7 +1452,7 @@ class CuraApplication(QtApplication):
                 bounding_box = node.getBoundingBox()
                 if bounding_box is None or bounding_box.width < self._volume.getBoundingBox().width or bounding_box.depth < self._volume.getBoundingBox().depth:
                     # Arrange only the unlocked nodes and keep the locked ones in place
-                    if UM.Util.parseBool(node.getSetting(SceneNodeSettings.LockPosition)):
+                    if node.getSetting(SceneNodeSettings.LockPosition):
                         locked_nodes.append(node)
                     else:
                         nodes_to_arrange.append(node)
@@ -2064,3 +2080,7 @@ class CuraApplication(QtApplication):
     @classmethod
     def getInstance(cls, *args, **kwargs) -> "CuraApplication":
         return cast(CuraApplication, super().getInstance(**kwargs))
+
+    @pyqtProperty(bool, constant=True)
+    def isEnterprise(self) -> bool:
+        return ApplicationMetadata.IsEnterpriseVersion

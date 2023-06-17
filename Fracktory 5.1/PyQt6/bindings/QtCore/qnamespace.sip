@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -123,7 +123,7 @@ namespace Qt
 
     typedef QFlags<Qt::Orientation> Orientations;
 
-    enum FocusPolicy /BaseType=Flag/
+    enum FocusPolicy /BaseType=IntFlag/
     {
         NoFocus,
         TabFocus,

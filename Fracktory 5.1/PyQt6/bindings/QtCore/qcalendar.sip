@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -57,12 +57,17 @@ public:
 
     QCalendar();
     explicit QCalendar(QCalendar::System system);
+%If (Qt_6_4_0 -)
+    explicit QCalendar(QAnyStringView name);
+%End
+%If (- Qt_6_4_0)
     explicit QCalendar(const char *name /Encoding="Latin-1"/) [(QLatin1String name)];
 %MethodCode
         // This is currently the only occurence of a QLatin1String argument.
         sipCpp = new QCalendar(QLatin1String(a0));
 %End
 
+%End
     int daysInMonth(int month, int year = QCalendar::Unspecified) const;
     int daysInYear(int year) const;
     int monthsInYear(int year) const;

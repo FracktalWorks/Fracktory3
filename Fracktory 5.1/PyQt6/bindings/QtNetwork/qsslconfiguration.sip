@@ -2,7 +2,7 @@
 //
 // This file is part of the QtNetwork Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -99,6 +99,26 @@ public:
     bool missingCertificateIsFatal() const;
     void setMissingCertificateIsFatal(bool cannotRecover);
     static const char *NextProtocolHttp1_1 /Encoding="None",NoSetter/;
+%If (Qt_6_3_0 -)
+%If (PyQt_DTLS)
+    bool dtlsCookieVerificationEnabled() const;
+%End
+%End
+%If (Qt_6_3_0 -)
+%If (PyQt_DTLS)
+    void setDtlsCookieVerificationEnabled(bool enable);
+%End
+%End
+%If (Qt_6_3_0 -)
+%If (PyQt_DTLS)
+    static QSslConfiguration defaultDtlsConfiguration();
+%End
+%End
+%If (Qt_6_3_0 -)
+%If (PyQt_DTLS)
+    static void setDefaultDtlsConfiguration(const QSslConfiguration &configuration);
+%End
+%End
 };
 
 %End

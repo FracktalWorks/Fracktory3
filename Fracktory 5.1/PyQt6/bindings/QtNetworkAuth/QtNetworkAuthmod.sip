@@ -2,7 +2,7 @@
 //
 // This file is part of the QtNetworkAuth Python extension module.
 //
-// Copyright (c) 2021 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6-NetworkAuth.
 // 
@@ -25,10 +25,10 @@
 %Import QtCore/QtCoremod.sip
 %Import QtNetwork/QtNetworkmod.sip
 
-%Timeline {QtNetworkAuth_6_0_0}
+%Timeline {QtNetworkAuth_6_0_0 QtNetworkAuth_6_1_0 QtNetworkAuth_6_2_0 QtNetworkAuth_6_3_0 QtNetworkAuth_6_4_0}
 
 %Copying
-Copyright (c) 2021 Riverbank Computing Limited <info@riverbankcomputing.com>
+Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
 
 This file is part of PyQt6-NetworkAuth.
 
@@ -52,8 +52,8 @@ int PYQT_NETWORKAUTH_VERSION;
 const char *PYQT_NETWORKAUTH_VERSION_STR;
 
 %ModuleCode
-static int PYQT_NETWORKAUTH_VERSION = 0x060200;
-static const char *PYQT_NETWORKAUTH_VERSION_STR = "6.2.0";
+static int PYQT_NETWORKAUTH_VERSION = 0x060400;
+static const char *PYQT_NETWORKAUTH_VERSION_STR = "6.4.0";
 %End
 
 %Include qabstractoauth.sip

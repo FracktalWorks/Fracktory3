@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -34,4 +34,14 @@ public:
     QRgb map(QRgb argb) const;
     QRgba64 map(QRgba64 rgba64) const;
     QColor map(const QColor &color) const;
+%If (Qt_6_4_0 -)
+    bool isIdentity() const;
+%End
 };
+
+%If (Qt_6_4_0 -)
+bool operator==(const QColorTransform &ct1, const QColorTransform &ct2);
+%End
+%If (Qt_6_4_0 -)
+bool operator!=(const QColorTransform &ct1, const QColorTransform &ct2);
+%End

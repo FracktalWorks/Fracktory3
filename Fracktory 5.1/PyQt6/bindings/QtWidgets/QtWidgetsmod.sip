@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -26,7 +26,7 @@
 %Import QtGui/QtGuimod.sip
 
 %Copying
-Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 
 This file is part of PyQt6.
 
@@ -157,4 +157,5 @@ WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 %Include qwidget.sip
 %Include qwidgetaction.sip
 %Include qwizard.sip
+%Include qfilesystemmodel.sip
 %Include qpywidgets_qlist.sip

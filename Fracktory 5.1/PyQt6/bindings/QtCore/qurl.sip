@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -134,8 +134,18 @@ public:
     bool hasQuery() const;
     bool hasFragment() const;
     QString errorString() const;
+%If (Qt_6_3_0 -)
+    static QString fromAce(const QByteArray &domain, QUrl::AceProcessingOptions options = {});
+%End
+%If (- Qt_6_3_0)
     static QString fromAce(const QByteArray &);
+%End
+%If (Qt_6_3_0 -)
+    static QByteArray toAce(const QString &domain, QUrl::AceProcessingOptions options = {});
+%End
+%If (- Qt_6_3_0)
     static QByteArray toAce(const QString &);
+%End
     static QStringList idnWhitelist();
     static void setIdnWhitelist(const QStringList &);
     static QUrl fromUserInput(const QString &userInput, const QString &workingDirectory = QString(), QUrl::UserInputResolutionOptions options = QUrl::DefaultResolution);
@@ -159,6 +169,18 @@ public:
     };
 
     typedef QFlags<QUrl::UserInputResolutionOption> UserInputResolutionOptions;
+%If (Qt_6_3_0 -)
+
+    enum AceProcessingOption /BaseType=Flag/
+    {
+        IgnoreIDNWhitelist,
+        AceTransitionalProcessing,
+    };
+
+%End
+%If (Qt_6_3_0 -)
+    typedef QFlags<QUrl::AceProcessingOption> AceProcessingOptions;
+%End
 };
 
 QDataStream &operator<<(QDataStream &, const QUrl &) /ReleaseGIL/;

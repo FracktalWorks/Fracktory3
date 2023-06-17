@@ -1,31 +1,5 @@
-﻿/****************************************************************************
-**
-** Copyright (C) 2019 The Qt Company Ltd.
-** Contact: https://www.qt.io/licensing/
-**
-** This file is part of Qt Quick 3D.
-**
-** $QT_BEGIN_LICENSE:GPL$
-** Commercial License Usage
-** Licensees holding valid commercial Qt licenses may use this file in
-** accordance with the commercial license agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and The Qt Company. For licensing terms
-** and conditions see https://www.qt.io/terms-conditions. For further
-** information use the contact form at https://www.qt.io/contact-us.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3 or (at your option) any later version
-** approved by the KDE Free Qt Foundation. The licenses are as published by
-** the Free Software Foundation and appearing in the file LICENSE.GPL3
-** included in the packaging of this file. Please review the following
-** information to ensure the GNU General Public License requirements will
-** be met: https://www.gnu.org/licenses/gpl-3.0.html.
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
+// Copyright (C) 2019 The Qt Company Ltd.
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 
 import QtQuick
 import QtQuick3D
@@ -231,20 +205,10 @@ Item {
         }
     }
 
-    Timer {
+    FrameAnimation {
         id: updateTimer
-        interval: 16
-        repeat: true
         running: root.inputsNeedProcessing
-        onTriggered: {
-            processInputs();
-        }
-    }
-
-    function processInputs()
-    {
-        if (root.inputsNeedProcessing)
-            status.processInput();
+        onTriggered: status.processInput(frameTime * 100)
     }
 
     QtObject {
@@ -282,22 +246,22 @@ Item {
             return Qt.vector3d(-vector.x, -vector.y, -vector.z)
         }
 
-        function processInput() {
+        function processInput(frameDelta) {
             if (controlledObject == undefined)
                 return;
 
             if (moveForward)
-                updatePosition(controlledObject.forward, forwardSpeed, controlledObject.position);
+                updatePosition(controlledObject.forward, forwardSpeed * frameDelta, controlledObject.position);
             else if (moveBack)
-                updatePosition(negate(controlledObject.forward), backSpeed, controlledObject.position);
+                updatePosition(negate(controlledObject.forward), backSpeed * frameDelta, controlledObject.position);
 
             if (moveRight)
-                updatePosition(controlledObject.right, rightSpeed, controlledObject.position);
+                updatePosition(controlledObject.right, rightSpeed * frameDelta, controlledObject.position);
             else if (moveLeft)
-                updatePosition(negate(controlledObject.right), leftSpeed, controlledObject.position);
+                updatePosition(negate(controlledObject.right), leftSpeed * frameDelta, controlledObject.position);
 
             if (moveDown)
-                updatePosition(negate(controlledObject.up), downSpeed, controlledObject.position);
+                updatePosition(negate(controlledObject.up), downSpeed * frameDelta, controlledObject.position);
             else if (moveUp)
                 updatePosition(controlledObject.up, upSpeed, controlledObject.position);
 
@@ -307,13 +271,13 @@ Item {
                 var delta = Qt.vector2d(lastPos.x - currentPos.x,
                                         lastPos.y - currentPos.y);
                 // rotate x
-                var rotateX = delta.x * xSpeed
+                var rotateX = delta.x * xSpeed * frameDelta
                 if (xInvert)
                     rotateX = -rotateX;
                 rotationVector.y += rotateX;
 
                 // rotate y
-                var rotateY = delta.y * -ySpeed
+                var rotateY = delta.y * -ySpeed * frameDelta
                 if (yInvert)
                     rotateY = -rotateY;
                 rotationVector.x += rotateY;

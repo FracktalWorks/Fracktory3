@@ -1,38 +1,5 @@
-/****************************************************************************
-**
-** Copyright (C) 2021 The Qt Company Ltd.
-** Contact: http://www.qt.io/licensing/
-**
-** This file is part of the Qt Quick Dialogs module of the Qt Toolkit.
-**
-** $QT_BEGIN_LICENSE:LGPL3$
-** Commercial License Usage
-** Licensees holding valid commercial Qt licenses may use this file in
-** accordance with the commercial license agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and The Qt Company. For licensing terms
-** and conditions see http://www.qt.io/terms-conditions. For further
-** information use the contact form at http://www.qt.io/contact-us.
-**
-** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 3 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPLv3 included in the
-** packaging of this file. Please review the following information to
-** ensure the GNU Lesser General Public License version 3 requirements
-** will be met: https://www.gnu.org/licenses/lgpl.html.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 2.0 or later as published by the Free
-** Software Foundation and appearing in the file LICENSE.GPL included in
-** the packaging of this file. Please review the following information to
-** ensure the GNU General Public License version 2.0 requirements will be
-** met: http://www.gnu.org/licenses/gpl-2.0.html.
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
+// Copyright (C) 2021 The Qt Company Ltd.
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 
 import Qt.labs.folderlistmodel
 import QtQuick
@@ -79,6 +46,8 @@ FileDialogImpl {
     FileDialogImpl.nameFiltersComboBox: nameFiltersComboBox
     FileDialogImpl.fileDialogListView: fileDialogListView
     FileDialogImpl.breadcrumbBar: breadcrumbBar
+    FileDialogImpl.fileNameLabel: fileNameLabel
+    FileDialogImpl.fileNameTextField: fileNameTextField
 
     background: Rectangle {
         implicitWidth: 600
@@ -107,7 +76,7 @@ FileDialogImpl {
             DialogsImpl.FolderBreadcrumbBar {
                 id: breadcrumbBar
                 width: parent.width
-                fileDialog: control
+                dialog: control
 
                 KeyNavigation.tab: fileDialogListView
             }
@@ -126,14 +95,14 @@ FileDialogImpl {
         model: FolderListModel {
             folder: control.currentFolder
             nameFilters: control.selectedNameFilter.globs
-            showDirsFirst: true
+            showDirsFirst: PlatformTheme.themeHint(PlatformTheme.ShowDirectoriesFirst)
             sortCaseSensitive: false
         }
         delegate: DialogsImpl.FileDialogDelegate {
             objectName: "fileDialogDelegate" + index
             width: ListView.view.width
             highlighted: ListView.isCurrentItem
-            fileDialog: control
+            dialog: control
             fileDetailRowWidth: nameFiltersComboBox.width
 
             KeyNavigation.backtab: breadcrumbBar
@@ -143,21 +112,48 @@ FileDialogImpl {
 
     footer: Rectangle {
         color: control.palette.light
-        implicitWidth: rowLayout.implicitWidth
-        implicitHeight: rowLayout.implicitHeight
+        implicitWidth: gridLayout.implicitWidth
+        implicitHeight: gridLayout.implicitHeight + 12
 
-        RowLayout {
-            id: rowLayout
-            width: parent.width
-            height: parent.height
-            spacing: 20
+        GridLayout {
+            // OK to use IDs here, since users shouldn't be overriding this stuff.
+            id: gridLayout
+            anchors.fill: parent
+            anchors.topMargin: 6
+            anchors.bottomMargin: 6
+            columnSpacing: 20
+            columns: 3
 
-            ComboBox {
-                // OK to use IDs here, since users shouldn't be overriding this stuff.
-                id: nameFiltersComboBox
-                model: control.nameFilters
+            Label {
+                id: fileNameLabel
+                text: qsTr("File name")
+                visible: false
 
                 Layout.leftMargin: 20
+            }
+
+            TextField {
+                id: fileNameTextField
+                objectName: "fileNameTextField"
+                text: control.fileName
+                visible: false
+
+                Layout.fillWidth: true
+            }
+
+            Label {
+                text: qsTr("Filter")
+
+                Layout.row: 1
+                Layout.column: 0
+                Layout.leftMargin: 20
+            }
+
+            ComboBox {
+                id: nameFiltersComboBox
+                model: control.nameFilters
+                verticalPadding: 0
+
                 Layout.fillWidth: true
             }
 
@@ -166,9 +162,10 @@ FileDialogImpl {
                 standardButtons: control.standardButtons
                 palette.window: control.palette.light
                 spacing: 12
-                horizontalPadding: 0
-                verticalPadding: 20
+                padding: 0
 
+                Layout.row: 1
+                Layout.column: 2
                 Layout.rightMargin: 20
             }
         }

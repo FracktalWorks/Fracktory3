@@ -2,7 +2,7 @@
 //
 // This file is part of the QtMultimedia Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -68,6 +68,12 @@ public:
         ChannelConfigSurround5Dot1,
         ChannelConfigSurround7Dot0,
         ChannelConfigSurround7Dot1,
+%If (Qt_6_4_0 -)
+        ChannelConfig3Dot0,
+%End
+%If (Qt_6_4_0 -)
+        ChannelConfig3Dot1,
+%End
     };
 
     enum SampleFormat
@@ -98,6 +104,9 @@ public:
     QAudioFormat::SampleFormat sampleFormat() const;
     int bytesPerSample() const;
     float normalizedSampleValue(const void *sample) const;
+%If (Qt_6_4_0 -)
+    static QAudioFormat::ChannelConfig defaultChannelConfigForChannelCount(int channelCount);
+%End
 };
 
 %End

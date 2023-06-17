@@ -4,7 +4,7 @@ Charon-1.0.dist-info/METADATA,sha256=aLrTP5UG0t4uj9P0nYXRcwiLC2VvyRkhTnD1Z7O6zIY
 Charon-1.0.dist-info/RECORD,,
 Charon-1.0.dist-info/REQUESTED,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
 Charon-1.0.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
-Charon-1.0.dist-info/direct_url.json,sha256=peMU9_7cgEMKB4e4uxoFj_24SZzBzL-8RiM9VbbjtoY,166
+Charon-1.0.dist-info/direct_url.json,sha256=6fNRy8DFV9Dt0nczqJda_itwU5mcDwnN6Rt8I-Bh-90,173
 Charon-1.0.dist-info/top_level.txt,sha256=z7l7UE_1H-XlgQGy5JlthY9AZM-bPYnzbeIgoXTtZrg,7
 Charon/Client/DBusInterface.py,sha256=75SHAHAxghDUxIh-rR8K-bu1j2u7CGJDUMpTGio8oLA,12327
 Charon/Client/Request.py,sha256=DQPGICgkFTL35Ul3rSsJMUmxXao4iueU1iSoKwN4cXs,6864

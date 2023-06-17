@@ -32,7 +32,7 @@ Module {
             name: "dataChanged"
             Parameter { name: "topLeft"; type: "QModelIndex" }
             Parameter { name: "bottomRight"; type: "QModelIndex" }
-            Parameter { name: "roles"; type: "QList<int>" }
+            Parameter { name: "roles"; type: "int"; isList: true }
         }
         Signal {
             name: "dataChanged"
@@ -47,22 +47,22 @@ Module {
         }
         Signal {
             name: "layoutChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
             Parameter { name: "hint"; type: "QAbstractItemModel::LayoutChangeHint" }
         }
         Signal {
             name: "layoutChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
         }
         Signal { name: "layoutChanged" }
         Signal {
             name: "layoutAboutToBeChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
             Parameter { name: "hint"; type: "QAbstractItemModel::LayoutChangeHint" }
         }
         Signal {
             name: "layoutAboutToBeChanged"
-            Parameter { name: "parents"; type: "QList<QPersistentModelIndex>" }
+            Parameter { name: "parents"; type: "QPersistentModelIndex"; isList: true }
         }
         Signal { name: "layoutAboutToBeChanged" }
         Signal {
@@ -125,11 +125,11 @@ Module {
         }
         Signal {
             name: "rowsMoved"
-            Parameter { name: "parent"; type: "QModelIndex" }
-            Parameter { name: "start"; type: "int" }
-            Parameter { name: "end"; type: "int" }
-            Parameter { name: "destination"; type: "QModelIndex" }
-            Parameter { name: "row"; type: "int" }
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceStart"; type: "int" }
+            Parameter { name: "sourceEnd"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationRow"; type: "int" }
         }
         Signal {
             name: "columnsAboutToBeMoved"
@@ -141,11 +141,11 @@ Module {
         }
         Signal {
             name: "columnsMoved"
-            Parameter { name: "parent"; type: "QModelIndex" }
-            Parameter { name: "start"; type: "int" }
-            Parameter { name: "end"; type: "int" }
-            Parameter { name: "destination"; type: "QModelIndex" }
-            Parameter { name: "column"; type: "int" }
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceStart"; type: "int" }
+            Parameter { name: "sourceEnd"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationColumn"; type: "int" }
         }
         Method { name: "submit"; type: "bool" }
         Method { name: "revert" }
@@ -244,6 +244,156 @@ Module {
             Parameter { name: "orientation"; type: "Qt::Orientation" }
         }
         Method {
+            name: "insertRows"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "insertRows"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+        }
+        Method {
+            name: "insertColumns"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "insertColumns"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+        }
+        Method {
+            name: "removeRows"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "removeRows"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+        }
+        Method {
+            name: "removeColumns"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "removeColumns"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+        }
+        Method {
+            name: "moveRows"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceRow"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationChild"; type: "int" }
+        }
+        Method {
+            name: "moveColumns"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceColumn"; type: "int" }
+            Parameter { name: "count"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationChild"; type: "int" }
+        }
+        Method {
+            name: "insertRow"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "insertRow"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+        }
+        Method {
+            name: "insertColumn"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "insertColumn"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+        }
+        Method {
+            name: "removeRow"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "removeRow"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "row"; type: "int" }
+        }
+        Method {
+            name: "removeColumn"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "parent"; type: "QModelIndex" }
+        }
+        Method {
+            name: "removeColumn"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "column"; type: "int" }
+        }
+        Method {
+            name: "moveRow"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceRow"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationChild"; type: "int" }
+        }
+        Method {
+            name: "moveColumn"
+            revision: 1540
+            type: "bool"
+            Parameter { name: "sourceParent"; type: "QModelIndex" }
+            Parameter { name: "sourceColumn"; type: "int" }
+            Parameter { name: "destinationParent"; type: "QModelIndex" }
+            Parameter { name: "destinationChild"; type: "int" }
+        }
+        Method {
             name: "fetchMore"
             Parameter { name: "parent"; type: "QModelIndex" }
         }
@@ -256,6 +406,17 @@ Module {
             name: "flags"
             type: "Qt::ItemFlags"
             Parameter { name: "index"; type: "QModelIndex" }
+        }
+        Method {
+            name: "sort"
+            revision: 1540
+            Parameter { name: "column"; type: "int" }
+            Parameter { name: "order"; type: "Qt::SortOrder" }
+        }
+        Method {
+            name: "sort"
+            revision: 1540
+            Parameter { name: "column"; type: "int" }
         }
         Method {
             name: "match"
@@ -295,8 +456,11 @@ Module {
         defaultProperty: "roles"
         prototype: "QAbstractListModel"
         interfaces: ["QQmlParserStatus"]
-        exports: ["QtQml.XmlListModel/XmlListModel 6.0"]
-        exportMetaObjectRevisions: [1536]
+        exports: [
+            "QtQml.XmlListModel/XmlListModel 6.0",
+            "QtQml.XmlListModel/XmlListModel 6.4"
+        ]
+        exportMetaObjectRevisions: [1536, 1540]
         Enum {
             name: "Status"
             values: ["Null", "Ready", "Loading", "Error"]

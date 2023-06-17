@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -19,6 +19,98 @@
 // This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
 // WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
+
+%If (Qt_6_3_0 -)
+
+class QOperatingSystemVersionBase
+{
+%TypeHeaderCode
+#include <qoperatingsystemversion.h>
+%End
+
+protected:
+    QOperatingSystemVersionBase();
+};
+
+%End
+%If (Qt_6_3_0 -)
+
+class QOperatingSystemVersion : QOperatingSystemVersionBase
+{
+%TypeHeaderCode
+#include <qoperatingsystemversion.h>
+%End
+
+public:
+    enum OSType
+    {
+        Unknown,
+        Windows,
+        MacOS,
+        IOS,
+        TvOS,
+        WatchOS,
+        Android,
+    };
+
+    static const QOperatingSystemVersion Windows7;
+    static const QOperatingSystemVersion Windows8;
+    static const QOperatingSystemVersion Windows8_1;
+    static const QOperatingSystemVersion Windows10;
+    static const QOperatingSystemVersion OSXMavericks;
+    static const QOperatingSystemVersion OSXYosemite;
+    static const QOperatingSystemVersion OSXElCapitan;
+    static const QOperatingSystemVersion MacOSSierra;
+    static const QOperatingSystemVersion MacOSHighSierra;
+    static const QOperatingSystemVersion MacOSMojave;
+    static const QOperatingSystemVersion MacOSCatalina;
+    static const QOperatingSystemVersion MacOSBigSur;
+    static const QOperatingSystemVersion MacOSMonterey;
+    static const QOperatingSystemVersion AndroidJellyBean;
+    static const QOperatingSystemVersion AndroidJellyBean_MR1;
+    static const QOperatingSystemVersion AndroidJellyBean_MR2;
+    static const QOperatingSystemVersion AndroidKitKat;
+    static const QOperatingSystemVersion AndroidLollipop;
+    static const QOperatingSystemVersion AndroidLollipop_MR1;
+    static const QOperatingSystemVersion AndroidMarshmallow;
+    static const QOperatingSystemVersion AndroidNougat;
+    static const QOperatingSystemVersion AndroidNougat_MR1;
+    static const QOperatingSystemVersion AndroidOreo;
+    static const QOperatingSystemVersion AndroidOreo_MR1;
+    static const QOperatingSystemVersion AndroidPie;
+    static const QOperatingSystemVersion Android10;
+    static const QOperatingSystemVersion Android11;
+    static const QOperatingSystemVersionBase Windows10_1809;
+    static const QOperatingSystemVersionBase Windows10_1903;
+    static const QOperatingSystemVersionBase Windows10_1909;
+    static const QOperatingSystemVersionBase Windows10_2004;
+    static const QOperatingSystemVersionBase Windows10_20H2;
+    static const QOperatingSystemVersionBase Windows10_21H1;
+    static const QOperatingSystemVersionBase Windows10_21H2;
+    static const QOperatingSystemVersionBase Windows11;
+%If (Qt_6_4_0 -)
+    static const QOperatingSystemVersionBase Windows11_21H2;
+%End
+%If (Qt_6_4_0 -)
+    static const QOperatingSystemVersionBase Windows11_22H2;
+%End
+    QOperatingSystemVersion(QOperatingSystemVersion::OSType osType, int vmajor, int vminor = -1, int vmicro = -1);
+    static QOperatingSystemVersion current();
+    static QOperatingSystemVersion::OSType currentType();
+    QVersionNumber version() const;
+    int majorVersion() const;
+    int minorVersion() const;
+    int microVersion() const;
+    int segmentCount() const;
+    QOperatingSystemVersion::OSType type() const;
+    QString name() const;
+
+private:
+    QOperatingSystemVersion();
+};
+
+%End
+%If (- Qt_6_3_0)
 
 class QOperatingSystemVersion
 {
@@ -89,7 +181,28 @@ private:
     QOperatingSystemVersion();
 };
 
+%End
+%If (Qt_6_3_0 -)
+bool operator>(QOperatingSystemVersionBase lhs, QOperatingSystemVersionBase rhs);
+%End
+%If (- Qt_6_3_0)
 bool operator>(const QOperatingSystemVersion &lhs, const QOperatingSystemVersion &rhs);
+%End
+%If (Qt_6_3_0 -)
+bool operator>=(QOperatingSystemVersionBase lhs, QOperatingSystemVersionBase rhs);
+%End
+%If (- Qt_6_3_0)
 bool operator>=(const QOperatingSystemVersion &lhs, const QOperatingSystemVersion &rhs);
+%End
+%If (Qt_6_3_0 -)
+bool operator<(QOperatingSystemVersionBase lhs, QOperatingSystemVersionBase rhs);
+%End
+%If (- Qt_6_3_0)
 bool operator<(const QOperatingSystemVersion &lhs, const QOperatingSystemVersion &rhs);
+%End
+%If (Qt_6_3_0 -)
+bool operator<=(QOperatingSystemVersionBase lhs, QOperatingSystemVersionBase rhs);
+%End
+%If (- Qt_6_3_0)
 bool operator<=(const QOperatingSystemVersion &lhs, const QOperatingSystemVersion &rhs);
+%End

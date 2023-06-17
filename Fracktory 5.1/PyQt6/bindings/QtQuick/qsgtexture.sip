@@ -2,7 +2,7 @@
 //
 // This file is part of the QtQuick Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -82,4 +82,7 @@ class QSGDynamicTexture : QSGTexture
 public:
     QSGDynamicTexture();
     virtual bool updateTexture() = 0;
+%If (Qt_6_4_0 -)
+    virtual ~QSGDynamicTexture();
+%End
 };

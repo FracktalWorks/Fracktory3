@@ -2,7 +2,7 @@
 //
 // This file is part of the QtNetwork Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -46,12 +46,17 @@ class QAbstractSocket : QIODevice
         {0, 0, -1, 9},
     #endif
         {sipName_QNetworkReply, &sipType_QNetworkReply, -1, 10},
-        {sipName_QTcpServer, &sipType_QTcpServer, -1, -1},
+        {sipName_QTcpServer, &sipType_QTcpServer, 15, -1},
         {sipName_QNetworkDiskCache, &sipType_QNetworkDiskCache, -1, -1},
         {sipName_QTcpSocket, &sipType_QTcpSocket, 14, 13},
         {sipName_QUdpSocket, &sipType_QUdpSocket, -1, -1},
     #if defined(SIP_FEATURE_PyQt_SSL)
         {sipName_QSslSocket, &sipType_QSslSocket, -1, -1},
+    #else
+        {0, 0, -1, -1},
+    #endif
+    #if QT_VERSION >= 0x060400 && defined(SIP_FEATURE_PyQt_SSL)
+        {sipName_QSslServer, &sipType_QSslServer, -1, -1},
     #else
         {0, 0, -1, -1},
     #endif

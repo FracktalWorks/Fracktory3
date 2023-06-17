@@ -34,12 +34,12 @@ Cura.Menu
         enabled: updateModels
     }
 
-    // Cura.GenericMaterialsModel
-    // {
-    //     id: genericMaterialsModel
-    //     extruderPosition: materialMenu.extruderIndex
-    //     enabled: updateModels
-    // }
+    Cura.GenericMaterialsModel
+    {
+        id: genericMaterialsModel
+        extruderPosition: materialMenu.extruderIndex
+        enabled: updateModels
+    }
 
     Cura.MaterialBrandsModel
     {
@@ -70,30 +70,30 @@ Cura.Menu
         onObjectRemoved: function(index, object) { materialMenu.removeItem(index) }
     }
 
-    // Cura.MenuSeparator { visible: favoriteMaterialsModel.items.length > 0}
+    Cura.MenuSeparator { visible: favoriteMaterialsModel.items.length > 0}
 
-    // Cura.Menu
-    // {
-    //     id: genericMenu
-    //     title: catalog.i18nc("@label:category menu label", "Generic")
+    Cura.Menu
+    {
+        id: genericMenu
+        title: catalog.i18nc("@label:category menu label", "Generic")
 
-    //     Instantiator
-    //     {
-    //         model: genericMaterialsModel
-    //         delegate: Cura.MenuItem
-    //         {
-    //             text: model.name
-    //             checkable: true
-    //             enabled: isActiveExtruderEnabled
-    //             checked: model.root_material_id === materialMenu.currentRootMaterialId
-    //             onTriggered: Cura.MachineManager.setMaterial(extruderIndex, model.container_node)
-    //         }
-    //         onObjectAdded: function(index, object) { genericMenu.insertItem(index, object)}
-    //         onObjectRemoved: function(index, object) {genericMenu.removeItem(index) }
-    //     }
-    // }
+        Instantiator
+        {
+            model: genericMaterialsModel
+            delegate: Cura.MenuItem
+            {
+                text: model.name
+                checkable: true
+                enabled: isActiveExtruderEnabled
+                checked: model.root_material_id === materialMenu.currentRootMaterialId
+                onTriggered: Cura.MachineManager.setMaterial(extruderIndex, model.container_node)
+            }
+            onObjectAdded: function(index, object) { genericMenu.insertItem(index, object)}
+            onObjectRemoved: function(index, object) {genericMenu.removeItem(index) }
+        }
+    }
 
-    //Cura.MenuSeparator {}
+    Cura.MenuSeparator {}
 
     Instantiator
     {
@@ -106,17 +106,17 @@ Cura.Menu
         onObjectRemoved: function(index, object) { materialMenu.removeItem(index) }
     }
 
-    // Cura.MenuSeparator {}
+    Cura.MenuSeparator {}
 
-    // Cura.MenuItem
-    // {
-    //     action: Cura.Actions.manageMaterials
-    // }
+    Cura.MenuItem
+    {
+        action: Cura.Actions.manageMaterials
+    }
 
-    // Cura.MenuSeparator {}
+    Cura.MenuSeparator {}
 
-    // Cura.MenuItem
-    // {
-    //     action: Cura.Actions.marketplaceMaterials
-    // }
+    Cura.MenuItem
+    {
+        action: Cura.Actions.marketplaceMaterials
+    }
 }

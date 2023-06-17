@@ -2,7 +2,7 @@
 //
 // This file is part of the QtTest Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -41,4 +41,7 @@ public:
     QAbstractItemModelTester(QAbstractItemModel *model /KeepReference=1/, QAbstractItemModelTester::FailureReportingMode mode, QObject *parent /TransferThis/ = 0);
     QAbstractItemModel *model() const;
     QAbstractItemModelTester::FailureReportingMode failureReportingMode() const;
+%If (Qt_6_4_0 -)
+    void setUseFetchMore(bool value);
+%End
 };

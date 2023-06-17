@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -29,7 +29,7 @@ class QGesture : QObject
 public:
     explicit QGesture(QObject *parent /TransferThis/ = 0);
     virtual ~QGesture();
-    int gestureType() const [Qt::GestureType ()];
+    Qt::GestureType gestureType() const;
     Qt::GestureState state() const;
     QPointF hotSpot() const;
     void setHotSpot(const QPointF &value);
@@ -171,11 +171,7 @@ public:
     explicit QGestureEvent(const QList<QGesture *> &gestures);
     virtual ~QGestureEvent();
     QList<QGesture *> gestures() const;
-    QGesture *gesture(int type) const;
-%MethodCode
-        sipRes = sipCpp->gesture(Qt::GestureType(a0));
-%End
-
+    QGesture *gesture(Qt::GestureType type) const;
     QList<QGesture *> activeGestures() const;
     QList<QGesture *> canceledGestures() const;
     void setAccepted(bool accepted);
@@ -186,26 +182,10 @@ public:
     void accept(QGesture *);
     void ignore(QGesture *);
     bool isAccepted(QGesture *) const;
-    void setAccepted(int, bool);
-%MethodCode
-        sipCpp->setAccepted(Qt::GestureType(a0), a1);
-%End
-
-    void accept(int);
-%MethodCode
-        sipCpp->accept(Qt::GestureType(a0));
-%End
-
-    void ignore(int);
-%MethodCode
-        sipCpp->ignore(Qt::GestureType(a0));
-%End
-
-    bool isAccepted(int) const;
-%MethodCode
-        sipRes = sipCpp->isAccepted(Qt::GestureType(a0));
-%End
-
+    void setAccepted(Qt::GestureType, bool);
+    void accept(Qt::GestureType);
+    void ignore(Qt::GestureType);
+    bool isAccepted(Qt::GestureType) const;
     QWidget *widget() const;
     QPointF mapToGraphicsScene(const QPointF &gesturePoint) const;
 };

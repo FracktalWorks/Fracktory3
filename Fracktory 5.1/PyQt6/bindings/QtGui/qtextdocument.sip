@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -54,6 +54,9 @@ public:
     {
         DocumentTitle,
         DocumentUrl,
+%If (Qt_6_3_0 -)
+        CssMedia,
+%End
     };
 
     void setMetaInformation(QTextDocument::MetaInformation info, const QString &);
@@ -91,7 +94,7 @@ public:
     void print(QPagedPaintDevice *printer) const;
 %End
 
-    enum ResourceType
+    enum ResourceType /BaseType=IntEnum/
     {
         UnknownResource,
         HtmlResource,
@@ -367,5 +370,11 @@ public:
         }
 %End
 
+%End
+%If (Qt_6_4_0 -)
+    void setLayoutEnabled(bool b);
+%End
+%If (Qt_6_4_0 -)
+    bool isLayoutEnabled() const;
 %End
 };

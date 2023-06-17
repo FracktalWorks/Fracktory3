@@ -2,7 +2,7 @@
 //
 // This file is part of the QtNetwork Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -66,4 +66,10 @@ public:
     void setSocketOptions(QLocalServer::SocketOptions options);
     QLocalServer::SocketOptions socketOptions() const;
     qintptr socketDescriptor() const;
+%If (Qt_6_3_0 -)
+    void setListenBacklogSize(int size);
+%End
+%If (Qt_6_3_0 -)
+    int listenBacklogSize() const;
+%End
 };

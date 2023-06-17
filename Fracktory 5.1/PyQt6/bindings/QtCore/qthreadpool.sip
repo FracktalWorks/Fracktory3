@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -132,5 +132,46 @@ public:
 %End
 %If (Qt_6_2_0 -)
     QThread::Priority threadPriority() const;
+%End
+%If (Qt_6_3_0 -)
+    void startOnReservedThread(QRunnable *runnable /GetWrapper/) /ReleaseGIL/;
+%MethodCode
+        // We have to handle the object ownership manually.
+        if (a0->autoDelete())
+            sipTransferTo(a0Wrapper, sipSelf);
+        
+        Py_BEGIN_ALLOW_THREADS
+        sipCpp->startOnReservedThread(a0);
+        Py_END_ALLOW_THREADS
+%End
+
+%End
+%If (Qt_6_3_0 -)
+    void startOnReservedThread(SIP_PYCALLABLE functionToRun /TypeHint="Callable[[], None]"/) /ReleaseGIL/;
+%MethodCode
+        Py_INCREF(a0);
+        
+        Py_BEGIN_ALLOW_THREADS
+        
+        sipCpp->startOnReservedThread([a0]() {
+            SIP_BLOCK_THREADS
+        
+            PyObject *res;
+        
+            res = PyObject_CallObject(a0, NULL);
+        
+            Py_DECREF(a0);
+        
+            if (res)
+                Py_DECREF(res);
+            else
+                pyqt6_err_print();
+        
+            SIP_UNBLOCK_THREADS
+        });
+        
+        Py_END_ALLOW_THREADS
+%End
+
 %End
 };

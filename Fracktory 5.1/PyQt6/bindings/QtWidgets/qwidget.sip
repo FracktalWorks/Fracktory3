@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -263,6 +263,86 @@ public:
     QWidget *nextInFocusChain() const;
     bool acceptDrops() const;
     void setAcceptDrops(bool on);
+%If (Qt_6_3_0 -)
+    QAction *addAction(const QIcon &icon, const QString &text) /Transfer/;
+%End
+%If (Qt_6_3_0 -)
+    QAction *addAction(const QIcon &icon, const QString &text, SIP_PYOBJECT slot /TypeHint="PYQT_SLOT"/, Qt::ConnectionType type = Qt::AutoConnection) /Transfer/;
+%MethodCode
+        QObject *receiver;
+        QByteArray slot_signature;
+        
+        if ((sipError = pyqt6_qtwidgets_get_connection_parts(a2, sipCpp, "()", false, &receiver, slot_signature)) == sipErrorNone)
+        {
+            sipRes = sipCpp->addAction(*a0, *a1, receiver, slot_signature.constData(), a3);
+        }
+        else if (sipError == sipErrorContinue)
+        {
+            sipError = sipBadCallableArg(2, a2);
+        }
+%End
+
+%End
+%If (Qt_6_3_0 -)
+    QAction *addAction(const QIcon &icon, const QString &text, const QKeySequence &shortcut) /Transfer/;
+%End
+%If (Qt_6_3_0 -)
+    QAction *addAction(const QIcon &icon, const QString &text, const QKeySequence &shortcut, SIP_PYOBJECT slot /TypeHint="PYQT_SLOT"/, Qt::ConnectionType type = Qt::AutoConnection) /Transfer/;
+%MethodCode
+        QObject *receiver;
+        QByteArray slot_signature;
+        
+        if ((sipError = pyqt6_qtwidgets_get_connection_parts(a3, sipCpp, "()", false, &receiver, slot_signature)) == sipErrorNone)
+        {
+            sipRes = sipCpp->addAction(*a0, *a1, *a2, receiver, slot_signature.constData(), a4);
+        }
+        else if (sipError == sipErrorContinue)
+        {
+            sipError = sipBadCallableArg(3, a3);
+        }
+%End
+
+%End
+%If (Qt_6_3_0 -)
+    QAction *addAction(const QString &text) /Transfer/;
+%End
+%If (Qt_6_3_0 -)
+    QAction *addAction(const QString &text, const QKeySequence &shortcut) /Transfer/;
+%End
+%If (Qt_6_3_0 -)
+    QAction *addAction(QString &text, SIP_PYOBJECT slot /TypeHint="PYQT_SLOT"/, Qt::ConnectionType type = Qt::AutoConnection) /Transfer/;
+%MethodCode
+        QObject *receiver;
+        QByteArray slot_signature;
+        
+        if ((sipError = pyqt6_qtwidgets_get_connection_parts(a1, sipCpp, "()", false, &receiver, slot_signature)) == sipErrorNone)
+        {
+            sipRes = sipCpp->addAction(*a0, receiver, slot_signature.constData(), a2);
+        }
+        else if (sipError == sipErrorContinue)
+        {
+            sipError = sipBadCallableArg(1, a1);
+        }
+%End
+
+%End
+%If (Qt_6_3_0 -)
+    QAction *addAction(const QString &text, const QKeySequence &shortcut, SIP_PYOBJECT slot /TypeHint="PYQT_SLOT"/, Qt::ConnectionType type = Qt::AutoConnection) /Transfer/;
+%MethodCode
+        QObject *receiver;
+        QByteArray slot_signature;
+        
+        if ((sipError = pyqt6_qtwidgets_get_connection_parts(a2, sipCpp, "()", false, &receiver, slot_signature)) == sipErrorNone)
+        {
+            sipRes = sipCpp->addAction(*a0, *a1, receiver, slot_signature.constData(), a3);
+        }
+        else if (sipError == sipErrorContinue)
+        {
+            sipError = sipBadCallableArg(2, a2);
+        }
+%End
+
+%End
     void addAction(QAction *action);
     void addActions(const QList<QAction *> &actions);
     void insertAction(QAction *before, QAction *action);
@@ -389,16 +469,8 @@ public:
     QGraphicsProxyWidget *graphicsProxyWidget() const;
     QGraphicsEffect *graphicsEffect() const;
     void setGraphicsEffect(QGraphicsEffect *effect /Transfer/);
-    void grabGesture(int type, Qt::GestureFlags flags = Qt::GestureFlags());
-%MethodCode
-        sipCpp->grabGesture(Qt::GestureType(a0), *a1);
-%End
-
-    void ungrabGesture(int type);
-%MethodCode
-        sipCpp->ungrabGesture(Qt::GestureType(a0));
-%End
-
+    void grabGesture(Qt::GestureType type, Qt::GestureFlags flags = Qt::GestureFlags());
+    void ungrabGesture(Qt::GestureType type);
     void setContentsMargins(const QMargins &margins);
     QMargins contentsMargins() const;
     QWidget *previousInFocusChain() const;

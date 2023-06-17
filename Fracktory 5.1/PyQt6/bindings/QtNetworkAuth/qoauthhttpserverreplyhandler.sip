@@ -2,7 +2,7 @@
 //
 // This file is part of the QtNetworkAuth Python extension module.
 //
-// Copyright (c) 2021 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6-NetworkAuth.
 // 
@@ -37,7 +37,12 @@ public:
     QString callbackText() const;
     void setCallbackText(const QString &text);
     quint16 port() const;
+%If (QtNetworkAuth_6_4_0 -)
+    bool listen(const QHostAddress &address = QHostAddress::Any, quint16 port = 0);
+%End
+%If (- QtNetworkAuth_6_4_0)
     bool listen(const QHostAddress &address = QHostAddress::SpecialAddress::Any, quint16 port = 0);
+%End
     void close();
     bool isListening() const;
 };

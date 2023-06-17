@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -202,6 +202,12 @@ public:
     static QColor fromRgba64(ushort r, ushort g, ushort b, ushort alpha = USHRT_MAX);
     static QColor fromRgba64(QRgba64 rgba);
     QColor toExtendedRgb() const;
+%If (Qt_6_4_0 -)
+    static QColor fromString(QAnyStringView name);
+%End
+%If (Qt_6_4_0 -)
+    static bool isValidColorName(QAnyStringView);
+%End
 };
 
 QDataStream &operator<<(QDataStream &, const QColor &) /ReleaseGIL/;

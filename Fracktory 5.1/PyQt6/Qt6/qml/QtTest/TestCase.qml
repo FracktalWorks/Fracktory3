@@ -1,41 +1,5 @@
-/****************************************************************************
-**
-** Copyright (C) 2016 The Qt Company Ltd.
-** Contact: https://www.qt.io/licensing/
-**
-** This file is part of the test suite of the Qt Toolkit.
-**
-** $QT_BEGIN_LICENSE:LGPL$
-** Commercial License Usage
-** Licensees holding valid commercial Qt licenses may use this file in
-** accordance with the commercial license agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and The Qt Company. For licensing terms
-** and conditions see https://www.qt.io/terms-conditions. For further
-** information use the contact form at https://www.qt.io/contact-us.
-**
-** GNU Lesser General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU Lesser
-** General Public License version 3 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL3 included in the
-** packaging of this file. Please review the following information to
-** ensure the GNU Lesser General Public License version 3 requirements
-** will be met: https://www.gnu.org/licenses/lgpl-3.0.html.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 2.0 or (at your option) the GNU General
-** Public license version 3 or any later version approved by the KDE Free
-** Qt Foundation. The licenses are as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL2 and LICENSE.GPL3
-** included in the packaging of this file. Please review the following
-** information to ensure the GNU General Public License requirements will
-** be met: https://www.gnu.org/licenses/gpl-2.0.html and
-** https://www.gnu.org/licenses/gpl-3.0.html.
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
+// Copyright (C) 2016 The Qt Company Ltd.
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 
 import QtQuick 2.0
 import QtQuick.Window 2.0 // used for qtest_verifyItem
@@ -442,8 +406,8 @@ Item {
         displays the optional \a message.  Similar to \c{QVERIFY(condition)}
         or \c{QVERIFY2(condition, message)} in C++.
     */
-    function verify(cond, msg) {
-        if (arguments.length > 2)
+    function verify(cond, msg, ...args) {
+        if (args.length > 0)
             qtest_fail("More than two arguments given to verify(). Did you mean tryVerify() or tryCompare()?", 1)
 
         if (msg === undefined)
@@ -666,6 +630,9 @@ Item {
                 util.callerFile(), util.callerLine());
             throw new Error("QtQuickTest::fail");
         }
+
+        if (parent === undefined)
+            parent = null
 
         var object = component.createObject(parent, properties ? properties : ({}));
         qtest_temporaryObjects.push(object);
@@ -1028,17 +995,18 @@ Item {
 
         \sa compare(), SignalSpy::wait()
     */
-    function tryCompare(obj, prop, value, timeout, msg) {
-        if (arguments.length == 1 || (typeof(prop) != "string" && typeof(prop) != "number")) {
+    function tryCompare(obj, prop, ...args) {
+        if (typeof(prop) != "string" && typeof(prop) != "number") {
             qtest_results.fail("A property name as string or index is required for tryCompare",
                         util.callerFile(), util.callerLine())
             throw new Error("QtQuickTest::fail")
         }
-        if (arguments.length == 2) {
+        if (args.length == 0) {
             qtest_results.fail("A value is required for tryCompare",
                         util.callerFile(), util.callerLine())
             throw new Error("QtQuickTest::fail")
         }
+        let [value, timeout, msg] = args
         if (timeout !== undefined && typeof(timeout) != "number") {
             qtest_results.fail("timeout should be a number",
                         util.callerFile(), util.callerLine())
@@ -1175,6 +1143,58 @@ Item {
         if (msg === undefined)
             msg = ""
         qtest_results.ignoreWarning(msg)
+    }
+
+    /*!
+        \qmlmethod TestCase::failOnWarning(message)
+        \since 6.3
+
+        Appends a test failure to the test log for each warning that matches
+        \a message. The test function will continue execution when a failure
+        is added.
+
+        \a message can be either a string, or a regular expression providing a
+        pattern of messages. In the latter case, for each warning encountered,
+        the first pattern that matches will cause a failure, and the remaining
+        patterns will be ignored.
+
+        All patterns are cleared at the end of each test function.
+
+        For example, the following snippet will fail a test if a warning with
+        the text "Something bad happened" is produced:
+        \qml
+        failOnWarning("Something bad happened")
+        \endqml
+
+        The following snippet will fail a test if any warning matching the
+        given pattern is encountered:
+        \qml
+        failOnWarning(/[0-9]+ bad things happened/)
+        \endqml
+
+        To fail every test that triggers a given warning, pass a suitable regular
+        expression to this function in \l init():
+
+        \qml
+        function init() {
+            failOnWarning(/.?/)
+        }
+        \endqml
+
+        \note Despite being a JavaScript RegExp object, it will not be
+        interpreted as such; instead, the pattern will be passed to \l
+        QRegularExpression.
+
+        \note ignoreMessage() takes precedence over this function, so any
+        warnings that match a pattern given to both \c ignoreMessage() and \c
+        failOnWarning() will be ignored.
+
+        \sa QTest::failOnWarning(), warn()
+    */
+    function failOnWarning(msg) {
+        if (msg === undefined)
+            msg = ""
+        qtest_results.failOnWarning(msg)
     }
 
     /*!

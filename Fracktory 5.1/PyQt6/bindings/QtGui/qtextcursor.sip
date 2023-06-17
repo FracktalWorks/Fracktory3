@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -152,4 +152,7 @@ public:
     void setKeepPositionOnInsert(bool b);
     bool keepPositionOnInsert() const;
     void swap(QTextCursor &other /Constrained/);
+%If (Qt_6_4_0 -)
+    void insertMarkdown(const QString &markdown, QTextDocument::MarkdownFeatures features = QTextDocument::MarkdownDialectGitHub);
+%End
 };

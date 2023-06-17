@@ -1,31 +1,5 @@
-/****************************************************************************
-**
-** Copyright (C) 2021 The Qt Company Ltd.
-** Contact: https://www.qt.io/licensing/
-**
-** This file is part of Qt Quick 3D.
-**
-** $QT_BEGIN_LICENSE:GPL$
-** Commercial License Usage
-** Licensees holding valid commercial Qt licenses may use this file in
-** accordance with the commercial license agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and The Qt Company. For licensing terms
-** and conditions see https://www.qt.io/terms-conditions. For further
-** information use the contact form at https://www.qt.io/contact-us.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3 or (at your option) any later version
-** approved by the KDE Free Qt Foundation. The licenses are as published by
-** the Free Software Foundation and appearing in the file LICENSE.GPL3
-** included in the packaging of this file. Please review the following
-** information to ensure the GNU General Public License requirements will
-** be met: https://www.gnu.org/licenses/gpl-3.0.html.
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
+// Copyright (C) 2021 The Qt Company Ltd.
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
@@ -42,7 +16,7 @@ Column {
         SectionLayout {
             PropertyLabel {
                 text: qsTr("System")
-                tooltip: qsTr("This property defines the ParticleSystem3D for the emitter. If system is direct parent of the emitter, this property does not need to be defined.")
+                tooltip: qsTr("Sets the ParticleSystem3D for the emitter. If system is direct parent of the emitter, this property does not need to be defined.")
             }
             SecondColumnLayout {
                 IdComboBox {
@@ -57,7 +31,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("Emit Bursts")
-                tooltip: qsTr("This property takes a list of EmitBurst3D elements, to declaratively define bursts.")
+                tooltip: qsTr("Sets a list of EmitBurst3D elements to declaratively define bursts.")
                 Layout.alignment: Qt.AlignTop
                 Layout.topMargin: 5
             }
@@ -79,7 +53,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("Velocity")
-                tooltip: qsTr("This property can be used to set a starting velocity for emitted particles.")
+                tooltip: qsTr("Sets a starting velocity for emitted particles.")
             }
 
             SecondColumnLayout {
@@ -95,7 +69,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("Particle")
-                tooltip: qsTr("This property defines the scale multiplier of the particles at the beginning.")
+                tooltip: qsTr("Sets the logical particle which this emitter emits.")
             }
 
             SecondColumnLayout {
@@ -128,7 +102,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("Shape")
-                tooltip: qsTr("This property defines optional shape for the emitting area.")
+                tooltip: qsTr("Sets optional shape for the emitting area.")
             }
 
             SecondColumnLayout {
@@ -144,7 +118,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("Emit Rate")
-                tooltip: qsTr("This property defines the constant emitting rate in particles per second.")
+                tooltip: qsTr("Sets the constant emitting rate in particles per second.")
             }
 
             SecondColumnLayout {
@@ -162,7 +136,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("Life Span")
-                tooltip: qsTr("This property defines the lifespan of a single particle in milliseconds.")
+                tooltip: qsTr("Sets the lifespan of a single particle in milliseconds.")
             }
 
             SecondColumnLayout {
@@ -180,7 +154,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("Life Span Variation")
-                tooltip: qsTr("This property defines the lifespan variation of a single particle in milliseconds.")
+                tooltip: qsTr("Sets the lifespan variation of a single particle in milliseconds.")
             }
 
             SecondColumnLayout {
@@ -198,7 +172,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("Particle Scale")
-                tooltip: qsTr("This property defines the scale multiplier of the particles at the beginning")
+                tooltip: qsTr("Sets the scale multiplier of the particles at the beginning")
             }
 
             SecondColumnLayout {
@@ -216,7 +190,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("Particle End Scale")
-                tooltip: qsTr("This property defines the scale multiplier of the particles at the end of particle lifeSpan.")
+                tooltip: qsTr("Sets the scale multiplier of the particles at the end of particle lifeSpan.")
             }
 
             SecondColumnLayout {
@@ -234,7 +208,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("Scale Variation")
-                tooltip: qsTr("This property defines the scale variation of the particles.")
+                tooltip: qsTr("Sets the scale variation of the particles.")
             }
 
             SecondColumnLayout {
@@ -252,7 +226,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("End Scale Variation")
-                tooltip: qsTr("This property defines the scale variation of the particles in the end.")
+                tooltip: qsTr("Sets the scale variation of the particles in the end.")
             }
 
             SecondColumnLayout {
@@ -270,7 +244,7 @@ Column {
 
             PropertyLabel {
                 text: qsTr("Depth Bias")
-                tooltip: qsTr("Holds the depth bias of the emitter. Depth bias is added to the object distance from camera when sorting objects.")
+                tooltip: qsTr("Sets the depth bias of the emitter. Depth bias is added to the object distance from camera when sorting objects.")
             }
 
             SecondColumnLayout {
@@ -298,7 +272,7 @@ Column {
             SectionLayout {
                 PropertyLabel {
                     text: qsTr("Rotation")
-                    tooltip: qsTr("This property defines the rotation of the particles in the beginning. Rotation is defined as degrees in euler angles.")
+                    tooltip: qsTr("Sets the rotation of the particles in the beginning. Rotation is defined as degrees in euler angles.")
                 }
 
                 SecondColumnLayout {
@@ -369,7 +343,7 @@ Column {
             SectionLayout {
                 PropertyLabel {
                     text: qsTr("Variation")
-                    tooltip: qsTr("This property defines the rotation variation of the particles in the beginning. Rotation variation is defined as degrees in euler angles.")
+                    tooltip: qsTr("Sets the rotation variation of the particles in the beginning. Rotation variation is defined as degrees in euler angles.")
                 }
 
                 SecondColumnLayout {
@@ -440,7 +414,7 @@ Column {
             SectionLayout {
                 PropertyLabel {
                     text: qsTr("Velocity")
-                    tooltip: qsTr("This property defines the rotation velocity of the particles in the beginning. Rotation velocity is defined as degrees per second in euler angles.")
+                    tooltip: qsTr("Sets the rotation velocity of the particles in the beginning. Rotation velocity is defined as degrees per second in euler angles.")
                 }
 
                 SecondColumnLayout {
@@ -511,7 +485,7 @@ Column {
             SectionLayout {
                 PropertyLabel {
                     text: qsTr("Velocity Variation")
-                    tooltip: qsTr("This property defines the rotation velocity variation of the particles. Rotation velocity variation is defined as degrees per second in euler angles.")
+                    tooltip: qsTr("Sets the rotation velocity variation of the particles. Rotation velocity variation is defined as degrees per second in euler angles.")
                 }
 
                 SecondColumnLayout {

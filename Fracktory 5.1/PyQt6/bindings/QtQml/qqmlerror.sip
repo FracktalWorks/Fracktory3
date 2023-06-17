@@ -2,7 +2,7 @@
 //
 // This file is part of the QtQml Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -44,6 +44,9 @@ public:
     void setObject(QObject *);
     QtMsgType messageType() const;
     void setMessageType(QtMsgType messageType);
+%If (Qt_6_4_0 -)
+    void swap(QQmlError &other);
+%End
 };
 
 bool operator==(const QQmlError &a, const QQmlError &b);

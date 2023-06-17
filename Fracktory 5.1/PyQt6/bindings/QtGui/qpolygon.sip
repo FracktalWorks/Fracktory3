@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -134,6 +134,7 @@ void prepend(const QPoint &value);
 void remove(int i);
 void remove(int i, int count);
 void replace(int i, const QPoint &value);
+void resize(qsizetype size);
 int size() const;
 QPoint value(int i) const;
 QPoint value(int i, const QPoint &defaultValue) const;
@@ -259,6 +260,9 @@ int __contains__(const QPoint &value);
 %MethodCode
 sipRes = bool(sipCpp->contains(*a0));
 %End
+%If (Qt_6_4_0 -)
+    QPolygonF toPolygonF() const;
+%End
 };
 
 QDataStream &operator<<(QDataStream &stream, const QPolygon &polygon) /ReleaseGIL/;
@@ -325,6 +329,7 @@ void prepend(const QPointF &value);
 void remove(int i);
 void remove(int i, int count);
 void replace(int i, const QPointF &value);
+void resize(qsizetype size);
 int size() const;
 QPointF value(int i) const;
 QPointF value(int i, const QPointF &defaultValue) const;

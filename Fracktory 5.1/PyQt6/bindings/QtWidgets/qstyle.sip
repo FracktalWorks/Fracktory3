@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -415,6 +415,9 @@ public:
 %If (Qt_6_2_0 -)
         PM_LineEditIconSize,
 %End
+%If (Qt_6_3_0 -)
+        PM_LineEditIconMargin,
+%End
         PM_CustomBase,
     };
 
@@ -571,6 +574,12 @@ public:
 %If (Qt_6_1_0 -)
         SH_TabBar_AllowWheelScrolling,
 %End
+%If (Qt_6_3_0 -)
+        SH_Table_AlwaysDrawLeftTopGridLines,
+%End
+%If (Qt_6_3_0 -)
+        SH_SpinBox_SelectOnStep,
+%End
         SH_CustomBase,
     };
 
@@ -656,6 +665,9 @@ public:
         SP_DialogRetryButton,
         SP_DialogIgnoreButton,
         SP_RestoreDefaultsButton,
+%If (Qt_6_3_0 -)
+        SP_TabCloseButton,
+%End
         SP_CustomBase,
     };
 

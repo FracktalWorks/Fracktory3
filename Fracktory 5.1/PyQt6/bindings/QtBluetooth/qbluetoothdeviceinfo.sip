@@ -2,7 +2,7 @@
 //
 // This file is part of the QtBluetooth Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -210,6 +210,9 @@ public:
         None,
         RSSI,
         ManufacturerData,
+%If (Qt_6_3_0 -)
+        ServiceData,
+%End
         All,
     };
 
@@ -219,6 +222,18 @@ public:
     QByteArray manufacturerData(quint16 manufacturerId) const;
     bool setManufacturerData(quint16 manufacturerId, const QByteArray &data);
     void setName(const QString &name);
+%If (Qt_6_3_0 -)
+    QList<QBluetoothUuid> serviceIds() const;
+%End
+%If (Qt_6_3_0 -)
+    QMultiHash<QBluetoothUuid, QByteArray> serviceData() const;
+%End
+%If (Qt_6_3_0 -)
+    QByteArray serviceData(const QBluetoothUuid &serviceId) const;
+%End
+%If (Qt_6_3_0 -)
+    bool setServiceData(const QBluetoothUuid &serviceId, const QByteArray &data);
+%End
 };
 
 %End

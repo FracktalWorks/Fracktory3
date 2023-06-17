@@ -18,9 +18,6 @@ Module {
         isCreatable: false
         isSingleton: true
         exportMetaObjectRevisions: [512, 1536]
-        Method {
-            name: "openDatabaseSync"
-            Parameter { name: "args"; type: "QQmlV4Function"; isPointer: true }
-        }
+        Method { name: "openDatabaseSync"; isJavaScriptFunction: true }
     }
 }

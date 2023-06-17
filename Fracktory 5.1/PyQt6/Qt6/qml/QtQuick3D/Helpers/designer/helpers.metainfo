@@ -1,5 +1,25 @@
 MetaInfo {
     Type {
+        name: "QtQuick3D.Helpers.LookAtNode"
+        icon: "images/lookatnode16.png"
+
+        Hints {
+            visibleInNavigator: true
+            canBeDroppedInNavigator: true
+            canBeDroppedInFormEditor: false
+            canBeDroppedInView3D: true
+        }
+
+        ItemLibraryEntry {
+            name: "Look-at Node"
+            category: "Helpers"
+            libraryIcon: "images/lookatnode.png"
+            version: "6.4"
+            requiredImport: "QtQuick3D.Helpers"
+        }
+    }
+
+    Type {
         name: "QtQuick3D.Helpers.AxisHelper"
         icon: "images/axishelper16.png"
 
@@ -55,6 +75,66 @@ MetaInfo {
             category: "Helpers"
             libraryIcon: "images/gridgeometry.png"
             version: "6.0"
+            requiredImport: "QtQuick3D.Helpers"
+        }
+    }
+
+    Type {
+        name: "QtQuick3D.Helpers.HeightFieldGeometry"
+        icon: "images/heightfieldgeometry16.png"
+
+        Hints {
+            visibleInNavigator: true
+            canBeDroppedInNavigator: true
+            canBeDroppedInFormEditor: false
+            canBeDroppedInView3D: true
+        }
+
+        ItemLibraryEntry {
+            name: "Height Field Geometry"
+            category: "Helpers"
+            libraryIcon: "images/heightfieldgeometry.png"
+            version: "6.4"
+            requiredImport: "QtQuick3D.Helpers"
+        }
+    }
+
+    Type {
+        name: "QtQuick3D.Helpers.InstanceModel"
+        icon: "images/instancemodel16.png"
+
+        Hints {
+            visibleInNavigator: false
+            canBeDroppedInNavigator: true
+            canBeDroppedInFormEditor: false
+            canBeDroppedInView3D: false
+        }
+
+        ItemLibraryEntry {
+            name: "Instance Model"
+            category: "Helpers"
+            libraryIcon: "images/instancemodel.png"
+            version: "6.4"
+            requiredImport: "QtQuick3D.Helpers"
+        }
+    }
+
+    Type {
+        name: "QtQuick3D.Helpers.InstanceRepeater"
+        icon: "images/instancerepeater16.png"
+
+        Hints {
+            visibleInNavigator: true
+            canBeDroppedInNavigator: true
+            canBeDroppedInFormEditor: false
+            canBeDroppedInView3D: true
+        }
+
+        ItemLibraryEntry {
+            name: "Instance Repeater"
+            category: "Helpers"
+            libraryIcon: "images/instancerepeater.png"
+            version: "6.4"
             requiredImport: "QtQuick3D.Helpers"
         }
     }

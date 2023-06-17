@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -377,6 +377,12 @@ public:
         Odia,
         Uyghur,
         Wolaytta,
+%If (Qt_6_3_0 -)
+        Kaingang,
+%End
+%If (Qt_6_3_0 -)
+        Nheengatu,
+%End
     };
 
     enum Country
@@ -1072,10 +1078,16 @@ public:
     QDate toDate(const QString &string, const QString &format, QCalendar cal) const;
     QDateTime toDateTime(const QString &string, const QString &format, QCalendar cal) const;
     QLocale collation() const;
-%If (Qt_6_1_0 -)
+%If (Qt_6_3_0 -)
+    static QString languageToCode(QLocale::Language language, QLocale::LanguageCodeTypes codeTypes = QLocale::AnyLanguageCode);
+%End
+%If (Qt_6_1_0 - Qt_6_3_0)
     static QString languageToCode(QLocale::Language language);
 %End
-%If (Qt_6_1_0 -)
+%If (Qt_6_3_0 -)
+    static QLocale::Language codeToLanguage(QStringView languageCode, QLocale::LanguageCodeTypes codeTypes = QLocale::AnyLanguageCode);
+%End
+%If (Qt_6_1_0 - Qt_6_3_0)
     static QLocale::Language codeToLanguage(QStringView languageCode);
 %End
 %If (Qt_6_1_0 -)
@@ -1107,6 +1119,26 @@ public:
 %End
 %If (Qt_6_2_0 -)
     static QString territoryToString(QLocale::Territory territory);
+%End
+%If (Qt_6_3_0 -)
+
+    enum LanguageCodeType /BaseType=IntFlag/
+    {
+        ISO639Part1,
+        ISO639Part2B,
+        ISO639Part2T,
+        ISO639Part3,
+        LegacyLanguageCode,
+        ISO639Part2,
+        ISO639Alpha2,
+        ISO639Alpha3,
+        ISO639,
+        AnyLanguageCode,
+    };
+
+%End
+%If (Qt_6_3_0 -)
+    typedef QFlags<QLocale::LanguageCodeType> LanguageCodeTypes;
 %End
 };
 

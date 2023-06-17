@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -37,6 +37,9 @@ public:
     QString path() const;
     QString errorString() const;
     QString filePath(const QString &fileName) const;
+%If (Qt_6_4_0 -)
+    void swap(QTemporaryDir &other);
+%End
 
 private:
     QTemporaryDir(const QTemporaryDir &);

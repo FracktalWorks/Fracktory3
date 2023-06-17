@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWebSockets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -102,6 +102,12 @@ public:
 
 public slots:
     void close(QWebSocketProtocol::CloseCode closeCode = QWebSocketProtocol::CloseCodeNormal, const QString &reason = QString()) /ReleaseGIL/;
+%If (Qt_6_4_0 -)
+    void open(const QNetworkRequest &request, const QWebSocketHandshakeOptions &options) /ReleaseGIL/;
+%End
+%If (Qt_6_4_0 -)
+    void open(const QUrl &url, const QWebSocketHandshakeOptions &options) /ReleaseGIL/;
+%End
     void open(const QUrl &url) /ReleaseGIL/;
     void open(const QNetworkRequest &request) /ReleaseGIL/;
     void ping(const QByteArray &payload = QByteArray()) /ReleaseGIL/;
@@ -155,6 +161,14 @@ signals:
 %End
 %If (PyQt_SSL)
     void handshakeInterruptedOnError(const QSslError &error);
+%End
+
+public:
+%If (Qt_6_4_0 -)
+    QWebSocketHandshakeOptions handshakeOptions() const;
+%End
+%If (Qt_6_4_0 -)
+    QString subprotocol() const;
 %End
 };
 

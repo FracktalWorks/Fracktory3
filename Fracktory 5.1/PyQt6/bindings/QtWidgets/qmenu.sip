@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -30,8 +30,13 @@ public:
     explicit QMenu(QWidget *parent /TransferThis/ = 0);
     QMenu(const QString &title, QWidget *parent /TransferThis/ = 0);
     virtual ~QMenu();
+%If (- Qt_6_3_0)
     void addAction(QAction *);
+%End
+%If (- Qt_6_3_0)
     QAction *addAction(const QString &text) /Transfer/;
+%End
+%If (- Qt_6_3_0)
     QAction *addAction(const QString &text, SIP_PYOBJECT slot /TypeHint="PYQT_SLOT"/, const QKeySequence &shortcut = 0) /Transfer/;
 %MethodCode
         QObject *receiver;
@@ -47,7 +52,11 @@ public:
         }
 %End
 
+%End
+%If (- Qt_6_3_0)
     QAction *addAction(const QIcon &icon, const QString &text) /Transfer/;
+%End
+%If (- Qt_6_3_0)
     QAction *addAction(const QIcon &icon, const QString &text, SIP_PYOBJECT slot /TypeHint="PYQT_SLOT"/, const QKeySequence &shortcut = 0) /Transfer/;
 %MethodCode
         QObject *receiver;
@@ -63,6 +72,7 @@ public:
         }
 %End
 
+%End
     QAction *addMenu(QMenu *menu);
     QMenu *addMenu(const QString &title) /Transfer/;
     QMenu *addMenu(const QIcon &icon, const QString &title) /Transfer/;
@@ -131,4 +141,7 @@ public:
 %End
     void showTearOffMenu();
     void showTearOffMenu(const QPoint &pos);
+%If (Qt_6_3_0 -)
+    static QMenu *menuInAction(const QAction *action);
+%End
 };

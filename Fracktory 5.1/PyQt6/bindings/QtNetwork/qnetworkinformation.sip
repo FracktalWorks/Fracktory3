@@ -2,7 +2,7 @@
 //
 // This file is part of the QtNetwork Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -44,6 +44,12 @@ public:
 %If (Qt_6_2_0 -)
         CaptivePortal,
 %End
+%If (Qt_6_3_0 -)
+        TransportMedium,
+%End
+%If (Qt_6_3_0 -)
+        Metered,
+%End
     };
 
     typedef QFlags<QNetworkInformation::Feature> Features;
@@ -66,6 +72,48 @@ public:
 signals:
 %If (Qt_6_2_0 -)
     void isBehindCaptivePortalChanged(bool state);
+%End
+
+public:
+%If (Qt_6_3_0 -)
+
+    enum class TransportMedium
+    {
+        Unknown,
+        Ethernet,
+        Cellular,
+        WiFi,
+        Bluetooth,
+    };
+
+%End
+%If (Qt_6_3_0 -)
+    QNetworkInformation::TransportMedium transportMedium() const;
+%End
+%If (Qt_6_3_0 -)
+    bool isMetered() const;
+%End
+%If (Qt_6_3_0 -)
+    QNetworkInformation::Features supportedFeatures() const;
+%End
+%If (Qt_6_3_0 -)
+    static bool loadDefaultBackend();
+%End
+
+signals:
+%If (Qt_6_3_0 -)
+    void transportMediumChanged(QNetworkInformation::TransportMedium current);
+%End
+%If (Qt_6_3_0 -)
+    void isMeteredChanged(bool isMetered);
+%End
+
+public:
+%If (Qt_6_4_0 -)
+    static bool loadBackendByName(QStringView backend);
+%End
+%If (Qt_6_4_0 -)
+    static bool loadBackendByFeatures(QNetworkInformation::Features features);
 %End
 
 private:

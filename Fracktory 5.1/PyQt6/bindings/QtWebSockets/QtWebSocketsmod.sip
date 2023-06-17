@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWebSockets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -26,7 +26,7 @@
 %Import QtNetwork/QtNetworkmod.sip
 
 %Copying
-Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 
 This file is part of PyQt6.
 
@@ -49,5 +49,6 @@ WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 %Include qmaskgenerator.sip
 %Include qwebsocket.sip
 %Include qwebsocketcorsauthenticator.sip
+%Include qwebsockethandshakeoptions.sip
 %Include qwebsocketprotocol.sip
 %Include qwebsocketserver.sip

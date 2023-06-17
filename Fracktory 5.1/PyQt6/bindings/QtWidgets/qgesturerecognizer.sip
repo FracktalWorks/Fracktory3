@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -41,11 +41,8 @@ public:
     QGestureRecognizer();
     virtual ~QGestureRecognizer();
     virtual QGesture *create(QObject *target) /Factory/;
-    virtual QFlags<QGestureRecognizer::ResultFlag> recognize(QGesture *state, QObject *watched, QEvent *event) = 0;
+    virtual QGestureRecognizer::Result recognize(QGesture *state, QObject *watched, QEvent *event) = 0;
     virtual void reset(QGesture *state);
-    static int registerRecognizer(QGestureRecognizer *recognizer /Transfer/) [Qt::GestureType (QGestureRecognizer *recognizer)];
-    static void unregisterRecognizer(int type);
-%MethodCode
-        QGestureRecognizer::unregisterRecognizer(Qt::GestureType(a0));
-%End
+    static Qt::GestureType registerRecognizer(QGestureRecognizer *recognizer /Transfer/);
+    static void unregisterRecognizer(Qt::GestureType type);
 };

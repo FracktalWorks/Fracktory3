@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -22,7 +22,7 @@
 
 %Module(name=PyQt6.QtCore, call_super_init=True, default_VirtualErrorHandler=PyQt6, keyword_arguments="Optional", use_limited_api=True, py_ssize_t_clean=True)
 
-%Timeline {Qt_6_0_0 Qt_6_1_0 Qt_6_2_0}
+%Timeline {Qt_6_0_0 Qt_6_1_0 Qt_6_2_0 Qt_6_3_0 Qt_6_4_0}
 
 %Platforms {Android iOS Linux macOS WebAssembly Windows}
 
@@ -39,9 +39,10 @@
 %Feature PyQt_OpenGL_ES2
 %Feature PyQt_Process
 %Feature PyQt_WebChannel
+%Feature PyQt_DTLS
 
 %Copying
-Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 
 This file is part of PyQt6.
 
@@ -73,8 +74,8 @@ int PYQT_VERSION;
 const char *PYQT_VERSION_STR;
 
 %ModuleCode
-static int PYQT_VERSION = 0x060203;
-static const char *PYQT_VERSION_STR = "6.2.3";
+static int PYQT_VERSION = 0x060402;
+static const char *PYQT_VERSION_STR = "6.4.2";
 %End
 
 %Include qglobal.sip
@@ -164,6 +165,7 @@ static const char *PYQT_VERSION_STR = "6.2.3";
 %Include qsortfilterproxymodel.sip
 %Include qstandardpaths.sip
 %Include qstorageinfo.sip
+%Include qstringconverter_base.sip
 %Include qstringconverter.sip
 %Include qstringlistmodel.sip
 %Include qsysinfo.sip
@@ -187,6 +189,7 @@ static const char *PYQT_VERSION_STR = "6.2.3";
 %Include qversionnumber.sip
 %Include qwaitcondition.sip
 %Include qxmlstream.sip
+%Include qanystringview.sip
 %Include qbytearraylist.sip
 %Include qbytearrayview.sip
 %Include qchar.sip

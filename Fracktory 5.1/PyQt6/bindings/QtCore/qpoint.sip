@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -69,6 +69,9 @@ public:
     QPoint &operator/=(qreal c);
     static int dotProduct(const QPoint &p1, const QPoint &p2);
     QPoint transposed() const;
+%If (Qt_6_4_0 -)
+    QPointF toPointF() const;
+%End
 };
 
 QDataStream &operator<<(QDataStream &, const QPoint &) /ReleaseGIL/;

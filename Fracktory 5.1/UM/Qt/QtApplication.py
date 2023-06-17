@@ -10,6 +10,7 @@ from typing import Any, cast, Dict, Optional
 from PyQt6.QtCore import Qt, QCoreApplication, QEvent, QUrl, pyqtProperty, pyqtSignal, QT_VERSION_STR, PYQT_VERSION_STR
 from PyQt6.QtQuick import QQuickWindow, QSGRendererInterface
 
+from UM.Decorators import deprecated
 from UM.FileProvider import FileProvider
 from UM.FlameProfiler import pyqtSlot
 from PyQt6.QtQml import QQmlApplicationEngine, QQmlComponent, QQmlContext, QQmlError
@@ -289,10 +290,13 @@ class QtApplication(QApplication, Application):
                 continue
             self._recent_files.append(QUrl.fromLocalFile(file_name))
 
+        self._preferences.addPreference("general/use_tray_icon", True)
+        use_tray_icon = self._preferences.getValue("general/use_tray_icon")
+
         if not self.getIsHeadLess():
             # Initialize System tray icon and make it invisible because it is used only to show pop up messages
             self._tray_icon = None
-            if self._tray_icon_name:
+            if use_tray_icon and self._tray_icon_name:
                 try:
                     self._tray_icon = QIcon(Resources.getPath(Resources.Images, self._tray_icon_name))
                     self._tray_icon_widget = QSystemTrayIcon(self._tray_icon)
@@ -391,15 +395,13 @@ class QtApplication(QApplication, Application):
                 message.setInactivityTimer(QTimer())
                 self.visibleMessageAdded.emit(message)
 
-        # also show toast message when the main window is minimized
-        self.showToastMessage(self._app_name, message.getText())
-
     def _onMainWindowStateChanged(self, window_state: int) -> None:
         if self._tray_icon and self._tray_icon_widget:
             visible = window_state == Qt.WindowState.WindowMinimized
             self._tray_icon_widget.setVisible(visible)
 
     # Show toast message using System tray widget.
+    @deprecated("Showing toast messages is no longer supported", since = "5.2.0")
     def showToastMessage(self, title: str, message: str) -> None:
         if self.checkWindowMinimizedState() and self._tray_icon_widget:
             # NOTE: Qt 5.8 don't support custom icon for the system tray messages, but Qt 5.9 does.
@@ -527,9 +529,6 @@ class QtApplication(QApplication, Application):
 
         if self._qml_engine:
             self._qml_engine.deleteLater()
-
-        if self._tray_icon_widget:
-            self._tray_icon_widget.deleteLater()
 
         self.quit()
 

@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -37,4 +37,13 @@ public:
     QString toHtml() const;
     static QTextDocumentFragment fromPlainText(const QString &plainText);
     static QTextDocumentFragment fromHtml(const QString &html, const QTextDocument *resourceProvider = 0);
+%If (Qt_6_4_0 -)
+    QString toRawText() const;
+%End
+%If (Qt_6_4_0 -)
+    QString toMarkdown(QTextDocument::MarkdownFeatures features = QTextDocument::MarkdownDialectGitHub) const;
+%End
+%If (Qt_6_4_0 -)
+    static QTextDocumentFragment fromMarkdown(const QString &markdown, QTextDocument::MarkdownFeatures features = QTextDocument::MarkdownDialectGitHub);
+%End
 };

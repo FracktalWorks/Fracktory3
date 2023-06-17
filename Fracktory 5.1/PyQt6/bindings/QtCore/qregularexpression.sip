@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -151,6 +151,12 @@ public:
     qsizetype capturedLength(int nth = 0) const;
     qsizetype capturedEnd(QStringView name) const;
     qsizetype capturedEnd(int nth = 0) const;
+%If (Qt_6_3_0 -)
+    bool hasCaptured(int nth) const;
+%End
+%If (Qt_6_3_0 -)
+    bool hasCaptured(const QString &name) const;
+%End
 };
 
 class QRegularExpressionMatchIterator

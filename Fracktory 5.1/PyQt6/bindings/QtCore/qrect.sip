@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -138,6 +138,9 @@ public:
     QRect &operator-=(const QMargins &margins);
     QRect transposed() const;
     static QRect span(const QPoint &p1, const QPoint &p2);
+%If (Qt_6_4_0 -)
+    QRectF toRectF() const;
+%End
 };
 
 QDataStream &operator<<(QDataStream &, const QRect &) /ReleaseGIL/;

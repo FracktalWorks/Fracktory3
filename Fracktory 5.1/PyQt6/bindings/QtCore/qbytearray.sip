@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -99,13 +99,20 @@ return 0;
 %End
 
 %BIGetBufferCode
-    Q_UNUSED(sipSelf);
+    // We may be building against a debug Python build.
     
-    sipBuffer->bd_buffer = sipCpp->data();
-    sipBuffer->bd_length = sipCpp->size();
-    sipBuffer->bd_readonly = 0;
+    #if defined(Py_LIMITED_API)
+        Q_UNUSED(sipSelf);
     
-    sipRes = 0;
+        sipBuffer->bd_buffer = sipCpp->data();
+        sipBuffer->bd_length = sipCpp->size();
+        sipBuffer->bd_readonly = 0;
+    
+        sipRes = 0;
+    #else
+        sipRes = PyBuffer_FillInfo(sipBuffer, sipSelf, sipCpp->data(),
+                sipCpp->size(), 0, sipFlags);
+    #endif
 %End
 
 %PickleCode
@@ -118,6 +125,9 @@ public:
     QByteArray(const QByteArray &a);
     ~QByteArray();
     void resize(qsizetype size);
+%If (Qt_6_4_0 -)
+    void resize(qsizetype size, char c);
+%End
     QByteArray &fill(char c /Encoding="None"/, qsizetype size = -1);
     void clear();
     qsizetype indexOf(QByteArrayView bv, qsizetype from = 0) const;
@@ -399,6 +409,12 @@ public:
 
     QByteArray sliced(qsizetype pos) const;
     QByteArray sliced(qsizetype pos, qsizetype n) const;
+%If (Qt_6_3_0 -)
+    bool isValidUtf8() const;
+%End
+%If (Qt_6_4_0 -)
+    QByteArray percentDecoded(char percent = '%') const;
+%End
 };
 
 bool operator==(const QByteArray &a1, const QByteArray &a2);

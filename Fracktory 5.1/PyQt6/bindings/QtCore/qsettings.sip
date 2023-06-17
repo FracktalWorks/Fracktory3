@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -57,18 +57,56 @@ public:
     void clear() /ReleaseGIL/;
     void sync() /ReleaseGIL/;
     QSettings::Status status() const;
+%If (Qt_6_4_0 -)
+    void beginGroup(QAnyStringView prefix);
+%End
+%If (- Qt_6_4_0)
     void beginGroup(const QString &prefix);
+%End
     void endGroup();
     QString group() const;
+%If (Qt_6_4_0 -)
+    int beginReadArray(QAnyStringView prefix);
+%End
+%If (- Qt_6_4_0)
     int beginReadArray(const QString &prefix);
+%End
+%If (Qt_6_4_0 -)
+    void beginWriteArray(QAnyStringView prefix, int size = -1);
+%End
+%If (- Qt_6_4_0)
     void beginWriteArray(const QString &prefix, int size = -1);
+%End
     void endArray();
     void setArrayIndex(int i);
     QStringList allKeys() const /ReleaseGIL/;
     QStringList childKeys() const /ReleaseGIL/;
     QStringList childGroups() const /ReleaseGIL/;
     bool isWritable() const;
+%If (Qt_6_4_0 -)
+    void setValue(QAnyStringView key, const QVariant &value) /ReleaseGIL/;
+%End
+%If (- Qt_6_4_0)
     void setValue(const QString &key, const QVariant &value) /ReleaseGIL/;
+%End
+%If (Qt_6_4_0 -)
+    SIP_PYOBJECT value(const QAnyStringView &key, const QVariant &defaultValue = QVariant(), SIP_PYOBJECT type /TypeHint="type", TypeHintValue="None"/ = 0) const /ReleaseGIL/;
+%MethodCode
+        QVariant value;
+        
+        // QSettings has an internal mutex so release the GIL to avoid the possibility
+        // of deadlocks.
+        Py_BEGIN_ALLOW_THREADS
+        value = sipCpp->value(*a0, *a1);
+        Py_END_ALLOW_THREADS
+        
+        sipRes = pyqt6_from_qvariant_by_type(value, a2);
+        
+        sipIsErr = !sipRes;
+%End
+
+%End
+%If (- Qt_6_4_0)
     SIP_PYOBJECT value(const QString &key, const QVariant &defaultValue = QVariant(), SIP_PYOBJECT type /TypeHint="type", TypeHintValue="None"/ = 0) const /ReleaseGIL/;
 %MethodCode
         QVariant value;
@@ -84,8 +122,19 @@ public:
         sipIsErr = !sipRes;
 %End
 
+%End
+%If (Qt_6_4_0 -)
+    void remove(QAnyStringView key) /ReleaseGIL/;
+%End
+%If (- Qt_6_4_0)
     void remove(const QString &key) /ReleaseGIL/;
+%End
+%If (Qt_6_4_0 -)
+    bool contains(QAnyStringView key) const /ReleaseGIL/;
+%End
+%If (- Qt_6_4_0)
     bool contains(const QString &key) const /ReleaseGIL/;
+%End
     void setFallbacksEnabled(bool b);
     bool fallbacksEnabled() const;
     QString fileName() const;

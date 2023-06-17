@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -42,4 +42,9 @@ public:
     };
 
     typedef QFlags<QIODeviceBase::OpenModeFlag> OpenMode;
+
+protected:
+%If (Qt_6_3_0 -)
+    ~QIODeviceBase();
+%End
 };

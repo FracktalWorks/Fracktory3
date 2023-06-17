@@ -2,7 +2,7 @@
 //
 // This file is part of the QtNetwork Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -163,5 +163,13 @@ protected:
 %End
 %If (PyQt_SSL)
     virtual void ignoreSslErrorsImplementation(const QList<QSslError> &);
+%End
+
+signals:
+%If (Qt_6_3_0 -)
+    void socketStartedConnecting();
+%End
+%If (Qt_6_3_0 -)
+    void requestSent();
 %End
 };

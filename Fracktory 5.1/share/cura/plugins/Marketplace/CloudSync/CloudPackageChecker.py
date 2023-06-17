@@ -1,5 +1,5 @@
-# Copyright (c) 2022 Ultimaker B.V.
-# Cura is released under the terms of the LGPLv3 or higher.
+#  Copyright (c) 2022 UltiMaker
+#  Cura is released under the terms of the LGPLv3 or higher.
 
 import json
 from typing import List, Dict, Any, Set
@@ -142,11 +142,11 @@ class CloudPackageChecker(QObject):
         sync_message = Message(self._i18n_catalog.i18nc(
             "@info:generic",
             "Do you want to sync material and software packages with your account?"),
-            title = self._i18n_catalog.i18nc("@info:title", "Changes detected from your Ultimaker account", ))
+            title = self._i18n_catalog.i18nc("@info:title", "Changes detected from your UltiMaker account", ))
         sync_message.addAction("sync",
                                name = self._i18n_catalog.i18nc("@action:button", "Sync"),
                                icon = "",
-                               description = "Sync your plugins and print profiles to Fracktory.",
+                               description = "Sync your plugins and print profiles to Ultimaker Cura.",
                                button_align = Message.ActionButtonAlignment.ALIGN_RIGHT)
         sync_message.actionTriggered.connect(self._onSyncButtonClicked)
         sync_message.show()

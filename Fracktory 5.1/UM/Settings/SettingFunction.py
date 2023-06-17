@@ -23,6 +23,11 @@ if TYPE_CHECKING:
     from typing import FrozenSet
 
 
+
+import traceback
+
+
+
 class IllegalMethodError(Exception):
     pass
 
@@ -54,6 +59,9 @@ class SettingFunction:
         self._compiled = None  # type: Optional[CodeType] #Actually an Optional['code'] object, but Python doesn't properly expose this 'code' object via any library.
         self._valid = False  # type: bool
 
+        self._safeCompile()
+
+    def _safeCompile(self):
         try:
             tree = ast.parse(self._code, "eval")
 
@@ -107,7 +115,8 @@ class SettingFunction:
             Logger.log("e", "An error occurred evaluating the function {0}.".format(self))
             return 0
         except Exception as e:
-            Logger.logException("d", "An exception occurred in inherit function {0}: {1}".format(self, str(e)))
+            stack_str = traceback.format_stack()
+            Logger.logException("w", f"An exception occurred in inherit function {self}: {str(e)}\nTrace: {stack_str}")
             return 0  # Settings may be used in calculations and they need a value
 
     def __eq__(self, other: object) -> bool:
@@ -154,7 +163,8 @@ class SettingFunction:
 
     def __setstate__(self, state: Dict[str, Any]) -> None:
         self.__dict__.update(state)
-        self._compiled = compile(self._code, repr(self), "eval")
+        self._compiled = None  # Just to be sure.
+        self._safeCompile()
 
     @classmethod
     def registerOperator(cls, name: str, operator: Callable) -> None:
@@ -300,7 +310,8 @@ class _SettingExpressionVisitor(ast.NodeVisitor):
         "upper",
         "startswith",
         "endswith",
-        "capitalize"
+        "capitalize",
+        "index",
     }  # type: Set[str]
 
     _blacklist = {

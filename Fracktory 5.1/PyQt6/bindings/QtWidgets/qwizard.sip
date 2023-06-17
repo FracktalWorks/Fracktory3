@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -155,6 +155,11 @@ public:
 signals:
     void pageAdded(int id);
     void pageRemoved(int id);
+
+public slots:
+%If (Qt_6_4_0 -)
+    void setCurrentId(int id);
+%End
 };
 
 class QWizardPage : QWidget

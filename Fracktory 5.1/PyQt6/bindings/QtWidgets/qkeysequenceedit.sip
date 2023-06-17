@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -45,4 +45,15 @@ protected:
     virtual void keyPressEvent(QKeyEvent *);
     virtual void keyReleaseEvent(QKeyEvent *);
     virtual void timerEvent(QTimerEvent *);
+%If (Qt_6_4_0 -)
+    virtual void focusOutEvent(QFocusEvent *);
+%End
+
+public:
+%If (Qt_6_4_0 -)
+    void setClearButtonEnabled(bool enable);
+%End
+%If (Qt_6_4_0 -)
+    bool isClearButtonEnabled() const;
+%End
 };

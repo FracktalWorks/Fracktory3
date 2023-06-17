@@ -218,6 +218,6 @@ QtNetworkAuth.QOAuthHttpServerReplyHandler.setCallbackPath?4(QString)
 QtNetworkAuth.QOAuthHttpServerReplyHandler.callbackText?4() -> QString
 QtNetworkAuth.QOAuthHttpServerReplyHandler.setCallbackText?4(QString)
 QtNetworkAuth.QOAuthHttpServerReplyHandler.port?4() -> int
-QtNetworkAuth.QOAuthHttpServerReplyHandler.listen?4(QHostAddress address=QHostAddress.SpecialAddress.Any, int port=0) -> bool
+QtNetworkAuth.QOAuthHttpServerReplyHandler.listen?4(QHostAddress address=QHostAddress.Any, int port=0) -> bool
 QtNetworkAuth.QOAuthHttpServerReplyHandler.close?4()
 QtNetworkAuth.QOAuthHttpServerReplyHandler.isListening?4() -> bool

@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -95,6 +95,9 @@ public:
     void stat();
 %If (Qt_6_2_0 -)
     QString junctionTarget() const;
+%End
+%If (Qt_6_4_0 -)
+    bool isAlias() const;
 %End
 };
 

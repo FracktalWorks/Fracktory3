@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -49,6 +49,9 @@ public:
     static bool link(const QString &oldname, const QString &newName) /ReleaseGIL/;
     bool copy(const QString &newName) /ReleaseGIL/;
     static bool copy(const QString &fileName, const QString &newName) /ReleaseGIL/;
+%If (Qt_6_3_0 -)
+    bool open(QIODeviceBase::OpenMode flags, QFileDevice::Permissions permissions) /ReleaseGIL/;
+%End
     virtual bool open(QIODeviceBase::OpenMode flags) /ReleaseGIL/;
     bool open(int fd, QIODeviceBase::OpenMode ioFlags, QFileDevice::FileHandleFlags handleFlags = QFileDevice::DontCloseHandle) /ReleaseGIL/;
     virtual qint64 size() const;

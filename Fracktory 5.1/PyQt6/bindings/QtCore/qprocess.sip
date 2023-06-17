@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -210,6 +210,17 @@ class QProcessEnvironment
 %End
 
 public:
+%If (Qt_6_3_0 -)
+
+    enum Initialization
+    {
+        InheritFromParent,
+    };
+
+%End
+%If (Qt_6_3_0 -)
+    QProcessEnvironment(QProcessEnvironment::Initialization);
+%End
     QProcessEnvironment();
     QProcessEnvironment(const QProcessEnvironment &other);
     ~QProcessEnvironment();
@@ -226,6 +237,9 @@ public:
     static QProcessEnvironment systemEnvironment();
     QStringList keys() const;
     void swap(QProcessEnvironment &other /Constrained/);
+%If (Qt_6_3_0 -)
+    bool inheritsFromParent() const;
+%End
 };
 
 %End

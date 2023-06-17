@@ -7,7 +7,7 @@ import QtQuick.tooling 1.2
 
 Module {
     Component {
-        file: "qquickshape_p.h"
+        file: "private/qquickshape_p.h"
         name: "QQuickShape"
         accessSemantics: "reference"
         defaultProperty: "data"
@@ -21,9 +21,20 @@ Module {
             "QtQuick.Shapes/Shape 2.4",
             "QtQuick.Shapes/Shape 2.7",
             "QtQuick.Shapes/Shape 2.11",
-            "QtQuick.Shapes/Shape 6.0"
+            "QtQuick.Shapes/Shape 6.0",
+            "QtQuick.Shapes/Shape 6.3"
         ]
-        exportMetaObjectRevisions: [256, 267, 512, 513, 516, 519, 523, 1536]
+        exportMetaObjectRevisions: [
+            256,
+            267,
+            512,
+            513,
+            516,
+            519,
+            523,
+            1536,
+            1539
+        ]
         Enum {
             name: "RendererType"
             values: [
@@ -91,7 +102,7 @@ Module {
         Method { name: "_q_shapePathChanged" }
     }
     Component {
-        file: "qquickshape_p.h"
+        file: "private/qquickshape_p.h"
         name: "QQuickShapeConicalGradient"
         accessSemantics: "reference"
         defaultProperty: "stops"
@@ -132,7 +143,7 @@ Module {
         Signal { name: "angleChanged" }
     }
     Component {
-        file: "qquickshape_p.h"
+        file: "private/qquickshape_p.h"
         name: "QQuickShapeGradient"
         accessSemantics: "reference"
         defaultProperty: "stops"
@@ -160,7 +171,7 @@ Module {
         Signal { name: "spreadChanged" }
     }
     Component {
-        file: "qquickshape_p.h"
+        file: "private/qquickshape_p.h"
         name: "QQuickShapeLinearGradient"
         accessSemantics: "reference"
         defaultProperty: "stops"
@@ -182,7 +193,7 @@ Module {
         Signal { name: "y2Changed" }
     }
     Component {
-        file: "qquickshape_p.h"
+        file: "private/qquickshape_p.h"
         name: "QQuickShapePath"
         accessSemantics: "reference"
         defaultProperty: "pathElements"
@@ -285,7 +296,8 @@ Module {
         }
         Property {
             name: "dashPattern"
-            type: "QList<qreal>"
+            type: "double"
+            isList: true
             read: "dashPattern"
             write: "setDashPattern"
             notify: "dashPatternChanged"
@@ -322,7 +334,7 @@ Module {
         Method { name: "_q_fillGradientChanged" }
     }
     Component {
-        file: "qquickshape_p.h"
+        file: "private/qquickshape_p.h"
         name: "QQuickShapeRadialGradient"
         accessSemantics: "reference"
         defaultProperty: "stops"

@@ -238,9 +238,10 @@ Module {
             "QtTest/TestResult 1.0",
             "QtTest/TestResult 1.1",
             "QtTest/TestResult 1.13",
-            "QtTest/TestResult 6.0"
+            "QtTest/TestResult 6.0",
+            "QtTest/TestResult 6.3"
         ]
-        exportMetaObjectRevisions: [256, 257, 269, 1536]
+        exportMetaObjectRevisions: [256, 257, 269, 1536, 1539]
         Enum {
             name: "RunMode"
             values: ["RepeatUntilValidMeasurement", "RunOnce"]
@@ -302,10 +303,7 @@ Module {
         Method { name: "finishTestData" }
         Method { name: "finishTestDataCleanup" }
         Method { name: "finishTestFunction" }
-        Method {
-            name: "stringify"
-            Parameter { name: "args"; type: "QQmlV4Function"; isPointer: true }
-        }
+        Method { name: "stringify"; isJavaScriptFunction: true }
         Method {
             name: "fail"
             Parameter { name: "message"; type: "QString" }
@@ -367,6 +365,11 @@ Module {
         }
         Method {
             name: "ignoreWarning"
+            Parameter { name: "message"; type: "QJSValue" }
+        }
+        Method {
+            name: "failOnWarning"
+            revision: 1539
             Parameter { name: "message"; type: "QJSValue" }
         }
         Method {
@@ -477,5 +480,9 @@ Module {
             Parameter { name: "frameIndex"; type: "int" }
         }
         Method { name: "callerLine"; type: "int" }
+        Method {
+            name: "populateClipboardText"
+            Parameter { name: "lineCount"; type: "int" }
+        }
     }
 }

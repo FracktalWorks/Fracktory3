@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -131,6 +131,9 @@ public:
     QStringList entryList(const QStringList &nameFilters, QDir::Filters filters = QDir::NoFilter, QDir::SortFlags sort = QDir::NoSort) const;
     QFileInfoList entryInfoList(QDir::Filters filters = QDir::NoFilter, QDir::SortFlags sort = QDir::NoSort) const;
     QFileInfoList entryInfoList(const QStringList &nameFilters, QDir::Filters filters = QDir::NoFilter, QDir::SortFlags sort = QDir::NoSort) const;
+%If (Qt_6_3_0 -)
+    bool mkdir(const QString &dirName, QFileDevice::Permissions permissions) const;
+%End
     bool mkdir(const QString &dirName) const;
     bool rmdir(const QString &dirName) const;
     bool mkpath(const QString &dirPath) const;

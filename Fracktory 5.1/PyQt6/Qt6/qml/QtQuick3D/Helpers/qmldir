@@ -12,4 +12,6 @@ DebugView 6.0 DebugView.qml
 DebugView 1.0 DebugView.qml
 WasdController 6.0 WasdController.qml
 WasdController 1.0 WasdController.qml
+OrbitCameraController 6.0 OrbitCameraController.qml
+OrbitCameraController 1.0 OrbitCameraController.qml
 

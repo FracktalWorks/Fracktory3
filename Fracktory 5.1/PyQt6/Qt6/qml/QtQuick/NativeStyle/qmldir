@@ -5,6 +5,7 @@ classname QtQuickControls2NativeStylePlugin
 typeinfo plugins.qmltypes
 depends QtQuick.Controls auto
 depends QtQuick.Layouts auto
+depends QtQuick auto
 prefer :/qt-project.org/imports/QtQuick/NativeStyle/
 DefaultButton 6.0 controls/DefaultButton.qml
 DefaultButton 2.0 controls/DefaultButton.qml
@@ -32,4 +33,6 @@ DefaultProgressBar 6.0 controls/DefaultProgressBar.qml
 DefaultProgressBar 2.0 controls/DefaultProgressBar.qml
 DefaultDial 6.0 controls/DefaultDial.qml
 DefaultDial 2.0 controls/DefaultDial.qml
+DefaultTreeViewDelegate 6.0 controls/DefaultTreeViewDelegate.qml
+DefaultTreeViewDelegate 2.0 controls/DefaultTreeViewDelegate.qml
 

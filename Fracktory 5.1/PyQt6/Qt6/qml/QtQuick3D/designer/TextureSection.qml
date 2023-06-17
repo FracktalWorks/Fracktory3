@@ -1,31 +1,5 @@
-/****************************************************************************
-**
-** Copyright (C) 2021 The Qt Company Ltd.
-** Contact: https://www.qt.io/licensing/
-**
-** This file is part of Qt Quick 3D.
-**
-** $QT_BEGIN_LICENSE:GPL$
-** Commercial License Usage
-** Licensees holding valid commercial Qt licenses may use this file in
-** accordance with the commercial license agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and The Qt Company. For licensing terms
-** and conditions see https://www.qt.io/terms-conditions. For further
-** information use the contact form at https://www.qt.io/contact-us.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3 or (at your option) any later version
-** approved by the KDE Free Qt Foundation. The licenses are as published by
-** the Free Software Foundation and appearing in the file LICENSE.GPL3
-** included in the packaging of this file. Please review the following
-** information to ensure the GNU General Public License requirements will
-** be met: https://www.gnu.org/licenses/gpl-3.0.html.
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
+// Copyright (C) 2021 The Qt Company Ltd.
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
@@ -39,7 +13,7 @@ Section {
     SectionLayout {
         PropertyLabel {
             text: qsTr("Source")
-            tooltip: qsTr("Holds the location of an image file containing the data used by the texture.")
+            tooltip: qsTr("Sets the location of an image file containing the data used by the texture.")
         }
 
         SecondColumnLayout {
@@ -52,7 +26,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Source Item")
-            tooltip: qsTr("Defines an item to be used as the source of the texture.")
+            tooltip: qsTr("Sets an item to be used as the source of the texture.")
         }
 
         SecondColumnLayout {
@@ -67,7 +41,7 @@ Section {
         }
         PropertyLabel {
             text: qsTr("Texture Data")
-            tooltip: qsTr("This property holds a reference to a TextureData component which defines the contents and properties of raw texture data.")
+            tooltip: qsTr("Sets a reference to a TextureData component which defines the contents and properties of raw texture data.")
         }
 
         SecondColumnLayout {
@@ -99,7 +73,7 @@ Section {
 
             ControlLabel {
                 text: "U"
-                tooltip: qsTr("Defines how to scale the U texture coordinate when mapping to UV coordinates of a mesh.")
+                tooltip: qsTr("Sets how to scale the U texture coordinate when mapping to UV coordinates of a mesh.")
             }
 
             Spacer { implicitWidth: StudioTheme.Values.controlGap }
@@ -117,7 +91,7 @@ Section {
 
             ControlLabel {
                 text: "V"
-                tooltip: qsTr("Defines how to scale the V texture coordinate when mapping to UV coordinates of a mesh.")
+                tooltip: qsTr("Sets how to scale the V texture coordinate when mapping to UV coordinates of a mesh.")
             }
 
             ExpandingSpacer {}
@@ -125,7 +99,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Flip V")
-            tooltip: qsTr("This property sets the use of the vertically flipped coordinates.")
+            tooltip: qsTr("Sets the use of the vertically flipped coordinates.")
         }
 
         SecondColumnLayout {
@@ -142,7 +116,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Flip U")
-            tooltip: qsTr("This property sets the use of the horizontally flipped texture coordinates.")
+            tooltip: qsTr("Sets the use of the horizontally flipped texture coordinates.")
         }
 
         SecondColumnLayout {
@@ -159,7 +133,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Auto Orientation")
-            tooltip: qsTr("This property determines if a texture transformation, such as flipping the V texture coordinate, is applied automatically for textures where this is typically relevant.")
+            tooltip: qsTr("Sets if a texture transformation, such as flipping the V texture coordinate, is applied automatically for textures where this is typically relevant.")
         }
 
         SecondColumnLayout {
@@ -176,7 +150,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Texture Mapping")
-            tooltip: qsTr("Defines which method of mapping to use when sampling this texture.")
+            tooltip: qsTr("Sets which method of mapping to use when sampling this texture.")
         }
 
         SecondColumnLayout {
@@ -191,7 +165,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("U Tiling")
-            tooltip: qsTr("Controls how the texture is mapped when the U scaling value is greater than 1.")
+            tooltip: qsTr("Sets how the texture is mapped when the U scaling value is greater than 1.")
         }
 
         SecondColumnLayout {
@@ -208,7 +182,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("V Tiling")
-            tooltip: qsTr("Controls how the texture is mapped when the V scaling value is greater than 1.")
+            tooltip: qsTr("Sets how the texture is mapped when the V scaling value is greater than 1.")
         }
 
         SecondColumnLayout {
@@ -225,7 +199,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("UV Index")
-            tooltip: qsTr("This property sets the UV coordinate index used by this texture.")
+            tooltip: qsTr("Sets the UV coordinate index used by this texture.")
         }
 
         SecondColumnLayout {
@@ -243,7 +217,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("UV Rotation")
-            tooltip: qsTr("Rotates the texture around the pivot point.")
+            tooltip: qsTr("Sets the rotation of the texture around the pivot point.")
         }
 
         SecondColumnLayout {
@@ -278,7 +252,7 @@ Section {
 
             ControlLabel {
                 text: "U"
-                tooltip: qsTr("Offsets the U coordinate mapping from left to right.")
+                tooltip: qsTr("Sets the U coordinate mapping offset from left to right.")
             }
 
             Spacer { implicitWidth: StudioTheme.Values.controlGap }
@@ -297,7 +271,7 @@ Section {
 
             ControlLabel {
                 text: "V"
-                tooltip: qsTr("Offsets the V coordinate mapping from bottom to top.")
+                tooltip: qsTr("Sets the V coordinate mapping offset from bottom to top.")
             }
 
             ExpandingSpacer {}
@@ -349,7 +323,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Generate Mipmaps")
-            tooltip: qsTr("This property determines if mipmaps are generated for textures that do not provide mipmap levels themselves.")
+            tooltip: qsTr("Sets if mipmaps are generated for textures that do not provide mipmap levels themselves.")
         }
 
         SecondColumnLayout {
@@ -366,7 +340,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Mag Filter")
-            tooltip: qsTr("This property determines how the texture is sampled when a texel covers more than one pixel.")
+            tooltip: qsTr("Sets how the texture is sampled when a texel covers more than one pixel.")
         }
 
         SecondColumnLayout {
@@ -383,7 +357,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Min Filter")
-            tooltip: qsTr("This property determines how the texture is sampled when a texel covers more than one pixel.")
+            tooltip: qsTr("Sets how the texture is sampled when a texel covers more than one pixel.")
         }
 
         SecondColumnLayout {
@@ -400,7 +374,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Mip Filter")
-            tooltip: qsTr("This property determines how the texture mipmaps are sampled when a texel covers less than one pixel.")
+            tooltip: qsTr("Sets how the texture mipmaps are sampled when a texel covers less than one pixel.")
         }
 
         SecondColumnLayout {

@@ -2,7 +2,7 @@
 //
 // This file is part of the QtQml Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -42,4 +42,7 @@ public slots:
 
 signals:
     void objectCreated(QObject *object, const QUrl &url);
+%If (Qt_6_4_0 -)
+    void objectCreationFailed(const QUrl &url);
+%End
 };

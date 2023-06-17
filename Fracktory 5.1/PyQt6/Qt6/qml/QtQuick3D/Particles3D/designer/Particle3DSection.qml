@@ -1,31 +1,5 @@
-/****************************************************************************
-**
-** Copyright (C) 2021 The Qt Company Ltd.
-** Contact: https://www.qt.io/licensing/
-**
-** This file is part of Qt Quick 3D.
-**
-** $QT_BEGIN_LICENSE:GPL$
-** Commercial License Usage
-** Licensees holding valid commercial Qt licenses may use this file in
-** accordance with the commercial license agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and The Qt Company. For licensing terms
-** and conditions see https://www.qt.io/terms-conditions. For further
-** information use the contact form at https://www.qt.io/contact-us.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3 or (at your option) any later version
-** approved by the KDE Free Qt Foundation. The licenses are as published by
-** the Free Software Foundation and appearing in the file LICENSE.GPL3
-** included in the packaging of this file. Please review the following
-** information to ensure the GNU General Public License requirements will
-** be met: https://www.gnu.org/licenses/gpl-3.0.html.
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
+// Copyright (C) 2021 The Qt Company Ltd.
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 
 
 import QtQuick 2.15
@@ -40,7 +14,7 @@ Section {
     SectionLayout {
         PropertyLabel {
             text: qsTr("Max Amount")
-            tooltip: qsTr("This property defines the maximum amount of particles that can exist at the same time.")
+            tooltip: qsTr("Sets the maximum amount of particles that can exist at the same time.")
         }
 
         SecondColumnLayout {
@@ -58,7 +32,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Color")
-            tooltip: qsTr("This property defines the base color that is used for colorizing the particles.")
+            tooltip: qsTr("Sets the base color that is used for colorizing the particles.")
         }
 
         ColorEditor {
@@ -68,7 +42,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Color Variation")
-            tooltip: qsTr("This property defines the color variation that is used for colorizing the particles.")
+            tooltip: qsTr("Sets the color variation that is used for colorizing the particles.")
         }
 
         SecondColumnLayout {
@@ -162,7 +136,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Unified Color Variation")
-            tooltip: qsTr("This property defines if the colorVariation should be applied uniformly for all the color channels.")
+            tooltip: qsTr("Sets if the colorVariation should be applied uniformly for all the color channels.")
         }
 
         SecondColumnLayout {
@@ -179,7 +153,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Fade In Effect")
-            tooltip: qsTr("This property defines the fading effect used when the particles appear.")
+            tooltip: qsTr("Sets the fading effect used when the particles appear.")
         }
 
         SecondColumnLayout {
@@ -196,7 +170,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Fade Out Effect")
-            tooltip: qsTr("This property defines the fading effect used when the particles reach their lifeSpan and disappear.")
+            tooltip: qsTr("Sets the fading effect used when the particles reach their lifeSpan and disappear.")
         }
 
         SecondColumnLayout {
@@ -213,7 +187,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Fade In Duration")
-            tooltip: qsTr("This property defines the duration in milliseconds for the fading in effect.")
+            tooltip: qsTr("Sets the duration in milliseconds for the fading in effect.")
         }
         SecondColumnLayout {
             SpinBox {
@@ -230,7 +204,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Fade Out Duration")
-            tooltip: qsTr("This property defines the duration in milliseconds for the fading out effect.")
+            tooltip: qsTr("Sets the duration in milliseconds for the fading out effect.")
         }
 
         SecondColumnLayout {
@@ -248,7 +222,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Align Mode")
-            tooltip: qsTr("This property defines the align mode used for the particles. Particle alignment means the direction that particles face.")
+            tooltip: qsTr("Sets the align mode used for the particles. Particle alignment means the direction that particles face.")
         }
 
         SecondColumnLayout {
@@ -265,7 +239,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Align Target Position")
-            tooltip: qsTr("This property defines the position particles are aligned to. This property has effect only when the alignMode is set to Particle3D.AlignTowardsTarget.")
+            tooltip: qsTr("Sets the position particles are aligned to. This property has effect only when the alignMode is set to Particle3D.AlignTowardsTarget.")
         }
 
         SecondColumnLayout {
@@ -334,7 +308,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Has Transparency")
-            tooltip: qsTr("This property defines if the particle has any transparency and should be blended with the background.")
+            tooltip: qsTr("Sets if the particle has any transparency and should be blended with the background.")
         }
 
         SecondColumnLayout {
@@ -351,7 +325,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Sort Mode")
-            tooltip: qsTr("This property defines the sort mode used for the particles.")
+            tooltip: qsTr("Sets the sort mode used for the particles.")
         }
 
         SecondColumnLayout {

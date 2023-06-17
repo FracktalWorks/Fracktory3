@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -65,6 +65,9 @@ public:
     QString whatsThis() const;
     QFont font() const;
     int textAlignment() const;
+%If (Qt_6_4_0 -)
+    void setTextAlignment(Qt::Alignment alignment);
+%End
     void setTextAlignment(int alignment);
     Qt::CheckState checkState() const;
     void setCheckState(Qt::CheckState state);
@@ -235,3 +238,10 @@ public:
 private:
     virtual void setModel(QAbstractItemModel *model /KeepReference/);
 };
+
+%If (Qt_6_3_0 -)
+bool operator==(const QTableWidgetSelectionRange &lhs, const QTableWidgetSelectionRange &rhs);
+%End
+%If (Qt_6_3_0 -)
+bool operator!=(const QTableWidgetSelectionRange &lhs, const QTableWidgetSelectionRange &rhs);
+%End

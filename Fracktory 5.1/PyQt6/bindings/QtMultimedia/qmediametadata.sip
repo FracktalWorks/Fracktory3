@@ -2,7 +2,7 @@
 //
 // This file is part of the QtMultimedia Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -66,6 +66,11 @@ public:
     QList<QMediaMetaData::Key> keys() const;
     QString stringValue(QMediaMetaData::Key k) const;
     static QString metaDataKeyToString(QMediaMetaData::Key k);
+
+protected:
+%If (Qt_6_4_0 -)
+    static QMetaType keyType(QMediaMetaData::Key key);
+%End
 };
 
 %End

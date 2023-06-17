@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -43,6 +43,9 @@ public:
     bool inFont(QChar) const;
     int leftBearing(QChar) const;
     int rightBearing(QChar) const;
+%If (Qt_6_3_0 -)
+    QRect boundingRect(const QString &text, const QTextOption &textOption) const;
+%End
     QRect boundingRect(QChar) const /PyName=boundingRectChar/;
     QRect boundingRect(const QString &text) const;
     QRect boundingRect(const QRect &rect, int flags, const QString &text, int tabStops = 0, SIP_PYLIST tabArray /AllowNone,TypeHint="Optional[List[int]]"/ = 0) const;
@@ -83,10 +86,16 @@ public:
     QString elidedText(const QString &text, Qt::TextElideMode mode, int width, int flags = 0) const;
     bool operator==(const QFontMetrics &other) const;
     bool operator!=(const QFontMetrics &other) const;
+%If (Qt_6_3_0 -)
+    QRect tightBoundingRect(const QString &text, const QTextOption &textOption) const;
+%End
     QRect tightBoundingRect(const QString &text) const;
     bool inFontUcs4(uint character) const;
     void swap(QFontMetrics &other /Constrained/);
     int capHeight() const;
+%If (Qt_6_3_0 -)
+    int horizontalAdvance(const QString &, const QTextOption &textOption) const;
+%End
     int horizontalAdvance(const QString &, int length = -1) const;
     qreal fontDpi() const;
 };
@@ -115,6 +124,9 @@ public:
     bool inFont(QChar) const;
     qreal leftBearing(QChar) const;
     qreal rightBearing(QChar) const;
+%If (Qt_6_3_0 -)
+    QRectF boundingRect(const QString &text, const QTextOption &textOption) const;
+%End
     QRectF boundingRect(QChar) const /PyName=boundingRectChar/;
     QRectF boundingRect(const QString &string) const;
     QRectF boundingRect(const QRectF &rect, int flags, const QString &text, int tabStops = 0, SIP_PYLIST tabArray /AllowNone,TypeHint="Optional[List[int]]"/ = 0) const;
@@ -145,10 +157,16 @@ public:
     QString elidedText(const QString &text, Qt::TextElideMode mode, qreal width, int flags = 0) const;
     bool operator==(const QFontMetricsF &other) const;
     bool operator!=(const QFontMetricsF &other) const;
+%If (Qt_6_3_0 -)
+    QRectF tightBoundingRect(const QString &text, const QTextOption &textOption) const;
+%End
     QRectF tightBoundingRect(const QString &text) const;
     bool inFontUcs4(uint character) const;
     void swap(QFontMetricsF &other /Constrained/);
     qreal capHeight() const;
+%If (Qt_6_3_0 -)
+    qreal horizontalAdvance(const QString &string, const QTextOption &textOption) const;
+%End
     qreal horizontalAdvance(const QString &string, int length = -1) const;
     qreal fontDpi() const;
 };

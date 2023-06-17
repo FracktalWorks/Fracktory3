@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -203,13 +203,17 @@ public:
     };
 
     explicit QEvent(QEvent::Type type);
-    QEvent(int type) /NoDerived/;
+    QEvent(int type) /Deprecated, NoDerived/;
 %MethodCode
+        // This overload allows an int to be passed as is rather than being wrapped in
+        // a QEvent.Type. This was usefull before enums supported missing members and
+        // is now deprecated.
+        
         sipCpp = new sipQEvent(static_cast<QEvent::Type>(a0));
 %End
 
     virtual ~QEvent();
-    int type() const [QEvent::Type ()];
+    QEvent::Type type() const;
     bool spontaneous() const;
     virtual void setAccepted(bool accepted);
     bool isAccepted() const;

@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -39,6 +39,9 @@ public:
             sipError = sipBadCallableArg(0, a0Wrapper);
 %End
 
+%If (Qt_6_3_0 -)
+    virtual ~QBitmap();
+%End
     void clear();
     static QBitmap fromImage(const QImage &image, Qt::ImageConversionFlags flags = Qt::AutoColor);
     static QBitmap fromPixmap(const QPixmap &pixmap);

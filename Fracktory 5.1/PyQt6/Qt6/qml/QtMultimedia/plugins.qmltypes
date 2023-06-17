@@ -7,7 +7,7 @@ import QtQuick.tooling 1.2
 
 Module {
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QAudioDevice"
         accessSemantics: "value"
         exports: ["QtMultimedia/audioDevice 6.0"]
@@ -23,7 +23,7 @@ Module {
         Property { name: "mode"; type: "Mode"; read: "mode"; index: 3; isReadonly: true }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QAudioDevice"
         accessSemantics: "value"
         exports: ["QtMultimedia/AudioDevice 6.0"]
@@ -39,7 +39,7 @@ Module {
         Property { name: "mode"; type: "Mode"; read: "mode"; index: 3; isReadonly: true }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QAudioInput"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -92,7 +92,7 @@ Module {
         }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QAudioOutput"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -145,7 +145,7 @@ Module {
         }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QCameraDevice"
         accessSemantics: "value"
         exports: ["QtMultimedia/cameraDevice 6.0"]
@@ -161,14 +161,15 @@ Module {
         Property { name: "position"; type: "Position"; read: "position"; index: 3; isReadonly: true }
         Property {
             name: "videoFormats"
-            type: "QList<QCameraFormat>"
+            type: "QCameraFormat"
+            isList: true
             read: "videoFormats"
             index: 4
             isReadonly: true
         }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QCameraDevice"
         accessSemantics: "value"
         exports: ["QtMultimedia/CameraDevice 6.0"]
@@ -184,14 +185,15 @@ Module {
         Property { name: "position"; type: "Position"; read: "position"; index: 3; isReadonly: true }
         Property {
             name: "videoFormats"
-            type: "QList<QCameraFormat>"
+            type: "QCameraFormat"
+            isList: true
             read: "videoFormats"
             index: 4
             isReadonly: true
         }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QCamera"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -590,7 +592,7 @@ Module {
         }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QCameraFormat"
         accessSemantics: "value"
         exports: ["QtMultimedia/cameraFormat 6.0"]
@@ -608,12 +610,10 @@ Module {
         Property { name: "maxFrameRate"; type: "float"; read: "maxFrameRate"; index: 3; isReadonly: true }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QImageCapture"
         accessSemantics: "reference"
         prototype: "QObject"
-        exports: ["QtMultimedia/ImageCapture 6.0"]
-        exportMetaObjectRevisions: [1536]
         Enum {
             name: "Error"
             values: [
@@ -748,7 +748,7 @@ Module {
         }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QMediaCaptureSession"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -816,7 +816,7 @@ Module {
         Signal { name: "audioOutputChanged" }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QMediaDevices"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -824,7 +824,8 @@ Module {
         exportMetaObjectRevisions: [1536]
         Property {
             name: "audioInputs"
-            type: "QList<QAudioDevice>"
+            type: "QAudioDevice"
+            isList: true
             read: "audioInputs"
             notify: "audioInputsChanged"
             index: 0
@@ -832,7 +833,8 @@ Module {
         }
         Property {
             name: "audioOutputs"
-            type: "QList<QAudioDevice>"
+            type: "QAudioDevice"
+            isList: true
             read: "audioOutputs"
             notify: "audioOutputsChanged"
             index: 1
@@ -840,7 +842,8 @@ Module {
         }
         Property {
             name: "videoInputs"
-            type: "QList<QCameraDevice>"
+            type: "QCameraDevice"
+            isList: true
             read: "videoInputs"
             notify: "videoInputsChanged"
             index: 2
@@ -875,7 +878,7 @@ Module {
         Signal { name: "videoInputsChanged" }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QMediaFormat"
         accessSemantics: "value"
         exports: ["QtMultimedia/mediaFormat 6.0"]
@@ -969,17 +972,20 @@ Module {
         }
         Method {
             name: "supportedFileFormats"
-            type: "QList<FileFormat>"
+            type: "FileFormat"
+            isList: true
             Parameter { name: "m"; type: "ConversionMode" }
         }
         Method {
             name: "supportedVideoCodecs"
-            type: "QList<VideoCodec>"
+            type: "VideoCodec"
+            isList: true
             Parameter { name: "m"; type: "ConversionMode" }
         }
         Method {
             name: "supportedAudioCodecs"
-            type: "QList<AudioCodec>"
+            type: "AudioCodec"
+            isList: true
             Parameter { name: "m"; type: "ConversionMode" }
         }
         Method {
@@ -1014,7 +1020,7 @@ Module {
         }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QMediaFormat"
         accessSemantics: "value"
         exports: ["QtMultimedia/MediaFormat 6.0"]
@@ -1108,17 +1114,20 @@ Module {
         }
         Method {
             name: "supportedFileFormats"
-            type: "QList<FileFormat>"
+            type: "FileFormat"
+            isList: true
             Parameter { name: "m"; type: "ConversionMode" }
         }
         Method {
             name: "supportedVideoCodecs"
-            type: "QList<VideoCodec>"
+            type: "VideoCodec"
+            isList: true
             Parameter { name: "m"; type: "ConversionMode" }
         }
         Method {
             name: "supportedAudioCodecs"
-            type: "QList<AudioCodec>"
+            type: "AudioCodec"
+            isList: true
             Parameter { name: "m"; type: "ConversionMode" }
         }
         Method {
@@ -1153,7 +1162,7 @@ Module {
         }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QMediaMetaData"
         accessSemantics: "value"
         exports: ["QtMultimedia/mediaMetaData 6.0"]
@@ -1206,7 +1215,7 @@ Module {
             name: "remove"
             Parameter { name: "k"; type: "Key" }
         }
-        Method { name: "keys"; type: "QList<Key>" }
+        Method { name: "keys"; type: "Key"; isList: true }
         Method { name: "clear" }
         Method { name: "isEmpty"; type: "bool" }
         Method {
@@ -1221,7 +1230,7 @@ Module {
         }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QMediaMetaData"
         accessSemantics: "value"
         exports: ["QtMultimedia/MediaMetaData 6.0"]
@@ -1274,7 +1283,7 @@ Module {
             name: "remove"
             Parameter { name: "k"; type: "Key" }
         }
-        Method { name: "keys"; type: "QList<Key>" }
+        Method { name: "keys"; type: "Key"; isList: true }
         Method { name: "clear" }
         Method { name: "isEmpty"; type: "bool" }
         Method {
@@ -1456,7 +1465,8 @@ Module {
         }
         Property {
             name: "audioTracks"
-            type: "QList<QMediaMetaData>"
+            type: "QMediaMetaData"
+            isList: true
             read: "audioTracks"
             notify: "tracksChanged"
             index: 16
@@ -1464,7 +1474,8 @@ Module {
         }
         Property {
             name: "videoTracks"
-            type: "QList<QMediaMetaData>"
+            type: "QMediaMetaData"
+            isList: true
             read: "videoTracks"
             notify: "tracksChanged"
             index: 17
@@ -1472,7 +1483,8 @@ Module {
         }
         Property {
             name: "subtitleTracks"
-            type: "QList<QMediaMetaData>"
+            type: "QMediaMetaData"
+            isList: true
             read: "subtitleTracks"
             notify: "tracksChanged"
             index: 18
@@ -1580,7 +1592,7 @@ Module {
         }
     }
     Component {
-        file: "qtmultimediaquicktypes_p.h"
+        file: "private/qtmultimediaquicktypes_p.h"
         name: "QMediaRecorder"
         accessSemantics: "reference"
         prototype: "QObject"
@@ -1717,7 +1729,7 @@ Module {
         Method { name: "stop" }
     }
     Component {
-        file: "qquickimagecapture_p.h"
+        file: "private/qquickimagecapture_p.h"
         name: "QQuickImageCapture"
         accessSemantics: "reference"
         prototype: "QImageCapture"
@@ -1743,7 +1755,7 @@ Module {
         }
     }
     Component {
-        file: "qquickmediaplayer_p.h"
+        file: "private/qquickmediaplayer_p.h"
         name: "QQuickMediaPlayer"
         accessSemantics: "reference"
         prototype: "QMediaPlayer"
@@ -1763,7 +1775,7 @@ Module {
         }
     }
     Component {
-        file: "qquicksoundeffect_p.h"
+        file: "private/qquicksoundeffect_p.h"
         name: "QQuickSoundEffect"
         accessSemantics: "reference"
         prototype: "QSoundEffect"
@@ -1783,14 +1795,17 @@ Module {
         }
     }
     Component {
-        file: "qquickvideooutput_p.h"
+        file: "private/qquickvideooutput_p.h"
         name: "QQuickVideoOutput"
         accessSemantics: "reference"
         defaultProperty: "data"
         parentProperty: "parent"
         prototype: "QQuickItem"
-        exports: ["QtMultimedia/VideoOutput 6.0"]
-        exportMetaObjectRevisions: [1536]
+        exports: [
+            "QtMultimedia/VideoOutput 6.0",
+            "QtMultimedia/VideoOutput 6.3"
+        ]
+        exportMetaObjectRevisions: [1536, 1539]
         Enum {
             name: "FillMode"
             values: ["Stretch", "PreserveAspectFit", "PreserveAspectCrop"]
@@ -1843,9 +1858,13 @@ Module {
         Signal { name: "orientationChanged" }
         Signal { name: "sourceRectChanged" }
         Signal { name: "contentRectChanged" }
+        Signal {
+            name: "frameUpdated"
+            Parameter { type: "QSize" }
+        }
         Method {
             name: "_q_newFrame"
-            Parameter { type: "QVideoFrame" }
+            Parameter { type: "QSize" }
         }
         Method { name: "_q_updateGeometry" }
         Method { name: "_q_invalidateSceneGraph" }
@@ -1940,5 +1959,38 @@ Module {
         Signal { name: "audioDeviceChanged" }
         Method { name: "play" }
         Method { name: "stop" }
+    }
+    Component {
+        file: "private/qtmultimediaquicktypes_p.h"
+        name: "QVideoSink"
+        accessSemantics: "reference"
+        prototype: "QObject"
+        exports: ["QtMultimedia/VideoSink 6.0"]
+        exportMetaObjectRevisions: [1536]
+        Property {
+            name: "subtitleText"
+            type: "QString"
+            read: "subtitleText"
+            write: "setSubtitleText"
+            notify: "subtitleTextChanged"
+            index: 0
+        }
+        Property {
+            name: "videoSize"
+            type: "QSize"
+            read: "videoSize"
+            notify: "videoSizeChanged"
+            index: 1
+            isReadonly: true
+        }
+        Signal {
+            name: "videoFrameChanged"
+            Parameter { name: "frame"; type: "QVideoFrame" }
+        }
+        Signal {
+            name: "subtitleTextChanged"
+            Parameter { name: "subtitleText"; type: "QString" }
+        }
+        Signal { name: "videoSizeChanged" }
     }
 }

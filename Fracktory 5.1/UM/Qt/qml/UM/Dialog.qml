@@ -37,8 +37,7 @@ Window
     property Component buttonRow: RowLayout
     {
         height: childrenRect.height
-        anchors.left: parent.left
-        anchors.right: parent.right
+        Layout.fillWidth: true
 
         RowLayout
         {
@@ -107,7 +106,7 @@ Window
 
     ColumnLayout
     {
-        spacing: base.margin
+        spacing: 0
         focus: base.visible
         anchors.fill: background
 

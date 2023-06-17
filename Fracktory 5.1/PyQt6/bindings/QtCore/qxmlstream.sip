@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -303,6 +303,7 @@ int lastIndexOf(const QXmlStreamAttribute &value, int from = -1) const;
 void prepend(const QXmlStreamAttribute &value);
 void remove(int i);
 void remove(int i, int count);
+void resize(qsizetype size);
 void replace(int i, const QXmlStreamAttribute &value);
 int size() const;
 

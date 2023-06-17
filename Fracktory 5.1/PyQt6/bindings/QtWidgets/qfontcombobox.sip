@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -54,4 +54,38 @@ signals:
 
 protected:
     virtual bool event(QEvent *e);
+
+public:
+%If (Qt_6_3_0 -)
+    void setSampleTextForSystem(QFontDatabase::WritingSystem writingSystem, const QString &sampleText);
+%End
+%If (Qt_6_3_0 -)
+    QString sampleTextForSystem(QFontDatabase::WritingSystem writingSystem) const;
+%End
+%If (Qt_6_3_0 -)
+    void setSampleTextForFont(const QString &fontFamily, const QString &sampleText);
+%End
+%If (Qt_6_3_0 -)
+    QString sampleTextForFont(const QString &fontFamily) const;
+%End
+%If (Qt_6_3_0 -)
+    void setDisplayFont(const QString &fontFamily, const QFont &font);
+%End
+%If (Qt_6_3_0 -)
+    SIP_PYOBJECT displayFont(const QString &fontFamily) const /TypeHint="Optional[QFont]"/;
+%MethodCode
+        std::optional<QFont> f = sipCpp->displayFont(*a0);
+        
+        if (f)
+        {
+            sipRes = sipConvertFromNewType(new QFont(f.value()), sipType_QFont, NULL);
+        }
+        else
+        {
+            sipRes = Py_None;
+            Py_INCREF(sipRes);
+        }
+%End
+
+%End
 };

@@ -169,6 +169,33 @@ Module {
         }
     }
     Component {
+        file: "private/qquickcolordialog_p.h"
+        name: "QQuickColorDialog"
+        accessSemantics: "reference"
+        defaultProperty: "data"
+        prototype: "QQuickAbstractDialog"
+        exports: ["QtQuick.Dialogs/ColorDialog 6.4"]
+        exportMetaObjectRevisions: [1540]
+        Property {
+            name: "selectedColor"
+            type: "QColor"
+            read: "selectedColor"
+            write: "setSelectedColor"
+            notify: "selectedColorChanged"
+            index: 0
+        }
+        Property {
+            name: "options"
+            type: "QColorDialogOptions::ColorDialogOptions"
+            read: "options"
+            write: "setOptions"
+            notify: "optionsChanged"
+            index: 1
+        }
+        Signal { name: "selectedColorChanged" }
+        Signal { name: "optionsChanged" }
+    }
+    Component {
         file: "private/qquickfiledialog_p.h"
         name: "QQuickFileDialog"
         accessSemantics: "reference"
@@ -193,14 +220,15 @@ Module {
             name: "selectedFile"
             type: "QUrl"
             read: "selectedFile"
+            write: "setSelectedFile"
             notify: "selectedFileChanged"
             index: 1
-            isReadonly: true
             isFinal: true
         }
         Property {
             name: "selectedFiles"
-            type: "QList<QUrl>"
+            type: "QUrl"
+            isList: true
             read: "selectedFiles"
             notify: "selectedFilesChanged"
             index: 2
@@ -218,7 +246,8 @@ Module {
         }
         Property {
             name: "currentFiles"
-            type: "QList<QUrl>"
+            type: "QUrl"
+            isList: true
             read: "currentFiles"
             write: "setCurrentFiles"
             notify: "currentFilesChanged"
@@ -358,6 +387,65 @@ Module {
         }
     }
     Component {
+        file: "private/qquickfolderdialog_p.h"
+        name: "QQuickFolderDialog"
+        accessSemantics: "reference"
+        defaultProperty: "data"
+        prototype: "QQuickAbstractDialog"
+        exports: ["QtQuick.Dialogs/FolderDialog 6.3"]
+        exportMetaObjectRevisions: [1539]
+        Property {
+            name: "currentFolder"
+            type: "QUrl"
+            read: "currentFolder"
+            write: "setCurrentFolder"
+            notify: "currentFolderChanged"
+            index: 0
+            isFinal: true
+        }
+        Property {
+            name: "selectedFolder"
+            type: "QUrl"
+            read: "selectedFolder"
+            write: "setSelectedFolder"
+            notify: "selectedFolderChanged"
+            index: 1
+            isFinal: true
+        }
+        Property {
+            name: "options"
+            type: "QFileDialogOptions::FileDialogOptions"
+            read: "options"
+            write: "setOptions"
+            notify: "optionsChanged"
+            index: 2
+            isFinal: true
+        }
+        Property {
+            name: "acceptLabel"
+            type: "QString"
+            read: "acceptLabel"
+            write: "setAcceptLabel"
+            notify: "acceptLabelChanged"
+            index: 3
+            isFinal: true
+        }
+        Property {
+            name: "rejectLabel"
+            type: "QString"
+            read: "rejectLabel"
+            write: "setRejectLabel"
+            notify: "rejectLabelChanged"
+            index: 4
+            isFinal: true
+        }
+        Signal { name: "currentFolderChanged" }
+        Signal { name: "selectedFolderChanged" }
+        Signal { name: "optionsChanged" }
+        Signal { name: "acceptLabelChanged" }
+        Signal { name: "rejectLabelChanged" }
+    }
+    Component {
         file: "private/qquickfontdialog_p.h"
         name: "QQuickFontDialog"
         accessSemantics: "reference"
@@ -393,5 +481,64 @@ Module {
         Signal { name: "selectedFontChanged" }
         Signal { name: "currentFontChanged" }
         Signal { name: "optionsChanged" }
+    }
+    Component {
+        file: "private/qquickmessagedialog_p.h"
+        name: "QQuickMessageDialog"
+        accessSemantics: "reference"
+        defaultProperty: "data"
+        prototype: "QQuickAbstractDialog"
+        exports: ["QtQuick.Dialogs/MessageDialog 6.3"]
+        exportMetaObjectRevisions: [1539]
+        Property {
+            name: "text"
+            type: "QString"
+            read: "text"
+            write: "setText"
+            notify: "textChanged"
+            index: 0
+            isFinal: true
+        }
+        Property {
+            name: "informativeText"
+            type: "QString"
+            read: "informativeText"
+            write: "setInformativeText"
+            notify: "informativeTextChanged"
+            index: 1
+            isFinal: true
+        }
+        Property {
+            name: "detailedText"
+            type: "QString"
+            read: "detailedText"
+            write: "setDetailedText"
+            notify: "detailedTextChanged"
+            index: 2
+            isFinal: true
+        }
+        Property {
+            name: "buttons"
+            type: "QPlatformDialogHelper::StandardButtons"
+            read: "buttons"
+            write: "setButtons"
+            notify: "buttonsChanged"
+            index: 3
+            isFinal: true
+        }
+        Signal { name: "textChanged" }
+        Signal { name: "informativeTextChanged" }
+        Signal { name: "detailedTextChanged" }
+        Signal { name: "buttonsChanged" }
+        Signal {
+            name: "buttonClicked"
+            Parameter { name: "button"; type: "QPlatformDialogHelper::StandardButton" }
+            Parameter { name: "role"; type: "QPlatformDialogHelper::ButtonRole" }
+        }
+        Method {
+            name: "handleClick"
+            Parameter { name: "button"; type: "QPlatformDialogHelper::StandardButton" }
+            Parameter { name: "role"; type: "QPlatformDialogHelper::ButtonRole" }
+        }
     }
 }

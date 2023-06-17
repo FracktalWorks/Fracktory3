@@ -2,7 +2,7 @@
 //
 // This file is part of the QtMultimedia Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -36,6 +36,11 @@ public:
     void setSubtitleText(const QString &subtitle);
     void setVideoFrame(const QVideoFrame &frame);
     QVideoFrame videoFrame() const;
+
+signals:
+    void videoFrameChanged(const QVideoFrame &frame) const;
+    void subtitleTextChanged(const QString &subtitleText) const;
+    void videoSizeChanged();
 };
 
 %End

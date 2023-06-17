@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -41,6 +41,9 @@ public:
     QDirIterator(const QString &path, const QStringList &nameFilters, QDir::Filters filters = QDir::NoFilter, QDirIterator::IteratorFlags flags = QDirIterator::NoIteratorFlags);
     ~QDirIterator();
     QString next();
+%If (Qt_6_3_0 -)
+    QFileInfo nextFileInfo();
+%End
     bool hasNext() const;
     QString fileName() const;
     QString filePath() const;

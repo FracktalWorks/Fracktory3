@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -52,9 +52,9 @@ public:
     };
 
     typedef QFlags<QTreeWidgetItemIterator::IteratorFlag> IteratorFlags;
+    QTreeWidgetItemIterator(QTreeWidgetItem *item, QTreeWidgetItemIterator::IteratorFlags flags = QTreeWidgetItemIterator::All);
+    QTreeWidgetItemIterator(QTreeWidget *widget, QTreeWidgetItemIterator::IteratorFlags flags = QTreeWidgetItemIterator::All);
     QTreeWidgetItemIterator(const QTreeWidgetItemIterator &it);
-    QTreeWidgetItemIterator(QTreeWidget *widget, QFlags<QTreeWidgetItemIterator::IteratorFlag> flags = All);
-    QTreeWidgetItemIterator(QTreeWidgetItem *item, QFlags<QTreeWidgetItemIterator::IteratorFlag> flags = All);
     ~QTreeWidgetItemIterator();
     QTreeWidgetItem *value() const;
 %MethodCode

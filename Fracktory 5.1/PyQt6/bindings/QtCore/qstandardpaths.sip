@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -48,6 +48,12 @@ public:
         AppDataLocation,
         AppLocalDataLocation,
         AppConfigLocation,
+%If (Qt_6_4_0 -)
+        PublicShareLocation,
+%End
+%If (Qt_6_4_0 -)
+        TemplatesLocation,
+%End
     };
 
     static QString writableLocation(QStandardPaths::StandardLocation type);

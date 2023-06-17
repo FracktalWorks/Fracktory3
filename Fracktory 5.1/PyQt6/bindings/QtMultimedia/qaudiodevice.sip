@@ -2,7 +2,7 @@
 //
 // This file is part of the QtMultimedia Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -54,6 +54,9 @@ public:
     int minimumChannelCount() const;
     int maximumChannelCount() const;
     QList<QAudioFormat::SampleFormat> supportedSampleFormats() const;
+%If (Qt_6_4_0 -)
+    QAudioFormat::ChannelConfig channelConfiguration() const;
+%End
 };
 
 %End

@@ -1,31 +1,5 @@
-/****************************************************************************
-**
-** Copyright (C) 2021 The Qt Company Ltd.
-** Contact: https://www.qt.io/licensing/
-**
-** This file is part of Qt Quick 3D.
-**
-** $QT_BEGIN_LICENSE:GPL$
-** Commercial License Usage
-** Licensees holding valid commercial Qt licenses may use this file in
-** accordance with the commercial license agreement provided with the
-** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and The Qt Company. For licensing terms
-** and conditions see https://www.qt.io/terms-conditions. For further
-** information use the contact form at https://www.qt.io/contact-us.
-**
-** GNU General Public License Usage
-** Alternatively, this file may be used under the terms of the GNU
-** General Public License version 3 or (at your option) any later version
-** approved by the KDE Free Qt Foundation. The licenses are as published by
-** the Free Software Foundation and appearing in the file LICENSE.GPL3
-** included in the packaging of this file. Please review the following
-** information to ensure the GNU General Public License requirements will
-** be met: https://www.gnu.org/licenses/gpl-3.0.html.
-**
-** $QT_END_LICENSE$
-**
-****************************************************************************/
+// Copyright (C) 2021 The Qt Company Ltd.
+// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
@@ -39,7 +13,7 @@ Section {
     SectionLayout {
         PropertyLabel {
             text: qsTr("Name")
-            tooltip: qsTr("Buffer name.")
+            tooltip: qsTr("Sets the buffer name.")
         }
 
         SecondColumnLayout {
@@ -56,7 +30,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Format")
-            tooltip: qsTr("Format of the buffer.")
+            tooltip: qsTr("Sets the format of the buffer.")
         }
 
         SecondColumnLayout {
@@ -73,7 +47,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Filter")
-            tooltip: qsTr("Texture filter for the buffer.")
+            tooltip: qsTr("Sets the texture filter for the buffer.")
         }
 
         SecondColumnLayout {
@@ -90,7 +64,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Coordinate Operation")
-            tooltip: qsTr("Texture coordinate operation for the buffer.")
+            tooltip: qsTr("Sets the texture coordinate operation for the buffer.")
         }
 
         SecondColumnLayout {
@@ -107,7 +81,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Allocation Flags")
-            tooltip: qsTr("Allocation flags for the buffer.")
+            tooltip: qsTr("Sets the allocation flags for the buffer.")
         }
 
         SecondColumnLayout {
@@ -124,7 +98,7 @@ Section {
 
         PropertyLabel {
             text: qsTr("Size Multiplier")
-            tooltip: qsTr("Defines the size multiplier for the buffer.")
+            tooltip: qsTr("Sets the size multiplier for the buffer.")
         }
 
         SecondColumnLayout {

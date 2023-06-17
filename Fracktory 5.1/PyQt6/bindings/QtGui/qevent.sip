@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -293,6 +293,9 @@ class QCloseEvent : QEvent /NoDefaultCtors/
 public:
     QCloseEvent();
     virtual ~QCloseEvent();
+%If (Qt_6_4_0 -)
+    virtual QCloseEvent *clone() const /Factory/;
+%End
 };
 
 class QIconDragEvent : QEvent /NoDefaultCtors/
@@ -304,6 +307,9 @@ class QIconDragEvent : QEvent /NoDefaultCtors/
 public:
     QIconDragEvent();
     virtual ~QIconDragEvent();
+%If (Qt_6_4_0 -)
+    virtual QIconDragEvent *clone() const /Factory/;
+%End
 };
 
 class QShowEvent : QEvent /NoDefaultCtors/
@@ -315,6 +321,9 @@ class QShowEvent : QEvent /NoDefaultCtors/
 public:
     QShowEvent();
     virtual ~QShowEvent();
+%If (Qt_6_4_0 -)
+    virtual QShowEvent *clone() const /Factory/;
+%End
 };
 
 class QHideEvent : QEvent /NoDefaultCtors/
@@ -326,6 +335,9 @@ class QHideEvent : QEvent /NoDefaultCtors/
 public:
     QHideEvent();
     virtual ~QHideEvent();
+%If (Qt_6_4_0 -)
+    virtual QHideEvent *clone() const /Factory/;
+%End
 };
 
 class QContextMenuEvent : QInputEvent /NoDefaultCtors/
@@ -464,6 +476,9 @@ class QDragEnterEvent : QDragMoveEvent /NoDefaultCtors/
 public:
     QDragEnterEvent(const QPoint &pos, Qt::DropActions actions, const QMimeData *data, Qt::MouseButtons buttons, Qt::KeyboardModifiers modifiers);
     virtual ~QDragEnterEvent();
+%If (Qt_6_4_0 -)
+    virtual QDragEnterEvent *clone() const /Factory/;
+%End
 };
 
 class QDragLeaveEvent : QEvent /NoDefaultCtors/
@@ -475,6 +490,9 @@ class QDragLeaveEvent : QEvent /NoDefaultCtors/
 public:
     QDragLeaveEvent();
     virtual ~QDragLeaveEvent();
+%If (Qt_6_4_0 -)
+    virtual QDragLeaveEvent *clone() const /Factory/;
+%End
 };
 
 class QHelpEvent : QEvent /NoDefaultCtors/
@@ -686,6 +704,9 @@ class QSinglePointEvent : QPointerEvent /NoDefaultCtors/
 %End
 
 public:
+%If (Qt_6_4_0 -)
+    virtual ~QSinglePointEvent();
+%End
     Qt::MouseButton button() const;
     Qt::MouseButtons buttons() const;
     QPointF position() const;
@@ -737,6 +758,9 @@ class QHoverEvent : QSinglePointEvent /NoDefaultCtors/
 %End
 
 public:
+%If (Qt_6_3_0 -)
+    QHoverEvent(QEvent::Type type, const QPointF &pos, const QPointF &globalPos, const QPointF &oldPos, Qt::KeyboardModifiers modifiers = Qt::NoModifier, const QPointingDevice *device = QPointingDevice::primaryPointingDevice());
+%End
     QHoverEvent(QEvent::Type type, const QPointF &pos, const QPointF &oldPos, Qt::KeyboardModifiers modifiers = Qt::NoModifier, const QPointingDevice *device = QPointingDevice::primaryPointingDevice());
     virtual ~QHoverEvent();
     virtual bool isUpdateEvent() const;

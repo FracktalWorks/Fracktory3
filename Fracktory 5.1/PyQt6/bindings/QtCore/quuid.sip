@@ -2,7 +2,7 @@
 //
 // This file is part of the QtCore Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -56,8 +56,15 @@ public:
 
     QUuid();
     QUuid(uint l, ushort w1, ushort w2, uchar b1 /PyInt/, uchar b2 /PyInt/, uchar b3 /PyInt/, uchar b4 /PyInt/, uchar b5 /PyInt/, uchar b6 /PyInt/, uchar b7 /PyInt/, uchar b8 /PyInt/);
+%If (Qt_6_4_0 -)
+    explicit QUuid(QAnyStringView string);
+%End
+%If (- Qt_6_4_0)
     explicit QUuid(const QString &);
+%End
+%If (- Qt_6_4_0)
     explicit QUuid(const QByteArray &);
+%End
     Py_hash_t __hash__() const;
 %MethodCode
         sipRes = qHash(*sipCpp);
@@ -90,7 +97,18 @@ public:
     QUuid::Version version() const;
     QByteArray toByteArray(QUuid::StringFormat mode = QUuid::WithBraces) const;
     QByteArray toRfc4122() const;
+%If (Qt_6_3_0 -)
+    static QUuid fromRfc4122(QByteArrayView);
+%End
+%If (- Qt_6_3_0)
     static QUuid fromRfc4122(const QByteArray &);
+%End
+%If (Qt_6_4_0 -)
+    static QUuid fromString(QAnyStringView string);
+%End
+%If (- Qt_6_4_0)
+    static QUuid fromString(QStringView string);
+%End
 };
 
 QDataStream &operator<<(QDataStream &, const QUuid & /Constrained/) /ReleaseGIL/;

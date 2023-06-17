@@ -2,7 +2,7 @@
 //
 // This file is part of the QtMultimedia Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -34,6 +34,9 @@ public:
         Format_Invalid,
         Format_YUV420P,
         Format_YUV422P,
+%If (Qt_6_4_0 -)
+        Format_YUV420P10,
+%End
         Format_YV12,
         Format_UYVY,
         Format_YUYV,
@@ -78,6 +81,9 @@ public:
         YCbCr_xvYCC601,
         YCbCr_xvYCC709,
         YCbCr_JPEG,
+%If (Qt_6_3_0 -)
+        YCbCr_BT2020,
+%End
     };
 
     QVideoFrameFormat();
@@ -106,6 +112,64 @@ public:
     void setMirrored(bool mirrored);
     static QVideoFrameFormat::PixelFormat pixelFormatFromImageFormat(QImage::Format format);
     static QImage::Format imageFormatFromPixelFormat(QVideoFrameFormat::PixelFormat format);
+%If (Qt_6_2_0 -)
+    static QString pixelFormatToString(QVideoFrameFormat::PixelFormat pixelFormat);
+%End
+%If (Qt_6_4_0 -)
+
+    enum ColorSpace
+    {
+        ColorSpace_Undefined,
+        ColorSpace_BT601,
+        ColorSpace_BT709,
+        ColorSpace_AdobeRgb,
+        ColorSpace_BT2020,
+    };
+
+%End
+%If (Qt_6_4_0 -)
+
+    enum ColorTransfer
+    {
+        ColorTransfer_Unknown,
+        ColorTransfer_BT709,
+        ColorTransfer_BT601,
+        ColorTransfer_Linear,
+        ColorTransfer_Gamma22,
+        ColorTransfer_Gamma28,
+        ColorTransfer_ST2084,
+        ColorTransfer_STD_B67,
+    };
+
+%End
+%If (Qt_6_4_0 -)
+
+    enum ColorRange
+    {
+        ColorRange_Unknown,
+        ColorRange_Video,
+        ColorRange_Full,
+    };
+
+%End
+%If (Qt_6_4_0 -)
+    QVideoFrameFormat::ColorSpace colorSpace() const;
+%End
+%If (Qt_6_4_0 -)
+    void setColorSpace(QVideoFrameFormat::ColorSpace colorSpace);
+%End
+%If (Qt_6_4_0 -)
+    QVideoFrameFormat::ColorTransfer colorTransfer() const;
+%End
+%If (Qt_6_4_0 -)
+    void setColorTransfer(QVideoFrameFormat::ColorTransfer colorTransfer);
+%End
+%If (Qt_6_4_0 -)
+    QVideoFrameFormat::ColorRange colorRange() const;
+%End
+%If (Qt_6_4_0 -)
+    void setColorRange(QVideoFrameFormat::ColorRange range);
+%End
 };
 
 %End

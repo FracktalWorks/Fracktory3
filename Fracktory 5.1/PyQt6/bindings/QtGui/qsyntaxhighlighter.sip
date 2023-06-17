@@ -2,7 +2,7 @@
 //
 // This file is part of the QtGui Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -86,7 +86,4 @@ protected:
 
     QTextBlockUserData *currentBlockUserData() const;
     QTextBlock currentBlock() const;
-
-private:
-    QSyntaxHighlighter(const QSyntaxHighlighter &);
 };

@@ -2,7 +2,7 @@
 //
 // This file is part of the QtWidgets Python extension module.
 //
-// Copyright (c) 2022 Riverbank Computing Limited <info@riverbankcomputing.com>
+// Copyright (c) 2023 Riverbank Computing Limited <info@riverbankcomputing.com>
 // 
 // This file is part of PyQt6.
 // 
@@ -605,15 +605,8 @@ class QGraphicsObject : QObject, QGraphicsItem
 public:
     explicit QGraphicsObject(QGraphicsItem *parent /TransferThis/ = 0);
     virtual ~QGraphicsObject();
-    void grabGesture(int type, Qt::GestureFlags flags = Qt::GestureFlags());
-%MethodCode
-        sipCpp->grabGesture(Qt::GestureType(a0), *a1);
-%End
-
-    void ungrabGesture(int type);
-%MethodCode
-        sipCpp->ungrabGesture(Qt::GestureType(a0));
-%End
+    void grabGesture(Qt::GestureType type, Qt::GestureFlags flags = Qt::GestureFlags());
+    void ungrabGesture(Qt::GestureType type);
 
 signals:
     void parentChanged();
