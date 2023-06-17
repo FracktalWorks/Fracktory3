@@ -158,7 +158,7 @@ UM.MainWindow
             {
                 welcomeDialogItem.model = CuraApplication.getAddPrinterPagesModelWithoutCancel()
                 welcomeDialogItem.progressBarVisible = false
-                welcomeDialogItem.visible = true
+                welcomeDialogItem.visible = false
             }
         }
     }
