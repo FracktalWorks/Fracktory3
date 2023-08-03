@@ -1,0 +1,719 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-03 10:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#, python-brace-format
+msgctxt "@info:version-upgrade"
+msgid "A configuration from an older version of {0} was imported."
+msgstr ""
+
+msgctxt "@option"
+msgid "Abort"
+msgstr ""
+
+msgctxt "@item:inlistbox"
+msgid "All Files (*)"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@item:inlistbox"
+msgid "All Supported Types ({0})"
+msgstr ""
+
+msgctxt "@option"
+msgid "Apply"
+msgstr ""
+
+msgctxt "@label (%1 is object name)"
+msgid "Are you sure you wish to remove %1? This cannot be undone!"
+msgstr ""
+
+#, python-format, python-brace-format
+msgctxt "@info:status"
+msgid "Auto scaled model to {0}% of original size"
+msgstr ""
+
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr ""
+
+msgctxt "@option"
+msgid "Cancel"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status Don't translate the XML tag <filename>!"
+msgid "Cannot open files of the type of <filename>{0}</filename>"
+msgstr ""
+
+msgctxt "@item:inmenu"
+msgid "Check for Updates"
+msgstr ""
+
+msgctxt "@option"
+msgid "Close"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "Configuration errors"
+msgstr ""
+
+msgctxt "@title:window"
+msgid "Confirm Remove"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status Don't translate the XML tags <filename> or <message>!"
+msgid "Could not save to <filename>{0}</filename>: <message>{1}</message>"
+msgstr ""
+
+msgctxt "Critical OpenGL Extensions Missing"
+msgid "Critical OpenGL extensions are missing. This program requires support for Framebuffer Objects. Please check your video card drivers."
+msgstr ""
+
+msgctxt "@option"
+msgid "Discard"
+msgstr ""
+
+msgctxt "@action:button"
+msgid "Dismiss"
+msgstr ""
+
+msgctxt "@action:button"
+msgid "Download"
+msgstr ""
+
+msgctxt "@option:check"
+msgid "Drop Down Model"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "Error"
+msgstr ""
+
+msgctxt "@message"
+msgid "Failed to Initialize OpenGL"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status Don't translate the XML tag <filename>!"
+msgid "Failed to load <filename>{0}</filename>. The file could be corrupt or inaccessible."
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status Don't translate the XML tag <filename>!"
+msgid "Failed to load <filename>{0}</filename>. The file could be corrupt, inaccessible or it did not contain any models."
+msgstr ""
+
+msgctxt "@title:window"
+msgid "File Already Exists"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "File Saved"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "File has been modified"
+msgstr ""
+
+msgctxt "@menu"
+msgid "From Disk"
+msgstr ""
+
+msgctxt "@title:tab"
+msgid "General"
+msgstr ""
+
+msgctxt "@option"
+msgid "Help"
+msgstr ""
+
+msgctxt "@option"
+msgid "Ignore"
+msgstr ""
+
+msgctxt "@info:progress"
+msgid "Initializing package manager..."
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:progress Don't translate {package_id}"
+msgid "Installing plugin {package_id}..."
+msgstr ""
+
+msgctxt "@info:title"
+msgid "Invalid File"
+msgstr ""
+
+msgctxt "@action:button"
+msgid "Lay flat"
+msgstr ""
+
+msgctxt "@label"
+msgid "Laying object flat on buildplate..."
+msgstr ""
+
+msgctxt "@action:button"
+msgid "Learn more"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "Loading"
+msgstr ""
+
+msgctxt "@info:progress"
+msgid "Loading UI..."
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:progress"
+msgid "Loading plugin {plugin_id}..."
+msgstr ""
+
+msgctxt "@info:progress"
+msgid "Loading plugins..."
+msgstr ""
+
+msgctxt "@info:progress"
+msgid "Loading preferences..."
+msgstr ""
+
+msgctxt "@item:inmenu"
+msgid "Local File"
+msgstr ""
+
+msgctxt "@option:check"
+msgid "Lock Model"
+msgstr ""
+
+msgctxt "@label"
+msgid "Mirror"
+msgstr ""
+
+msgctxt "@info:tooltip"
+msgid "Mirror Model"
+msgstr ""
+
+msgctxt "@action:button"
+msgid "Move"
+msgstr ""
+
+msgctxt "@info:tooltip"
+msgid "Move Model"
+msgstr ""
+
+msgctxt "@option"
+msgid "No"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "No Models in File"
+msgstr ""
+
+msgctxt "@info"
+msgid "No new version was found."
+msgstr ""
+
+msgctxt "@option"
+msgid "No to All"
+msgstr ""
+
+msgctxt "@error:not supported"
+msgid "OBJWriter does not support non-text mode."
+msgstr ""
+
+msgctxt "@action:button"
+msgid "OK"
+msgstr ""
+
+msgctxt "@option"
+msgid "OK"
+msgstr ""
+
+msgctxt "@title"
+msgid "Object Rotation"
+msgstr ""
+
+msgctxt "@option"
+msgid "Open"
+msgstr ""
+
+msgctxt "@action:button"
+msgid "Open Folder"
+msgstr ""
+
+msgctxt "@info:tooltip"
+msgid "Open the folder containing the file"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status Don't translate the XML tags <filename>!"
+msgid "Permission denied when trying to save <filename>{0}</filename>"
+msgstr ""
+
+msgctxt "@info"
+msgid "Please provide a new name."
+msgstr ""
+
+msgctxt "@info:status"
+msgid "Plugin no longer scheduled to be installed."
+msgstr ""
+
+msgctxt "@error:untrusted"
+msgid "Plugin {} was not loaded because it could not be verified."
+msgstr ""
+
+msgctxt "@title:window"
+msgid "Preferences"
+msgstr ""
+
+msgctxt "@title:tab"
+msgid "Printers"
+msgstr ""
+
+msgctxt "@action:button"
+msgid "Reload"
+msgstr ""
+
+msgctxt "@action:button"
+msgid "Remove plugin"
+msgstr ""
+
+msgctxt "@title:window"
+msgid "Rename"
+msgstr ""
+
+msgctxt "@action:button"
+msgid "Reset"
+msgstr ""
+
+msgctxt "@option"
+msgid "Reset"
+msgstr ""
+
+msgctxt "@title:window"
+msgid "Reset to factory"
+msgstr ""
+
+msgctxt "@label"
+msgid "Reset will remove all your current printers and profiles! Are you sure you want to reset?"
+msgstr ""
+
+msgctxt "@option"
+msgid "Restore Defaults"
+msgstr ""
+
+msgctxt "@option"
+msgid "Retry"
+msgstr ""
+
+msgctxt "@label"
+msgid "Rotate"
+msgstr ""
+
+msgctxt "@info:tooltip"
+msgid "Rotate Model"
+msgstr ""
+
+msgctxt "@item:inlistbox"
+msgid "STL File"
+msgstr ""
+
+msgctxt "@item:inlistbox"
+msgid "STL File (ASCII)"
+msgstr ""
+
+msgctxt "@item:inlistbox"
+msgid "STL File (Binary)"
+msgstr ""
+
+msgctxt "@option"
+msgid "Save"
+msgstr ""
+
+msgctxt "@option"
+msgid "Save All"
+msgstr ""
+
+msgctxt "@action:button Preceded by 'Ready to'."
+msgid "Save to Disk"
+msgstr ""
+
+msgctxt "@info:tooltip"
+msgid "Save to Disk"
+msgstr ""
+
+msgctxt "@title:window"
+msgid "Save to Disk"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status Don't translate the XML tags <filename>!"
+msgid "Saved to <filename>{0}</filename>"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "Saving"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:progress Don't translate the XML tags <filename>!"
+msgid "Saving to <filename>{0}</filename>"
+msgstr ""
+
+msgctxt "@label"
+msgid "Scale"
+msgstr ""
+
+msgctxt "@info:tooltip"
+msgid "Scale Model"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "Scaling Object"
+msgstr ""
+
+msgctxt "@action:button"
+msgid "Select face to align to the build plate"
+msgstr ""
+
+msgctxt "@title:tab"
+msgid "Settings"
+msgstr ""
+
+msgctxt "@item:inmenu"
+msgid "Simple"
+msgstr ""
+
+msgctxt "@action:checkbox"
+msgid "Snap Rotation"
+msgstr ""
+
+msgctxt "@option:check"
+msgid "Snap Scaling"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status"
+msgid "Something went wrong saving to <filename>{0}</filename>: <message>{1}</message>"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@label Don't translate the XML tag <filename>!"
+msgid "The file <filename>{0}</filename> already exists. Are you sure you want to overwrite it?"
+msgstr ""
+
+msgctxt "@info:status"
+msgid ""
+"The plugin has been installed.\n"
+"Please re-start the application to activate the plugin."
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status"
+msgid ""
+"The plugin has been removed.\n"
+"Please restart {0} to finish uninstall."
+msgstr ""
+
+msgctxt "@error"
+msgid "The plugin {} could not be loaded. Re-installing the plugin might solve the issue."
+msgstr ""
+
+msgctxt "@info"
+msgid "The version you are using does not support checking for updates."
+msgstr ""
+
+msgctxt "@info:warning"
+msgid "There are no file types available to write with!"
+msgstr ""
+
+msgctxt "@error:no mesh"
+msgid "There is no mesh to write."
+msgstr ""
+
+#, python-brace-format
+msgctxt "@error:update"
+msgid ""
+"There was an error uninstalling the package {package} before installing new version:\n"
+"{error}.\n"
+"Please try to upgrade again later."
+msgstr ""
+
+#, python-brace-format
+msgctxt "@error:uninstall"
+msgid "There were some errors uninstalling the following packages: {packages}"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status Don't translate the XML tag <filename>!"
+msgid "There where no models in <filename>{0}</filename>."
+msgstr ""
+
+msgctxt "@action:description"
+msgid "This will trigger the modified files to reload from disk."
+msgstr ""
+
+msgctxt "@item:inmenu About saving files to the hard drive"
+msgid "To Disk"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status"
+msgid "Try out the latest BETA version and help us improve {application_name}."
+msgstr ""
+
+msgctxt "@label"
+msgid "Type"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "Unable to Open File"
+msgstr ""
+
+msgctxt "@option:check"
+msgid "Uniform Scaling"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "Uninstalling errors"
+msgstr ""
+
+msgctxt "@error:not supported"
+msgid "Unsupported output mode writing STL to stream."
+msgstr ""
+
+msgctxt "@item:inmenu"
+msgid "Update Checker"
+msgstr ""
+
+msgctxt "@info:progress"
+msgid "Updating configuration..."
+msgstr ""
+
+msgctxt "@info:title"
+msgid "Updating error"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "Version Upgrade"
+msgstr ""
+
+msgctxt "@info:title"
+msgid "Warning"
+msgstr ""
+
+msgctxt "@item:inlistbox"
+msgid "Wavefront OBJ File"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info"
+msgid "Would you like to reload {filename}?"
+msgstr ""
+
+msgctxt "@option"
+msgid "Yes"
+msgstr ""
+
+msgctxt "@option"
+msgid "Yes to All"
+msgstr ""
+
+msgctxt "@info:status"
+msgid "Your configuration seems to be corrupt."
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status"
+msgid ""
+"Your configuration seems to be corrupt. Something seems to be wrong with the following profiles:\n"
+"- {profiles}\n"
+" Would you like to reset to factory defaults? Reset will remove all your current printers and profiles."
+msgstr ""
+
+#, python-brace-format
+msgctxt "@label Short days-hours-minutes format. {0} is days, {1} is hours, {2} is minutes"
+msgid "{0:0>2}d {1:0>2}h {2:0>2}min"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@label Short hours-minutes format. {0} is hours, {1} is minutes"
+msgid "{0:0>2}h {1:0>2}min"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@label Long duration format. {0} is days"
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-brace-format
+msgctxt "@label Long duration format. {0} is hours"
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-brace-format
+msgctxt "@label Long duration format. {0} is minutes"
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-brace-format
+msgctxt "@info:status"
+msgid "{application_name} {version_number} is available!"
+msgstr ""
+
+#, python-brace-format
+msgctxt "@info:status"
+msgid "{application_name} {version_number} provides a better and more reliable printing experience."
+msgstr ""
+msgctxt "description"
+msgid "Provides built-in setting containers that come with the installation of the application."
+msgstr ""
+
+msgctxt "name"
+msgid "Local Container Provider"
+msgstr ""
+
+msgctxt "description"
+msgid "Provides the Rotate tool."
+msgstr ""
+
+msgctxt "name"
+msgid "Rotate Tool"
+msgstr ""
+
+msgctxt "description"
+msgid "Provides the Move tool."
+msgstr ""
+
+msgctxt "name"
+msgid "Move Tool"
+msgstr ""
+
+msgctxt "description"
+msgid "Provides the tool to manipulate the camera."
+msgstr ""
+
+msgctxt "name"
+msgid "Camera Tool"
+msgstr ""
+
+msgctxt "description"
+msgid "Provides the Mirror tool."
+msgstr ""
+
+msgctxt "name"
+msgid "Mirror Tool"
+msgstr ""
+
+msgctxt "description"
+msgid "Provides the Scale tool."
+msgstr ""
+
+msgctxt "name"
+msgid "Scale Tool"
+msgstr ""
+
+msgctxt "description"
+msgid "Provides the Selection tool."
+msgstr ""
+
+msgctxt "name"
+msgid "Selection Tool"
+msgstr ""
+
+msgctxt "description"
+msgid "Enables saving to local files."
+msgstr ""
+
+msgctxt "name"
+msgid "Local File Output Device"
+msgstr ""
+
+msgctxt "description"
+msgid "Outputs log information to a file in your settings folder."
+msgstr ""
+
+msgctxt "name"
+msgid "File Logger"
+msgstr ""
+
+msgctxt "description"
+msgid "Outputs log information to the console."
+msgstr ""
+
+msgctxt "name"
+msgid "Console Logger"
+msgstr ""
+
+msgctxt "description"
+msgid "Checks for updates of the software."
+msgstr ""
+
+msgctxt "name"
+msgid "Update Checker"
+msgstr ""
+
+msgctxt "description"
+msgid "Makes it possible to read Wavefront OBJ files."
+msgstr ""
+
+msgctxt "name"
+msgid "Wavefront OBJ Reader"
+msgstr ""
+
+msgctxt "description"
+msgid "Makes it possible to write Wavefront OBJ files."
+msgstr ""
+
+msgctxt "name"
+msgid "Wavefront OBJ Writer"
+msgstr ""
+
+msgctxt "description"
+msgid "Provides support for reading STL files."
+msgstr ""
+
+msgctxt "name"
+msgid "STL Reader"
+msgstr ""
+
+msgctxt "description"
+msgid "Provides support for writing STL files."
+msgstr ""
+
+msgctxt "name"
+msgid "STL Writer"
+msgstr ""
+
+msgctxt "description"
+msgid "Provides a simple solid mesh view."
+msgstr ""
+
+msgctxt "name"
+msgid "Simple View"
+msgstr ""
+
