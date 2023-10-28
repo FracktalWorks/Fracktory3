@@ -1,0 +1,223 @@
+QtNetworkAuth.PYQT_NETWORKAUTH_VERSION?7
+QtNetworkAuth.PYQT_NETWORKAUTH_VERSION_STR?7
+QtNetworkAuth.QAbstractOAuth.ContentType?10
+QtNetworkAuth.QAbstractOAuth.ContentType.WwwFormUrlEncoded?10
+QtNetworkAuth.QAbstractOAuth.ContentType.Json?10
+QtNetworkAuth.QAbstractOAuth.Error?10
+QtNetworkAuth.QAbstractOAuth.Error.NoError?10
+QtNetworkAuth.QAbstractOAuth.Error.NetworkError?10
+QtNetworkAuth.QAbstractOAuth.Error.ServerError?10
+QtNetworkAuth.QAbstractOAuth.Error.OAuthTokenNotFoundError?10
+QtNetworkAuth.QAbstractOAuth.Error.OAuthTokenSecretNotFoundError?10
+QtNetworkAuth.QAbstractOAuth.Error.OAuthCallbackNotVerified?10
+QtNetworkAuth.QAbstractOAuth.Stage?10
+QtNetworkAuth.QAbstractOAuth.Stage.RequestingTemporaryCredentials?10
+QtNetworkAuth.QAbstractOAuth.Stage.RequestingAuthorization?10
+QtNetworkAuth.QAbstractOAuth.Stage.RequestingAccessToken?10
+QtNetworkAuth.QAbstractOAuth.Stage.RefreshingAccessToken?10
+QtNetworkAuth.QAbstractOAuth.Status?10
+QtNetworkAuth.QAbstractOAuth.Status.NotAuthenticated?10
+QtNetworkAuth.QAbstractOAuth.Status.TemporaryCredentialsReceived?10
+QtNetworkAuth.QAbstractOAuth.Status.Granted?10
+QtNetworkAuth.QAbstractOAuth.Status.RefreshingToken?10
+QtNetworkAuth.QAbstractOAuth.clientIdentifier?4() -> QString
+QtNetworkAuth.QAbstractOAuth.setClientIdentifier?4(QString)
+QtNetworkAuth.QAbstractOAuth.token?4() -> QString
+QtNetworkAuth.QAbstractOAuth.setToken?4(QString)
+QtNetworkAuth.QAbstractOAuth.networkAccessManager?4() -> QNetworkAccessManager
+QtNetworkAuth.QAbstractOAuth.setNetworkAccessManager?4(QNetworkAccessManager)
+QtNetworkAuth.QAbstractOAuth.status?4() -> QAbstractOAuth.Status
+QtNetworkAuth.QAbstractOAuth.authorizationUrl?4() -> QUrl
+QtNetworkAuth.QAbstractOAuth.setAuthorizationUrl?4(QUrl)
+QtNetworkAuth.QAbstractOAuth.extraTokens?4() -> unknown-type
+QtNetworkAuth.QAbstractOAuth.replyHandler?4() -> QAbstractOAuthReplyHandler
+QtNetworkAuth.QAbstractOAuth.setReplyHandler?4(QAbstractOAuthReplyHandler)
+QtNetworkAuth.QAbstractOAuth.head?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth.get?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth.post?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth.put?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth.deleteResource?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth.modifyParametersFunction?4() -> callable
+QtNetworkAuth.QAbstractOAuth.setModifyParametersFunction?4(callable)
+QtNetworkAuth.QAbstractOAuth.contentType?4() -> QAbstractOAuth.ContentType
+QtNetworkAuth.QAbstractOAuth.setContentType?4(QAbstractOAuth.ContentType)
+QtNetworkAuth.QAbstractOAuth.prepareRequest?4(QNetworkRequest, QByteArray, QByteArray body=QByteArray())
+QtNetworkAuth.QAbstractOAuth.grant?4()
+QtNetworkAuth.QAbstractOAuth.clientIdentifierChanged?4(QString)
+QtNetworkAuth.QAbstractOAuth.tokenChanged?4(QString)
+QtNetworkAuth.QAbstractOAuth.statusChanged?4(QAbstractOAuth.Status)
+QtNetworkAuth.QAbstractOAuth.authorizationUrlChanged?4(QUrl)
+QtNetworkAuth.QAbstractOAuth.extraTokensChanged?4(unknown-type)
+QtNetworkAuth.QAbstractOAuth.contentTypeChanged?4(QAbstractOAuth.ContentType)
+QtNetworkAuth.QAbstractOAuth.requestFailed?4(QAbstractOAuth.Error)
+QtNetworkAuth.QAbstractOAuth.authorizeWithBrowser?4(QUrl)
+QtNetworkAuth.QAbstractOAuth.granted?4()
+QtNetworkAuth.QAbstractOAuth.finished?4(QNetworkReply)
+QtNetworkAuth.QAbstractOAuth.replyDataReceived?4(QByteArray)
+QtNetworkAuth.QAbstractOAuth.setStatus?4(QAbstractOAuth.Status)
+QtNetworkAuth.QAbstractOAuth.callback?4() -> QString
+QtNetworkAuth.QAbstractOAuth.resourceOwnerAuthorization?4(QUrl, unknown-type)
+QtNetworkAuth.QAbstractOAuth.generateRandomString?4(int) -> QByteArray
+QtNetworkAuth.QAbstractOAuth2?1(QObject parent=None)
+QtNetworkAuth.QAbstractOAuth2.__init__?1(self, QObject parent=None)
+QtNetworkAuth.QAbstractOAuth2?1(QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QAbstractOAuth2.__init__?1(self, QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QAbstractOAuth2.createAuthenticatedUrl?4(QUrl, unknown-type parameters={}) -> QUrl
+QtNetworkAuth.QAbstractOAuth2.head?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth2.get?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth2.post?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth2.put?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth2.deleteResource?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth2.scope?4() -> QString
+QtNetworkAuth.QAbstractOAuth2.setScope?4(QString)
+QtNetworkAuth.QAbstractOAuth2.userAgent?4() -> QString
+QtNetworkAuth.QAbstractOAuth2.setUserAgent?4(QString)
+QtNetworkAuth.QAbstractOAuth2.responseType?4() -> QString
+QtNetworkAuth.QAbstractOAuth2.clientIdentifierSharedKey?4() -> QString
+QtNetworkAuth.QAbstractOAuth2.setClientIdentifierSharedKey?4(QString)
+QtNetworkAuth.QAbstractOAuth2.state?4() -> QString
+QtNetworkAuth.QAbstractOAuth2.setState?4(QString)
+QtNetworkAuth.QAbstractOAuth2.expirationAt?4() -> QDateTime
+QtNetworkAuth.QAbstractOAuth2.refreshToken?4() -> QString
+QtNetworkAuth.QAbstractOAuth2.setRefreshToken?4(QString)
+QtNetworkAuth.QAbstractOAuth2.scopeChanged?4(QString)
+QtNetworkAuth.QAbstractOAuth2.userAgentChanged?4(QString)
+QtNetworkAuth.QAbstractOAuth2.refreshTokenChanged?4(QString)
+QtNetworkAuth.QAbstractOAuth2.responseTypeChanged?4(QString)
+QtNetworkAuth.QAbstractOAuth2.clientIdentifierSharedKeyChanged?4(QString)
+QtNetworkAuth.QAbstractOAuth2.stateChanged?4(QString)
+QtNetworkAuth.QAbstractOAuth2.expirationAtChanged?4(QDateTime)
+QtNetworkAuth.QAbstractOAuth2.error?4(QString, QString, QUrl)
+QtNetworkAuth.QAbstractOAuth2.authorizationCallbackReceived?4(unknown-type)
+QtNetworkAuth.QAbstractOAuth2.setResponseType?4(QString)
+QtNetworkAuth.QAbstractOAuth2.post?4(QUrl, QByteArray) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth2.post?4(QUrl, QHttpMultiPart) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth2.put?4(QUrl, QByteArray) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth2.put?4(QUrl, QHttpMultiPart) -> QNetworkReply
+QtNetworkAuth.QAbstractOAuth2.prepareRequest?4(QNetworkRequest, QByteArray, QByteArray body=QByteArray())
+QtNetworkAuth.QAbstractOAuthReplyHandler?1(QObject parent=None)
+QtNetworkAuth.QAbstractOAuthReplyHandler.__init__?1(self, QObject parent=None)
+QtNetworkAuth.QAbstractOAuthReplyHandler.callback?4() -> QString
+QtNetworkAuth.QAbstractOAuthReplyHandler.networkReplyFinished?4(QNetworkReply)
+QtNetworkAuth.QAbstractOAuthReplyHandler.callbackReceived?4(unknown-type)
+QtNetworkAuth.QAbstractOAuthReplyHandler.tokensReceived?4(unknown-type)
+QtNetworkAuth.QAbstractOAuthReplyHandler.replyDataReceived?4(QByteArray)
+QtNetworkAuth.QAbstractOAuthReplyHandler.callbackDataReceived?4(QByteArray)
+QtNetworkAuth.QOAuth1.SignatureMethod?10
+QtNetworkAuth.QOAuth1.SignatureMethod.Hmac_Sha1?10
+QtNetworkAuth.QOAuth1.SignatureMethod.Rsa_Sha1?10
+QtNetworkAuth.QOAuth1.SignatureMethod.PlainText?10
+QtNetworkAuth.QOAuth1?1(QObject parent=None)
+QtNetworkAuth.QOAuth1.__init__?1(self, QObject parent=None)
+QtNetworkAuth.QOAuth1?1(QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth1.__init__?1(self, QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth1?1(QString, QString, QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth1.__init__?1(self, QString, QString, QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth1.clientSharedSecret?4() -> QString
+QtNetworkAuth.QOAuth1.setClientSharedSecret?4(QString)
+QtNetworkAuth.QOAuth1.clientCredentials?4() -> unknown-type
+QtNetworkAuth.QOAuth1.setClientCredentials?4(unknown-type)
+QtNetworkAuth.QOAuth1.setClientCredentials?4(QString, QString)
+QtNetworkAuth.QOAuth1.tokenSecret?4() -> QString
+QtNetworkAuth.QOAuth1.setTokenSecret?4(QString)
+QtNetworkAuth.QOAuth1.tokenCredentials?4() -> unknown-type
+QtNetworkAuth.QOAuth1.setTokenCredentials?4(unknown-type)
+QtNetworkAuth.QOAuth1.setTokenCredentials?4(QString, QString)
+QtNetworkAuth.QOAuth1.temporaryCredentialsUrl?4() -> QUrl
+QtNetworkAuth.QOAuth1.setTemporaryCredentialsUrl?4(QUrl)
+QtNetworkAuth.QOAuth1.tokenCredentialsUrl?4() -> QUrl
+QtNetworkAuth.QOAuth1.setTokenCredentialsUrl?4(QUrl)
+QtNetworkAuth.QOAuth1.signatureMethod?4() -> QOAuth1.SignatureMethod
+QtNetworkAuth.QOAuth1.setSignatureMethod?4(QOAuth1.SignatureMethod)
+QtNetworkAuth.QOAuth1.head?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QOAuth1.get?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QOAuth1.post?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QOAuth1.put?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QOAuth1.deleteResource?4(QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QOAuth1.prepareRequest?4(QNetworkRequest, QByteArray, QByteArray body=QByteArray())
+QtNetworkAuth.QOAuth1.grant?4()
+QtNetworkAuth.QOAuth1.continueGrantWithVerifier?4(QString)
+QtNetworkAuth.QOAuth1.signatureMethodChanged?4(QOAuth1.SignatureMethod)
+QtNetworkAuth.QOAuth1.clientSharedSecretChanged?4(QString)
+QtNetworkAuth.QOAuth1.tokenSecretChanged?4(QString)
+QtNetworkAuth.QOAuth1.temporaryCredentialsUrlChanged?4(QUrl)
+QtNetworkAuth.QOAuth1.tokenCredentialsUrlChanged?4(QUrl)
+QtNetworkAuth.QOAuth1.requestTemporaryCredentials?4(QNetworkAccessManager.Operation, QUrl, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QOAuth1.requestTokenCredentials?4(QNetworkAccessManager.Operation, QUrl, unknown-type, unknown-type parameters={}) -> QNetworkReply
+QtNetworkAuth.QOAuth1.setup?4(QNetworkRequest, unknown-type, QNetworkAccessManager.Operation)
+QtNetworkAuth.QOAuth1.nonce?4() -> QByteArray
+QtNetworkAuth.QOAuth1.generateAuthorizationHeader?4(unknown-type) -> QByteArray
+QtNetworkAuth.QOAuth1.setup?4(QNetworkRequest, unknown-type, QByteArray)
+QtNetworkAuth.QOAuth1Signature.HttpRequestMethod?10
+QtNetworkAuth.QOAuth1Signature.HttpRequestMethod.Head?10
+QtNetworkAuth.QOAuth1Signature.HttpRequestMethod.Get?10
+QtNetworkAuth.QOAuth1Signature.HttpRequestMethod.Put?10
+QtNetworkAuth.QOAuth1Signature.HttpRequestMethod.Post?10
+QtNetworkAuth.QOAuth1Signature.HttpRequestMethod.Delete?10
+QtNetworkAuth.QOAuth1Signature.HttpRequestMethod.Custom?10
+QtNetworkAuth.QOAuth1Signature.HttpRequestMethod.Unknown?10
+QtNetworkAuth.QOAuth1Signature?1(QUrl url=QUrl(), QOAuth1Signature.HttpRequestMethod method=QOAuth1Signature.HttpRequestMethod.Post, unknown-type parameters={})
+QtNetworkAuth.QOAuth1Signature.__init__?1(self, QUrl url=QUrl(), QOAuth1Signature.HttpRequestMethod method=QOAuth1Signature.HttpRequestMethod.Post, unknown-type parameters={})
+QtNetworkAuth.QOAuth1Signature?1(QUrl, QString, QString, QOAuth1Signature.HttpRequestMethod method=QOAuth1Signature.HttpRequestMethod.Post, unknown-type parameters={})
+QtNetworkAuth.QOAuth1Signature.__init__?1(self, QUrl, QString, QString, QOAuth1Signature.HttpRequestMethod method=QOAuth1Signature.HttpRequestMethod.Post, unknown-type parameters={})
+QtNetworkAuth.QOAuth1Signature?1(QOAuth1Signature)
+QtNetworkAuth.QOAuth1Signature.__init__?1(self, QOAuth1Signature)
+QtNetworkAuth.QOAuth1Signature.httpRequestMethod?4() -> QOAuth1Signature.HttpRequestMethod
+QtNetworkAuth.QOAuth1Signature.setHttpRequestMethod?4(QOAuth1Signature.HttpRequestMethod)
+QtNetworkAuth.QOAuth1Signature.url?4() -> QUrl
+QtNetworkAuth.QOAuth1Signature.setUrl?4(QUrl)
+QtNetworkAuth.QOAuth1Signature.parameters?4() -> unknown-type
+QtNetworkAuth.QOAuth1Signature.setParameters?4(unknown-type)
+QtNetworkAuth.QOAuth1Signature.addRequestBody?4(QUrlQuery)
+QtNetworkAuth.QOAuth1Signature.insert?4(QString, QVariant)
+QtNetworkAuth.QOAuth1Signature.keys?4() -> unknown-type
+QtNetworkAuth.QOAuth1Signature.take?4(QString) -> QVariant
+QtNetworkAuth.QOAuth1Signature.value?4(QString, QVariant defaultValue=None) -> QVariant
+QtNetworkAuth.QOAuth1Signature.clientSharedKey?4() -> QString
+QtNetworkAuth.QOAuth1Signature.setClientSharedKey?4(QString)
+QtNetworkAuth.QOAuth1Signature.tokenSecret?4() -> QString
+QtNetworkAuth.QOAuth1Signature.setTokenSecret?4(QString)
+QtNetworkAuth.QOAuth1Signature.hmacSha1?4() -> QByteArray
+QtNetworkAuth.QOAuth1Signature.rsaSha1?4() -> QByteArray
+QtNetworkAuth.QOAuth1Signature.plainText?4() -> QByteArray
+QtNetworkAuth.QOAuth1Signature.plainText?4(QString, QString) -> QByteArray
+QtNetworkAuth.QOAuth1Signature.swap?4(QOAuth1Signature)
+QtNetworkAuth.QOAuth1Signature.customMethodString?4() -> QByteArray
+QtNetworkAuth.QOAuth1Signature.setCustomMethodString?4(QByteArray)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow?1(QObject parent=None)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.__init__?1(self, QObject parent=None)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow?1(QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.__init__?1(self, QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow?1(QString, QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.__init__?1(self, QString, QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow?1(QUrl, QUrl, QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.__init__?1(self, QUrl, QUrl, QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow?1(QString, QUrl, QUrl, QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.__init__?1(self, QString, QUrl, QUrl, QNetworkAccessManager, QObject parent=None)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.accessTokenUrl?4() -> QUrl
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.setAccessTokenUrl?4(QUrl)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.grant?4()
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.refreshAccessToken?4()
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.accessTokenUrlChanged?4(QUrl)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.buildAuthenticateUrl?4(unknown-type parameters={}) -> QUrl
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.requestAccessToken?4(QString)
+QtNetworkAuth.QOAuth2AuthorizationCodeFlow.resourceOwnerAuthorization?4(QUrl, unknown-type parameters={})
+QtNetworkAuth.QOAuthOobReplyHandler?1(QObject parent=None)
+QtNetworkAuth.QOAuthOobReplyHandler.__init__?1(self, QObject parent=None)
+QtNetworkAuth.QOAuthOobReplyHandler.callback?4() -> QString
+QtNetworkAuth.QOAuthOobReplyHandler.networkReplyFinished?4(QNetworkReply)
+QtNetworkAuth.QOAuthHttpServerReplyHandler?1(QObject parent=None)
+QtNetworkAuth.QOAuthHttpServerReplyHandler.__init__?1(self, QObject parent=None)
+QtNetworkAuth.QOAuthHttpServerReplyHandler?1(int, QObject parent=None)
+QtNetworkAuth.QOAuthHttpServerReplyHandler.__init__?1(self, int, QObject parent=None)
+QtNetworkAuth.QOAuthHttpServerReplyHandler?1(QHostAddress, int, QObject parent=None)
+QtNetworkAuth.QOAuthHttpServerReplyHandler.__init__?1(self, QHostAddress, int, QObject parent=None)
+QtNetworkAuth.QOAuthHttpServerReplyHandler.callback?4() -> QString
+QtNetworkAuth.QOAuthHttpServerReplyHandler.callbackPath?4() -> QString
+QtNetworkAuth.QOAuthHttpServerReplyHandler.setCallbackPath?4(QString)
+QtNetworkAuth.QOAuthHttpServerReplyHandler.callbackText?4() -> QString
+QtNetworkAuth.QOAuthHttpServerReplyHandler.setCallbackText?4(QString)
+QtNetworkAuth.QOAuthHttpServerReplyHandler.port?4() -> int
+QtNetworkAuth.QOAuthHttpServerReplyHandler.listen?4(QHostAddress address=QHostAddress.Any, int port=0) -> bool
+QtNetworkAuth.QOAuthHttpServerReplyHandler.close?4()
+QtNetworkAuth.QOAuthHttpServerReplyHandler.isListening?4() -> bool
