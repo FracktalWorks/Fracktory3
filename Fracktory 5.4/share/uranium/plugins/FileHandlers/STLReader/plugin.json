@@ -1,8 +1,0 @@
-{
-    "name": "STL Reader",
-    "author": "Ultimaker B.V.",
-    "version": "1.0.1",
-    "description": "Provides support for reading STL files.",
-    "api": 8,
-    "i18n-catalog": "uranium"
-}
