@@ -7,7 +7,7 @@
         "author": "Ganesh V",
         "manufacturer": "Fracktal Works",
         "category": "IDEX Series",
-        "quality_definition": "julia_pro_dual",
+        "quality_definition": "twindragon_600",
         "file_formats": "text/x-gcode",
         "platform_offset": [0, 0, 0 ],
         "has_machine_materials": true,
