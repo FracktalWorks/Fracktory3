@@ -50,7 +50,7 @@
         "zig_zaggify_infill" : { "value": "True"},
         "infill_before_walls" : { "value": "False"},
         "material_print_temperature_layer_0" : { "value": "material_print_temperature + 10"},
-        "material_extrusion_cool_down_speed" : { "value": "0.15"},
+        "material_extrusion_cool_down_speed" : { "value": "0.2"},
         "material_bed_temperature_layer_0" : { "value": "resolveOrValue('material_bed_temperature') + 10"},
         "retraction_enable" : { "value": "True"},
         "retraction_amount" : { "value": "1"},
