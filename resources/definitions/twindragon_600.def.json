@@ -65,7 +65,7 @@
         "speed_support_infill" : { "value": "round(speed_print *  0.9, 0)"},
         "speed_support_interface" : { "value": "round(speed_print *  0.9, 0)"},
         "speed_travel" : { "value": "150"},
-        "speed_travel_layer_0" : { "value": "150"},
+        "speed_travel_layer_0" : { "value": "80"},
         "speed_layer_0" : { "value": "round(speed_print * 0.2, 0)"},
         "retraction_combing": { "default_value": "Off" },
         "retraction_hop_enabled" : { "value": "False"},
