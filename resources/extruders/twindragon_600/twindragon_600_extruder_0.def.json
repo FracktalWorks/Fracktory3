@@ -16,7 +16,7 @@
         "machine_nozzle_offset_x": { "default_value": 0.0 },
         "machine_nozzle_offset_y": { "default_value": 0.0 },
         "material_diameter": { "default_value": 1.75 },
-        "machine_extruder_start_code": {"default_value":"\n;WIPE\nG90\nG1 X -30 Y-80 F7000\nM105\nM109 S{material_initial_print_temperature, 0}\nG92 E-{switch_extruder_retraction_amount}\nG1 E0 F1000 ;Restore E position\nG1 E4 F40;defaultpurge\nG92 E0\nG4 S3\nG1 E-{switch_extruder_retraction_amount} F1000\nG92 E0\n;switch_extruder_retraction_amount:{switch_extruder_retraction_amount}\nG90\nG1 X14 F7000\nG1 X-30\nG1 X14\nG1 X-30\n;endTC"},
+        "machine_extruder_start_code": {"default_value":"\n;Extruder 0 Start Code\nG90\nG1 X -30 Y-80 F7000\nM105\nM109 S{material_initial_print_temperature, 0}\nG92 E-{switch_extruder_retraction_amount}\nG1 E0 F1000 ;Restore E position\nG1 E4 F40;defaultpurge\nG92 E0\nG4 S3\nG1 E-{switch_extruder_retraction_amount} F1000\nG92 E0\n;switch_extruder_retraction_amount:{switch_extruder_retraction_amount}\nG90\nG1 X14 F7000\nG1 X-30\nG1 X14\nG1 X-30\n;endTC"},
         "machine_extruder_end_code": {"default_value":"G1 F7000"},
         "machine_extruder_start_pos_x": { "default_value": -30.0 },
         "machine_extruder_start_pos_y": { "default_value": -80.0 },
